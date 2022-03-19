@@ -15,6 +15,7 @@
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/-MongoDB-13aa52?style=flat-square&logo=mongodb&logoColor=white)
 ![Docker](https://img.shields.io/badge/-Docker-46a2f1?style=flat-square&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/-Kubernetes-3371e3?style=flat-square&logo=kubernetes&logoColor=white)
 ![Vagrant](https://img.shields.io/badge/-Vagrant-2264d6?style=flat-square&logo=vagrant&logoColor=white)
 ![Webpack](https://img.shields.io/badge/-Webpack-8DD6F9?style=flat-square&logo=webpack&logoColor=white)
 ![Ansible](https://img.shields.io/badge/-Ansible-102441?style=flat-square&logo=ansible&logoColor=white)
