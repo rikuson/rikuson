@@ -23,6 +23,7 @@
 ![Prettier](https://img.shields.io/badge/-Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white)
 ![ESLint](https://img.shields.io/badge/-ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)
 ![Jekyll](https://img.shields.io/badge/-Jekyll-2b2b2b?style=flat-square&logo=jekyll&logoColor=white)
+![OpenAPI](https://img.shields.io/badge/-OpenAPI-3371e3?style=flat-square&logo=swagger&logoColor=white)
 ![AWS](https://img.shields.io/badge/-AWS-232f3e?style=flat-square&logo=amazon-aws&logoColor=white)
 ![Heroku](https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku&logoColor=white)
 ![Netlify](https://img.shields.io/badge/-Netlify-5CEBDF?style=flat-square&logo=netlify&logoColor=white)
