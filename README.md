@@ -36,3 +36,10 @@
 - https://github.com/K-Sato1995/react-toc/pull/7
 - https://github.com/linsir/markdown-it-task-checkbox/pull/12
 - https://github.com/raythree/react-bootstrap-theme-switcher/pull/3
+
+## Recent Posts
+
+- [ボリュームメーターの作り方](https://qiita.com/rikson/items/57f2e8551d1edecbc07d)
+- [JavaScriptモジュールシステムのこれまでとこれから](https://qiita.com/rikson/items/4fd0bca8a99ac14aed45)
+- [原因結果グラフで全称命題と存在命題を扱う](https://qiita.com/rikson/items/e0b9c7bfaebd9499c27a)
+- [ライブラリなしでページネーションを実装する](https://qiita.com/rikson/items/a720ef1f507ec957c08a)
