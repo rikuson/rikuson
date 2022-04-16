@@ -1,4 +1,8 @@
-# About me
+---
+layout: base
+title: About Me
+permalink: /about/
+---
 
 ## Things I code with
 

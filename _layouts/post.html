@@ -1,0 +1,14 @@
+---
+layout: base
+---
+
+{{ content }}
+
+<div class="clearfix">
+  {% if page.previous.url %}
+  <a class="float-left" href="{{ page.previous.url | relative_url }}"><i class="fa fa-arrow-left"></i> {{ page.previous.title }}</a>
+  {% endif %}
+  {% if page.next.url %}
+  <a class="float-right" href="{{ page.next.url | relative_url }}">{{ page.next.title }} <i class="fa fa-arrow-right"></i></a>
+  {% endif %}
+</div>
