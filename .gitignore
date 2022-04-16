@@ -5,9 +5,7 @@ _site/
 /node_modules
 Gemfile.lock
 _data
-images/
 assets/
-_posts
 
 category
 
