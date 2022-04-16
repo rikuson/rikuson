@@ -1,9 +1,3 @@
----
-layout: base
-title: About Me
-permalink: /about/
----
-
 ## Things I code with
 
 ![Nodejs](https://img.shields.io/badge/-Nodejs-43853d?style=flat-square&logo=Node.js&logoColor=white)
