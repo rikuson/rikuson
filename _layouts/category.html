@@ -1,0 +1,26 @@
+---
+layout: base
+---
+<ul class="nav">
+  {% for entry in site.pages %}
+  {% assign category = page.url | split: '/' | last %}
+  {% if entry.categories contains category %}
+  <li class="nav-item mb-3"><a class="btn btn-outline-primary" href="{{ entry.url | relative_url }}"><i class="fa fa-level-down"></i> {{ entry.title }}</a></li>
+  {% endif %}
+  {% endfor %}
+</ul>
+{{ content }}
+<div id="posts">
+  <div class="row">
+    {% assign category = page.path | split: '/' | last | remove: '.md' %}
+    {% if category == 'index' %}
+    {% assign category = 'category' %}
+    {% endif %}
+    {% for post in site.categories[category] %}
+    <div class="col-md-6 col-lg-4">
+      {% include card.html %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+

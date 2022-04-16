@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>{% include head.html %}</head>
+  <body>
+    {% include header.html %}
+    <div id="contents" class="bg-light">
+      <div class="container pt-4 pb-2" role="main">
+        {% include breadcrumb.html %}
+        {% if page.title %}
+        <h1 class="border-bottom pb-3 mb-3">
+        {% if page.date %}
+        {% assign date_format = "%Y/%b/%-d" %}
+        <time class="badge badge-pill badge-success mb-3">{{ page.date | date: date_format }}</time><br>
+        {% endif %}
+        {{ page.title }}
+        </h1>
+        {% endif %}
+        {% if page.image %}
+        <div class="text-center mb-3">
+          <img class="img-fluid" src="{{ page.image | relative_url }}" alt="thumbnail">
+        </div>
+        {% endif %}
+        {{ content }}
+      </div>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

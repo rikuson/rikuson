@@ -1,0 +1,18 @@
+{% if page.layout != 'index' %}
+<div class="row">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ '/' | relative_url }}">{{ site.data.dict.home }}</a></li>
+    {% for category in page.categories %}
+    {% capture path %}{{ path }}{{ category }}/{% endcapture %}
+    {% for page in site.pages %}
+    {% assign page_name = page.url | split: '/' | last %}
+    {% assign category_name = path | split: '/' | last %}
+    {% if page_name == category_name %}
+    <li class="breadcrumb-item"><a href="{{ path | relative_url }}">{{ page.title }}</a></li>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+  </ol>
+</div>
+{% endif %}
+

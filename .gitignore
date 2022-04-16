@@ -1,0 +1,12 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+/node_modules
+Gemfile.lock
+_data
+images/
+_posts
+
+category
+
