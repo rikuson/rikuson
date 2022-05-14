@@ -11,7 +11,7 @@ tags:
 
 ### プログラマが知るべき97のこと
 
-![プログラマが知るべき97のこと](https://images-na.ssl-images-amazon.com/images/I/511RPej0BNL.jpg)
+<img src="https://images-na.ssl-images-amazon.com/images/I/511RPej0BNL.jpg" alt="プログラマが知るべき97のこと" width="200" />
 
 プログラマが知るべき良識が詰め込まれた本。  
 WEBで無料で公開されてる。
@@ -21,7 +21,7 @@ WEBで無料で公開されてる。
 
 ### リーダブルコード
 
-![リーダブルコード](https://images-fe.ssl-images-amazon.com/images/I/51MgH8Jmr3L._SY291_BO1,204,203,200_QL40_ML2_.jpg)
+<img src="https://images-fe.ssl-images-amazon.com/images/I/51MgH8Jmr3L._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="リーダブルコード" width="200" />
 
 自分の書いたコードを後から読み直すと理解できない、といった経験はプログラマーなら誰にもあると思う。  
 そんなプログラミング初心者に向けて可読性のあるコードの書き方を教えてくれる定番の本。
@@ -30,7 +30,7 @@ WEBで無料で公開されてる。
 
 ### 実践Vim
 
-![実践Vim](https://m.media-amazon.com/images/I/51c5qMHV5VL.jpg)
+<img src="https://m.media-amazon.com/images/I/51c5qMHV5VL.jpg" alt="実践Vim" width="200" />
 
 Vimの愛し方を学ぶ本。
 
@@ -38,7 +38,7 @@ Vimの愛し方を学ぶ本。
 
 ### はじめてUNIXで仕事をする人が読む本
 
-![はじめてUNIXで仕事をする人が読む本](https://m.media-amazon.com/images/I/51kcfORQGGL.jpg)
+<img src="https://m.media-amazon.com/images/I/51kcfORQGGL.jpg" alt="はじめてUNIXで仕事をする人が読む本" width="200" />
 
 シェルの仕組みやよく使うコマンドを中心に解説されている。
 
@@ -46,7 +46,7 @@ Vimの愛し方を学ぶ本。
 
 ### WEBを支える技術
 
-![WEBを支える技術](https://m.media-amazon.com/images/I/51HNAhxudcL._SY346_.jpg)
+<img src="https://m.media-amazon.com/images/I/51HNAhxudcL._SY346_.jpg" alt="WEBを支える技術" width="200" />
 
 普段、インターネットを利用する際にそのプロトコルについて意識することはない。  
 ブラウザで使われているHTTPプロトコルについて分かりやすく解説し、WEBアプリケーション設計の示唆を与えてくれる本。
@@ -57,7 +57,7 @@ Vimの愛し方を学ぶ本。
 
 ### 要求を仕様化する技術・表現する技術
 
-![要求を仕様化する技術・表現する技術](https://m.media-amazon.com/images/I/51XWTDHhFKL.jpg)
+<img src="https://m.media-amazon.com/images/I/51XWTDHhFKL.jpg" alt="要求を仕様化する技術・表現する技術" width="200" />
 
 要求から仕様が導き出されるような具体的な要件定義を行う必要性を説く。  
 要件定義の成果物として独自のフォーマットで作られた要求仕様書を紹介している。  
@@ -69,7 +69,7 @@ Vimの愛し方を学ぶ本。
 
 ### ノンデザイナーズ・デザインブック
 
-![ノンデザイナーズ・デザインブック](https://images-na.ssl-images-amazon.com/images/I/61JAysNAYBL.jpg)
+<img src="https://images-na.ssl-images-amazon.com/images/I/61JAysNAYBL.jpg" alt="ノンデザイナーズ・デザインブック" width="200" />
 
 フロントエンド開発を行なっているとデザインと無縁ではいられない。  
 デザイナーではない我々プログラマーにも分かりやすくデザインの原則を教えてくれる本。
