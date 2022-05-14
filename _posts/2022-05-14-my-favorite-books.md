@@ -11,13 +11,13 @@ tags:
 
 ### プログラマが知るべき97のこと
 
-![プログラマが知るべき97のこと](https://m.media-amazon.com/images/I/51HNAhxudcL.jpg)
+![プログラマが知るべき97のこと](https://images-na.ssl-images-amazon.com/images/I/511RPej0BNL.jpg)
 
 プログラマが知るべき良識が詰め込まれた本。  
 WEBで無料で公開されてる。
 
-- (Amazon)[https://amzn.to/3NcU3f1]
-- (WEB)[https://プログラマが知るべき97のこと.com]
+- [Amazon](https://amzn.to/3NcU3f1)
+- [WEB](https://プログラマが知るべき97のこと.com)
 
 ### リーダブルコード
 
@@ -26,7 +26,7 @@ WEBで無料で公開されてる。
 自分の書いたコードを後から読み直すと理解できない、といった経験はプログラマーなら誰にもあると思う。  
 そんなプログラミング初心者に向けて可読性のあるコードの書き方を教えてくれる定番の本。
 
-- (Amazon)[https://amzn.to/3FJLBkY]
+- [Amazon](https://amzn.to/3FJLBkY)
 
 ### 実践Vim
 
@@ -34,7 +34,7 @@ WEBで無料で公開されてる。
 
 Vimの愛し方を学ぶ本。
 
-- (Amazon)[https://amzn.to/3MgQYuy]
+- [Amazon](https://amzn.to/3MgQYuy)
 
 ### はじめてUNIXで仕事をする人が読む本
 
@@ -42,7 +42,7 @@ Vimの愛し方を学ぶ本。
 
 シェルの仕組みやよく使うコマンドを中心に解説されている。
 
-- (Amazon)[https://amzn.to/3a1clli]
+- [Amazon](https://amzn.to/3a1clli)
 
 ### WEBを支える技術
 
@@ -51,7 +51,7 @@ Vimの愛し方を学ぶ本。
 普段、インターネットを利用する際にそのプロトコルについて意識することはない。  
 ブラウザで使われているHTTPプロトコルについて分かりやすく解説し、WEBアプリケーション設計の示唆を与えてくれる本。
 
-- (Amazon)[https://amzn.to/37P6COQ]
+- [Amazon](https://amzn.to/37P6COQ)
 
 ## 要件定義
 
@@ -63,7 +63,7 @@ Vimの愛し方を学ぶ本。
 要件定義の成果物として独自のフォーマットで作られた要求仕様書を紹介している。  
 個人的にはエクセル管理は好みではないけれど、考え方は大変参考になった。
 
-- (Amazon)[https://amzn.to/3FJE71g]
+- [Amazon](https://amzn.to/3FJE71g)
 
 ## デザイン
 
@@ -74,4 +74,4 @@ Vimの愛し方を学ぶ本。
 フロントエンド開発を行なっているとデザインと無縁ではいられない。  
 デザイナーではない我々プログラマーにも分かりやすくデザインの原則を教えてくれる本。
 
-- (Amazon)[https://amzn.to/39kwfHo]
+- [Amazon](https://amzn.to/39kwfHo)
