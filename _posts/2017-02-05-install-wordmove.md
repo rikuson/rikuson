@@ -4,7 +4,7 @@ title: WordMoveを使ってFTP経由でWordPressのローカル環境と本番�
 date: 2017-02-05 09:56:03 +0800
 categories: [category, bloghack]
 tags: [wordpress]
-image: /images/wordmove.jpg
+image: https://rikson.imgix.net/wordmove.jpg
 ---
 ## WordMoveとは
 

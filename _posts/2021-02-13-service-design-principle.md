@@ -12,15 +12,15 @@ tags:
 
 あるブログCMSの記事編集画面ではHTMLを記述しなくてもドラッグ&ドロップでパーツを組み合わせて記事を作成できる。
 
-![service-example-1](../images/service-example-1.svg)
+![service-example-1](https://rikson.imgix.net/service-example-1.svg)
 
 ユーザーからテーマを選択できるようにしてほしいという要望が出たため、テーマを選択できるようにした。
 
-![service-example-2](../images/service-example-2.svg)
+![service-example-2](https://rikson.imgix.net/service-example-2.svg)
 
 すると、ユーザーから部分的なデザインのカスタマイズができるようにしてほしいという要望が出たため、部分的なカスタマイズできるようにした。
 
-![service-example-3](../images/service-example-3.svg)
+![service-example-3](https://rikson.imgix.net/service-example-3.svg)
 
 ところが、ユーザーはHTMLの属性もカスタマイズしたいと言い出しました。  
 と、この調子でユーザーの自由度を高めていくと、HTMLを記述するのと変わらなくなり、サービスモデル自体が変容していく。
@@ -29,7 +29,7 @@ tags:
 
 先ほどの問題をもう少し抽象的に整理すると下記のようになる。
 
-![service-principle](../images/service-principle.svg)
+![service-principle](https://rikson.imgix.net/service-principle.svg)
 
 - **権限**: リソースを扱う権利の範囲
 - **責務**: 目的を果たすために必要な作業

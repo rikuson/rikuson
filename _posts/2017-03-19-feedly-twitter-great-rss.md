@@ -4,7 +4,7 @@ title: TwitterのタイムラインをRSS化してFeedlyで読む Twitter Great 
 date: 2017-03-19 13:22:06 +0800
 categories: [category, lifehack]
 tags: 
-image: /images/www.pakutaso.com_shared_img_thumb_NARISIGE0I9A6342.jpg
+image: https://rikson.imgix.net/www.pakutaso.com_shared_img_thumb_NARISIGE0I9A6342.jpg
 ---
 「Twitter Great RSS」というツールを使って、FeedlyでTwitterタイムラインを読む設定を行う。
 
@@ -14,7 +14,7 @@ image: /images/www.pakutaso.com_shared_img_thumb_NARISIGE0I9A6342.jpg
 
 
 
-![](../images/65F7856C-5C8F-4FF1-9FC6-3E21864F07E4.png)
+![](https://rikson.imgix.net/65F7856C-5C8F-4FF1-9FC6-3E21864F07E4.png)
 
 アカウント情報を入力して、「連携アプリを認証」をクリック。
 
