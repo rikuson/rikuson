@@ -4,7 +4,7 @@ title: プログラマブルミュージック MacでOvertoneのインストー�
 date: 2017-06-04 02:35:12 +0800
 categories: [category, programming]
 tags: [clojure, overtone]
-image: /images/overtone.jpg
+image: https://rikson.imgix.net/overtone.jpg
 ---
 今回はプログラミング言語で作曲できる「Overtone」をインストールしてみる。  
 同様のソフトは他にもSuperCollider、Sonic Pi、Taktなどがある。

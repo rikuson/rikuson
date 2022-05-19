@@ -4,7 +4,7 @@ title: MAMPを使わずにMacのローカル環境にWordPressをインストー
 date: 2016-12-29 16:28:59 +0800
 categories: [category, bloghack]
 tags: [wordpress]
-image: /images/wp-mac.jpg
+image: https://rikson.imgix.net/wp-mac.jpg
 ---
 
 MacでAMP環境を構築するにはMAMPを使う方法もあるけど、アプリは増やしたくない。  
@@ -124,7 +124,7 @@ $ sudo cp config.sample.inc.php config.inc.php
 
 これで[WordPress](https://ja.wordpress.org/)を設置する準備が整った。
 
-![wordpress](../images/E9342A85-9CD2-458D-9C65-EACC7EF26FA8.png)
+![wordpress](https://rikson.imgix.net/E9342A85-9CD2-458D-9C65-EACC7EF26FA8.png)
 
 ダウンロードして解凍したらwordpressというフォルダができるので、それをWebサーバーのドキュメントルートへ移動させる。
 
@@ -136,7 +136,7 @@ $ sudo chown -R _www:_www wordpress
 
 あとは`http://rikson.net/`にアクセスして画面に沿って設定するだけ。
 
-![setup-screen](../images/AAC49ED2-0DEA-4636-9020-297D28813D33.png)
+![setup-screen](https://rikson.imgix.net/AAC49ED2-0DEA-4636-9020-297D28813D33.png)
 
 データベース名・ユーザー名・パスワードはMySQLで設定したもの。  
 データベースのホスト名は`127.0.0.1`として、うまくいかない場合は```localhost```にしてみるとよい。
@@ -156,7 +156,7 @@ $ sudo chown -R _www:_www wordpress
 
 もう一度アクセスすると以下のように表示された。
 
-![error-message](../images/215D938D-6912-45EA-8EAC-93F615EE6B37.png)
+![error-message](https://rikson.imgix.net/215D938D-6912-45EA-8EAC-93F615EE6B37.png)
 
 ホスト名を`localhost`から`127.0.0.1`に変更したらうまくいった。
 
@@ -164,7 +164,7 @@ $ sudo chown -R _www:_www wordpress
 
 なぜかFTPサーバーの情報を聞かれる。
 
-![install-error](../images/900A6B47-8C79-4B11-B039-33E0AB45B6BD.png)
+![install-error](https://rikson.imgix.net/900A6B47-8C79-4B11-B039-33E0AB45B6BD.png)
 
 所有者を変更することでイケた。
 
@@ -178,7 +178,7 @@ $ sudo chown -R _www:_www wordpress
 
 ドラッグ&ドロップで画像をアップロードしたらHTTPエラーが発生した。
 
-![error-msg](../images/652C89E6-1902-4447-ABEB-A061E6F20A90.png)
+![error-msg](https://rikson.imgix.net/652C89E6-1902-4447-ABEB-A061E6F20A90.png)
 
 書き込み権限が原因になることが多いようだけど、今回はPHPの設定が原因だった。  
 デフォルトの設定ファイルではファイルのアップロード容量の制限が低すぎるので変更。  
