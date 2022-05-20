@@ -15,11 +15,17 @@
         {{ page.title }}
         </h1>
         {% endif %}
-        {% if page.image %}
         <div class="text-center mb-3">
-          <img class="img-fluid" src="{{ page.image | relative_url }}" alt="thumbnail">
+          <img
+            class="img-fluid"
+            {% if post.image %}
+            src="{{ post.image | relative_url }}"
+            {% else %}
+            src="https://rikson.imgix.net{{ post.url | relative_url }}?txt={{ page.title }}&txt-size=64&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle"
+            {% endif %}
+            alt="thumbnail"
+          />
         </div>
-        {% endif %}
         {{ content }}
       </div>
     </div>
