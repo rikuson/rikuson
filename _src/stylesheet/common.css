@@ -8,6 +8,10 @@
   margin-top: 3rem;
 }
 
+#contents h3 {
+  font-size: 1rem;
+}
+
 #contents a {
   text-decoration: underline;
 }
