@@ -7,13 +7,13 @@
       <div class="container pt-4 pb-2" role="main">
         {% include breadcrumb.html %}
         {% if page.title %}
-        <h1 class="border-bottom pb-3 mb-3">
-        {% if page.date %}
-        {% assign date_format = "%Y/%b/%-d" %}
-        <time class="badge badge-pill badge-success mb-3">{{ page.date | date: date_format }}</time><br>
-        {% endif %}
-        {{ page.title }}
-        </h1>
+        <div class="border-bottom mb-3 pb-1">
+          <h1>{{ page.title }}</h1>
+          {% if page.date %}
+          {% assign date_format = "%Y/%b/%-d" %}
+          <time><i class="fa fa-calendar"></i> {{ page.date | date: date_format }}</time>
+          {% endif %}
+        </div>
         {% endif %}
         {{ content }}
       </div>
