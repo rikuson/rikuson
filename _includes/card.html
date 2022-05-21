@@ -1,9 +1,15 @@
 <div data-id="{{ forloop.index }}" class="card mb-3 d-none">
-  {% if post.image %}
   <a href="{{ post.url | relative_url }}">
-    <img class="card-img-top" src="{{ post.image | relative_url }}" alt="thumbnail">
+    <img
+      class="card-img-top"
+      {% if post.image %}
+      src="{{ post.image | relative_url }}"
+      {% else %}
+      src="https://rikson.imgix.net{{ post.url | relative_url }}?txt={{ post.title }}&txt-size=64&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&w=348"
+      {% endif %}
+      alt="thumbnail"
+    />
   </a>
-  {% endif %}
   <div class="card-body">
     <h3 class="h4 card-title">
       <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>

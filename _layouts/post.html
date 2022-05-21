@@ -2,6 +2,18 @@
 layout: base
 ---
 
+<div class="text-center mb-3">
+  <img
+    class="img-fluid"
+    {% if page.image %}
+    src="{{ page.image | relative_url }}"
+    {% else %}
+    src="https://rikson.imgix.net{{ page.url | relative_url }}?txt={{ page.title }}&txt-size=64&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30"
+    {% endif %}
+    alt="thumbnail"
+  />
+</div>
+
 {{ content }}
 
 <div class="clearfix">
