@@ -4,6 +4,7 @@ layout: base
 
 {{ content }}
 <div id="posts">
+  {% include loader.html %}
   <article class="row">
     {% for post in site.posts %}
     <div class="col-md-6 col-lg-4">
