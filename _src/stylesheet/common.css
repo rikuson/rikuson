@@ -42,11 +42,6 @@
   position: relative;
 }
 
-#search_box .form-control {
-  background: inherit;
-  color: #FFF;
-}
-
 .search-box-btn {
   background: none;
   color: inherit;
