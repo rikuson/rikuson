@@ -53,7 +53,6 @@ module.exports = function(config) {
 
     plugins: [
         'karma-webpack',
-        'karma-phantomjs-launcher',
         'karma-chrome-launcher',
         'karma-sourcemap-loader',
         'karma-qunit',
