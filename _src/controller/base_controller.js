@@ -45,8 +45,13 @@ class BaseController {
     return query;
   }
 
-  show($elm) {
-    $elm.removeClass('d-none');
+  show($elm, duration = 500) {
+    $elm
+      .css('top', 20)
+      .fadeIn(duration).animate(
+        { top: 0 },
+        { queue: false, duration: duration }
+      );
   }
 }
 
