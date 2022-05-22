@@ -1,6 +1,6 @@
 <form id="search_box" action="{{ site.baseurl }}/search/">
   <div class="input-group">
-    <div id="auto_complete" class="dropdown-menu">
+    <div id="auto_complete" class="dropdown-menu dropdown-menu-right">
       {% for post in site.posts %}
       <a class="dropdown-item" href="{{ post.url | relative_url }}" data-id="{{ forloop.index }}"><i class="fa fa-arrow-right"></i> {{ post.title | escape }}</a>
       {% endfor %}
