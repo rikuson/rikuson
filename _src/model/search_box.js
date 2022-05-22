@@ -20,12 +20,15 @@ const SearchBox = SearchBox || function(selector) {
   let _$input;
   let _busy;
   let _val;
+  let _inputAt;
+  let _ready;
 
   function __construct(selector) {
     _$this = $(selector);
     _$btn = _$this.find('.search-box-btn');
     _$icon = _$btn.find('.fa');
     _$input = _$this.find('input');
+    _ready = true;
 
     _$btn.on('click', () => {
       if (_$icon.hasClass(READY_CLASS_NAME)) {
@@ -34,7 +37,10 @@ const SearchBox = SearchBox || function(selector) {
       }
     });
 
-    _$input.on('keyup', lock);
+    _$input.on('keyup', function() {
+      _inputAt = new Date();
+      lock();
+    });
     _$input.on('focus', release);
 
     // Replacement of `_$input.on('blur', standby)` which disturbs `_$btn.on('click')`
@@ -44,7 +50,17 @@ const SearchBox = SearchBox || function(selector) {
   function lock() {
     changeIconClassName(BUSY_CLASS_NAME);
     _$btn.attr('type', 'button');
-    setTimeout(release, DELAY_TIME);
+    if (!_ready) return;
+    _ready = false;
+    setTimeout(function() {
+      _ready = true;
+      const actual = new Date();
+      const expected = (function(d, ms) {
+        d.setMilliseconds(d.getMilliseconds() + ms);
+        return d;
+      })(new Date(_inputAt.getTime()), DELAY_TIME);
+      (actual > expected ? release : lock)();
+    }, DELAY_TIME);
   }
 
   function release() {

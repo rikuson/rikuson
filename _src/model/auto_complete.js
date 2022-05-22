@@ -14,14 +14,26 @@ const AutoComplete = AutoComplete || function(feed, selector) {
 
   function suggest(keyword) {
     updateLinkQueries(keyword);
-    const data = _feed.search(keyword);
-    if (data.length === 0) {
-      _$this.hide();
-    } else {
-      _$this.find('[data-id]').hide();
-      data.forEach(id => _$this.find(`[data-id="${id}"]`).show());
-      _$this.show();
-    }
+    $.get('https://api.github.com/search/code', {
+      q: `${keyword} path:_posts repo:rikuson/rikuson`,
+    }).done(function(data) {
+      const items = data.items.map(function(item) {
+        const id = item.name
+          .replace(/^\d{4}-\d{2}-\d{2}-/, '')
+          .slice(0, -3);
+        return _feed.find(id);
+      });
+      console.log(data, items);
+      if (items.length === 0) {
+        _$this.hide();
+      } else {
+        _$this.find('[data-id]').hide();
+        items.forEach(({ id }) => _$this.find(`[data-id="${id}"]`).show());
+        _$this.show();
+      }
+    }).fail(function(xhr, status, err) {
+      console.error(err);
+    });
   }
 
   function updateLinkQueries(keyword) {

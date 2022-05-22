@@ -1,4 +1,4 @@
-<div data-id="{{ forloop.index }}" class="card shadow mb-3" style="display: none;">
+<div data-id="{{ post.url | relative_url | replace: "/", "" }}" class="card shadow mb-3" style="display: none;">
   <a href="{{ post.url | relative_url }}">
     <img
       class="card-img-top"

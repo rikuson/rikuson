@@ -1,19 +1,5 @@
 import $ from 'jquery';
-import lunr from 'lunr';
-// patch of lunr for Japanese
-require('lunr-languages/lunr.stemmer.support')(lunr);
-require('lunr-languages/tinyseg')(lunr);
-require('lunr-languages/lunr.jp')(lunr);
-require('lunr-languages/lunr.multi')(lunr);
 
-/**
- * @example
- * var feed = new Feed();
- * $search_box.on('ready', function() {
- *   var data = feed.search($search_box.getVal());
- *   $post_list.setData(data).render();
- * })
- */
 const Feed = Feed || function(xml, lang) {
   let _data;
   let _index;
@@ -21,15 +7,6 @@ const Feed = Feed || function(xml, lang) {
 
   function __construct(xml, lang) {
     _data = formatXmlData(xml);
-    _index = lunr(function() {
-      // FIXME: "multiLanguage" method doesn't work with Japanese
-      // lunr.multiLanguage('en', 'jp');
-      if (lang == 'ja') this.use(lunr.jp);
-      this.field('title');
-      this.field('category');
-      this.field('content');
-      _data.map(d => this.add(d));
-    });
   }
 
   function formatXmlData(xml) {
@@ -38,26 +15,29 @@ const Feed = Feed || function(xml, lang) {
     // jQuery.map()
     // not native Array.map()
     const $data = $entries.map(function(i) {
+      const url = $(this).find('link').attr('href');
       return {
-        id: $entries.index(this),
+        id: url.split('/').reverse().find((dir) => dir),
         title: $(this).find('title').text(),
         excerpt: $(this).find('summary').text(),
         content: $(this).find('content').text(),
         category: $(this).find('category').attr('term'),
-        url: $(this).find('link').attr('href'),
+        url: url,
         date: $(this).find('published').text(),
       };
     });
     return $.makeArray($data);
   }
 
-  function search(keyword) {
-    return _index.search(keyword).map(val => Number(val.ref) + 1);
+  function find(id) {
+    return _data.find(function(d) {
+      return d.id === id;
+    });
   }
 
   __construct(xml, lang);
 
-  return { search };
+  return { find };
 }
 
 export default Feed;
