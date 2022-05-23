@@ -17,6 +17,26 @@ function uniq(ary) {
 }
 ```
 
+## 例外処理
+
+### Errorクラスを継承
+
+```javascript
+class SyntaxError extends Error {
+}
+```
+
+### クラス名でエラー種別の判定
+
+`err.constructor.name` からクラス名を取得することが出来るが、バンドルしたら取得される値が変わってしまう。  
+そのため、下記のように記述する必要がある。
+
+```javascript
+if (err instanceof AppError) {
+  console.error('Application Error!');
+}
+```
+
 ## Date
 
 ### UTC文字列からローカルタイムゾーンに合わせてDateオブジェクトの作成
