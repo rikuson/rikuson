@@ -44,6 +44,14 @@ file=foo.mp4
 echo ${file##foo} # .mp4
 ```
 
+## ネットワーク
+
+### TCP疎通確認
+
+```bash
+nc -w 1 -v -z example.com 80
+```
+
 ## メディア
 
 ### RTSPストリームの録画
