@@ -7,17 +7,9 @@ tags:
 
 Shellscriptの備忘録。
 
+<!--
 ## 入出力
-
-### Dockerコンテナ内でDockerのログに出力
-
-Docker内のフォアグラウンドで動作しているプロセスの標準出力はDockerのログに出力される。  
-バックグラウンドで動作しているプロセスの場合はリダイレクトする必要がある。
-
-```bash
-echo Hello > /proc/1/fd/1
-```
-
+-->
 ## ファイル
 
 ### ファイルが作成されたら実行
@@ -79,4 +71,38 @@ ffprobe -i input.mp4 -show_entries format=duration -v quiet -of csv="p=0" | awk 
 ```bash
 duration=`ffprobe -i input.mp4 -show_entries format=duration -v quiet -of csv="p=0" | awk '{printf("%d\n",$1)}'`
 ffmpeg -i input.mp4 -frames:v 1 -ss $((duration/10)) -t $duration -r 1 -f image2 output.jpg
+```
+
+## Docker
+
+### Dockerfileをビルド
+
+```bash
+docker build -t <IMAGE_NAME>:<TAG> <PATH_TO_DOCKERFILE>
+```
+
+### コンテナイメージのエクスポート
+
+```bash
+docker save <IMAGE_NAME> -o archive.tar
+```
+
+### コンテナイメージのインポート
+
+```bash
+docker load -i archive.tar
+```
+
+### コンテナイメージにタグを付ける
+
+```bash
+docker tag <IMAGE_NAME>:<TAG> <IMAGE_NAME>:<NEW_TAG>
+```
+### コンテナ内からDockerのログに出力
+
+Docker内のフォアグラウンドで動作しているプロセスの標準出力はDockerのログに出力される。  
+バックグラウンドで動作しているプロセスの場合はリダイレクトする必要がある。
+
+```bash
+echo Hello > /proc/1/fd/1
 ```
