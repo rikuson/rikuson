@@ -17,6 +17,12 @@ function uniq(ary) {
 }
 ```
 
+### スリープ
+
+```javascript
+await new Promise((resolve) => setTimeout(resolve, 5000));
+```
+
 ## 例外処理
 
 ### Errorクラスを継承
