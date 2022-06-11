@@ -47,6 +47,7 @@ class BaseController {
   }
 
   show($elm, duration = 500) {
+    $('#loader').fadeOut(duration);
     $elm
       .css('top', 20)
       .fadeIn(duration).animate(
