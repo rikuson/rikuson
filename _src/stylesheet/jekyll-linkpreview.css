@@ -21,9 +21,7 @@
   max-width: 30%;
   float: left;
   margin-right: 10px;
-}
-
-.jekyll-linkpreview-image img {
+  margin-bottom: 10px;
 }
 
 .jekyll-linkpreview-body-nog {
