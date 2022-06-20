@@ -3,6 +3,20 @@
   min-height: calc(100vh - 95px);
 }
 
+body {
+  position: relative;
+  padding-bottom: 278px;
+  min-height: 100vh;
+  height: 100%;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 278px;
+  width: 100%;
+}
+
 #contents h2 {
   font-size: 2rem;
   margin-top: 3rem;
