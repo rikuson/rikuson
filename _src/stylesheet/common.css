@@ -35,7 +35,14 @@
 
 #contents blockquote {
   border-left: 5px solid #eee;
-  padding: 10px;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  overflow: hidden;
+}
+
+#contents b,
+#contents strong {
+  font-weight: bold;
 }
 
 #contents iframe {

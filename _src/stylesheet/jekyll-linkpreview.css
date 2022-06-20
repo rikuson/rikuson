@@ -18,7 +18,7 @@
 }
 
 .jekyll-linkpreview-image {
-  width: 30%;
+  max-width: 30%;
   float: left;
   margin-right: 10px;
 }
