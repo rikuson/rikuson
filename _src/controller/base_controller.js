@@ -14,6 +14,7 @@ class BaseController {
     this.$message = $('#search_message');
     this.$search_box = new SearchBox('#search_box');
     this.query = this.getQuery();
+    this.$contents = $('#contents');
   }
 
   async init() {
