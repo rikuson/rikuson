@@ -2,6 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import '~/stylesheet/common.css';
 import '~/stylesheet/jekyll-monokai-syntax.scss';
+import '~/stylesheet/jekyll-linkpreview.css';
 import '~/stylesheet/loader.scss';
 import SearchBox from '~/model/search_box.js';
 import Feed from '~/model/feed.js';
