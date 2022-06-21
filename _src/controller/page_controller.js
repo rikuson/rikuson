@@ -8,8 +8,9 @@ jQueryBridget('imagesLoaded', imagesLoaded, $);
 class PageController extends BaseController {
   constructor() {
     super();
-    this.$contents.hide().imagesLoaded(() => {
-      this.show(this.$contents);
+    const $container = this.$contents.find('.container');
+    $container.hide().imagesLoaded(() => {
+      this.show($container);
     });
   }
 }
