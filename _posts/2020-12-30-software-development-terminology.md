@@ -84,7 +84,7 @@ tags:
 - デシジョンテーブル = 決定表
 - JSTQB &hArr; ISTQB
 
-{% linkpreview "http://jstqb.jp/dl/JSTQB-glossary.V2.3.J02.pdf" %}
+{% linkpreview "https://jstqb.jp/syllabus.html" %}
 
 ## アーキテクチャ
 
