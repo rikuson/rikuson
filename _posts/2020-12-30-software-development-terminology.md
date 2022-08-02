@@ -30,6 +30,7 @@ tags:
 - DaaS
 - iPaaS
 - mBaaS
+- NoCode
 
 ## システム設計
 
@@ -64,9 +65,7 @@ tags:
 - UX
 - DX
 
-### 参考
-
-- [統一モデリング言語 - Wikipedia](https://ja.wikipedia.org/wiki/統一モデリング言語)
+{% linkpreview "https://ja.wikipedia.org/wiki/統一モデリング言語" %}
 
 ## テスト
 
@@ -85,9 +84,7 @@ tags:
 - デシジョンテーブル = 決定表
 - JSTQB &hArr; ISTQB
 
-### 参考
-
-- [ソフトウェアテスト標準用語集(日本語版)](http://jstqb.jp/dl/JSTQB-glossary.V2.3.J02.pdf)
+{% linkpreview "https://jstqb.jp/syllabus.html" %}
 
 ## アーキテクチャ
 
@@ -121,9 +118,7 @@ tags:
 - 思想
   - UNIX
 
-### 参考
-
-- [Webアプリパターンの歴史 - SST、AJAX、CSR、SSR、SSG、そしてISR - Qiita](https://qiita.com/kimizuy/items/d33420330479f8c85449)
+{% linkpreview "https://qiita.com/kimizuy/items/d33420330479f8c85449" %}
 
 ## セキュリティ
 
@@ -133,8 +128,6 @@ tags:
 - CSRF
 
 ## 数学
-
-数学記号の記法については[こちらの記事](https://hontolab.org/tips-for-research-activity/how-to-use-mathmatic-symbol/)が参考になります。
 
 - 推論
 - 写像
@@ -146,33 +139,45 @@ tags:
   - 全称命題 &hArr; 存在命題
   - 単純命題 &hArr; 複合命題
 
-## オノマトペ
+{% linkpreview "https://hontolab.org/tips-for-research-activity/how-to-use-mathmatic-symbol/" %}
 
-- もっさり &hArr; さくさく
-- ガバガバ &hArr; ガチガチ
-- スイスイ
-- カタカタ = カシャカシャ
-- タンッ
-- サクッと
-- ぬるっと
+## コミュニケーション
 
-<!--
+- ASAP
+- FYI
+- IMO
+- TBA
+- TBD
+- TL;DR
+- オノマトペ
+  - もっさり &hArr; さくさく
+  - ガバガバ &hArr; ガチガチ
+  - スイスイ
+  - カタカタ = カシャカシャ
+  - タンッ
+  - サクッと
+  - ぬるっと
+
+## チームトポロジー
+
+- プラットフォームチーム
+- SRE
+- DevOps
+- DevSecOps
+
+## ポジション
+
+- CEO
+- CTO
+- CFO
+- VPoE
 
 ## プロダクトマネージメント
 
 - PDCA
 - WBS
 
-## ビジネス
-
-- PDCA
-- WBS
-
-## ポスト
-
-- CEO
-- CTO
-- VPC
+<!--
 
 ## ブログ
 
@@ -207,7 +212,6 @@ tags:
 - コンパイラー
 - ロードマップ
 - チケット
-- NoCode
 - ライブラリ
 - ツールキット
 - API
