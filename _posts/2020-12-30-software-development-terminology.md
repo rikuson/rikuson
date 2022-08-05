@@ -149,6 +149,10 @@ tags:
 - TBA
 - TBD
 - TL;DR
+- LGTM
+- WIP
+- nits
+- typo
 - オノマトペ
   - もっさり &hArr; さくさく
   - ガバガバ &hArr; ガチガチ
@@ -157,6 +161,8 @@ tags:
   - タンッ
   - サクッと
   - ぬるっと
+
+{% linkpreview "https://itneko.com/lgtm/" %}
 
 ## チームトポロジー
 
