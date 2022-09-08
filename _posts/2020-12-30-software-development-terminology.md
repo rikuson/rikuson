@@ -153,6 +153,7 @@ tags:
 - WIP
 - nits
 - typo
+- kwsk
 - オノマトペ
   - もっさり &hArr; さくさく
   - ガバガバ &hArr; ガチガチ
