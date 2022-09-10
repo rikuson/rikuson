@@ -117,6 +117,8 @@ tags:
   - KISS
 - 思想
   - UNIX
+- DB
+  - ORM
 
 {% linkpreview "https://qiita.com/kimizuy/items/d33420330479f8c85449" %}
 
@@ -185,6 +187,8 @@ tags:
 - PDCA
 - WBS
 - ロードマップ
+- OKR
+- KPI
 
 ## ブログ
 
@@ -199,6 +203,7 @@ tags:
 - シンタックス
 - プログラミング・パラダイム
 - ビジュアルプログラミング
+- イミュータブル
 
 ## UI
 
