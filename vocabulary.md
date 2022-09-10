@@ -1,8 +1,7 @@
 ---
-layout: post
-title: ソフトウェア開発における用語集
-categories: [category, programming]
-tags:
+layout: page
+title: Vocabulary
+permalink: /vocabulary/
 ---
 
 ソフトウェア開発における頻出単語の備忘録。
