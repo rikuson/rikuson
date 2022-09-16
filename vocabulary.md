@@ -30,6 +30,7 @@ permalink: /vocabulary/
 - iPaaS
 - mBaaS
 - NoCode
+- XaaS
 
 ## システム設計
 
@@ -118,6 +119,9 @@ permalink: /vocabulary/
   - UNIX
 - DB
   - ORM
+  - 排他制御
+    - 楽観ロック &hArr; 悲観ロック
+  - トランザクション制御  
 
 {% linkpreview "https://qiita.com/kimizuy/items/d33420330479f8c85449" %}
 
@@ -188,6 +192,7 @@ permalink: /vocabulary/
 - ロードマップ
 - OKR
 - KPI
+- オーバーエンジニアリング
 
 ## ブログ
 
