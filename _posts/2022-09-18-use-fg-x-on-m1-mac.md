@@ -1,4 +1,9 @@
-# Use FG-X on M1 Mac
+---
+layout: post
+title: Use FG-X on M1 Mac
+categories: [category, programming]
+tags:
+---
 
 Slate Digital statement:
 
