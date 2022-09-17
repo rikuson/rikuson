@@ -78,4 +78,4 @@ After Logic Pro recognize FG-X, you can disable rosetta.
 ## References
 
 - [プラグインのスキャン中にLogicがクラッシュしてしまう](https://support.native-instruments.com/hc/ja/articles/210313905-プラグインのスキャン中にLogicがクラッシュしてしまう)
-- https://goodmusiclifestyle.com/logicpro-m1-plugin-scan/
+- [Apple M1チップ環境にネイティブ対応していないプラグインをLogic Proで使用する方法](https://goodmusiclifestyle.com/logicpro-m1-plugin-scan)
