@@ -32,7 +32,7 @@ softwareupdate --install-rosetta
 
 To enable Rosetta with Logic, open "Info" and check "Open using Rosetta".
 
-![Screen Shot 2022-09-17 at 14.06.01](../images/Screen Shot 2022-09-17 at 14.06.01.png)
+![Screen Shot 2022-09-17 at 14.06.01](https://rikson.imgix.net/Screen Shot 2022-09-17 at 14.06.01.png)
 
 ## Install FG-X
 
@@ -47,7 +47,7 @@ I opened Logic Pro,  then it got stucked while scanning plugin in my case.
 So I moved "Slate Digital FG-X.component" to Desktop temporarily.  
 Then I could open Logic Pro.
 
-![Screen Shot 2022-09-17 at 13.00.18](../images/Screen Shot 2022-09-17 at 13.00.18.png)
+![Screen Shot 2022-09-17 at 13.00.18](https://rikson.imgix.net/Screen Shot 2022-09-17 at 13.00.18.png)
 
 Open Plugin Mangaer and click "Reset & Rescan Selection".  
 Close Logic Pro and bring back "Slate Digital FG-X.component" from Desktop.
@@ -55,7 +55,7 @@ Close Logic Pro and bring back "Slate Digital FG-X.component" from Desktop.
 Open Logic Pro and Plugin Manger again.  
 Go to Slate Digital Section.
 
-![Screen Shot 2022-09-17 at 13.01.41](../images/Screen Shot 2022-09-17 at 13.01.41.png)
+![Screen Shot 2022-09-17 at 13.01.41](https://rikson.imgix.net/Screen Shot 2022-09-17 at 13.01.41.png)
 
 FG-X is unchecked, check and click "Reset & Rescan Selection".  
 You will get result on terminal.
@@ -73,7 +73,7 @@ After I authorized and rescan, successfully FG-X got available.
 
 After Logic Pro recognize FG-X, you can disable rosetta.
 
-![Screen Shot 2022-09-17 at 14.36.12](../images/Screen Shot 2022-09-17 at 14.36.12.png)
+![Screen Shot 2022-09-17 at 14.36.12](https://rikson.imgix.net/Screen Shot 2022-09-17 at 14.36.12.png)
 
 ## References
 
