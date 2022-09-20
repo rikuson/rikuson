@@ -131,6 +131,10 @@ permalink: /vocabulary/
 - SQLインジェクション
 - バリデーション
 - CSRF
+- バックドア
+- ブルートフォースアタック
+- ディクショナリーアタック
+- DOS攻撃
 
 ## 数学
 
@@ -207,7 +211,9 @@ permalink: /vocabulary/
 - シンタックス
 - プログラミング・パラダイム
 - ビジュアルプログラミング
-- イミュータブル
+- imutable
+- invoke &efDot; execute &efDot; run &efDot; call
+- expectable
 
 ## UI
 
