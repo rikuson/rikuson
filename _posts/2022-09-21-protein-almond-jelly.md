@@ -34,7 +34,7 @@ tags:
 
 ### プロテインを溶かす
 
-![protein](https://rikson.imgix.net/CFA443BD-2960-4987-9CD1-1F96DA49ECCF.jpg)
+![protein](https://rikson.imgix.net/CFA443BD-2960-4987-9CD1-1F96DA49ECCF.jpg?w=400)
 
 プロテインをアーモンドミルクに溶かす。  
 水だと固まらない。  
@@ -42,7 +42,7 @@ tags:
 
 ### ゼラチンを溶かす
 
-![gelatin](https://rikson.imgix.net/IMG_3120.jpg)
+![gelatin](https://rikson.imgix.net/IMG_3120.jpg?w=400)
 
 水50mlを50〜60度に熱してゼラチンを溶かす。  
 水が沸騰しているとゼラチンが変容して固まらないことがあるので、注意。  
@@ -50,14 +50,14 @@ tags:
 
 ### 混ぜる
 
-![mix](https://rikson.imgix.net/IMG_3121.jpg)
+![mix](https://rikson.imgix.net/IMG_3121.jpg?w=400)
 
 溶かしたゼラチンをプロテインと混ぜる。  
 手際よく混ぜないとダマになりやすい。
 
 ### 冷やす
 
-![complete](https://rikson.imgix.net/IMG_3123.jpg)
+![complete](https://rikson.imgix.net/IMG_3123.jpg?w=400)
 
 冷蔵庫に入れて４時間くらい待つと、完成。
 
