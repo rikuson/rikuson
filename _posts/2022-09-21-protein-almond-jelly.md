@@ -11,7 +11,7 @@ tags:
 
 前回iHerbで購入したチョコレート味のカゼインプロテインが品切れだったので、安そうなプロテインをテキトーにジャケ買いした。
 
-{% linkpreview "https://jp.iherb.com/pr/allmax-caseinfx-100-casein-micellar-protein-vanilla-2-lbs-907-g/67641?rcode=DLH6135" %}
+これ &rarr; [https://jp.iherb.com/pr/allmax-caseinfx-100-casein-micellar-protein-vanilla-2-lbs-907-g/67641?rcode=DLH6135](https://jp.iherb.com/pr/allmax-caseinfx-100-casein-micellar-protein-vanilla-2-lbs-907-g/67641?rcode=DLH6135)
 
 届いたので、さっそく飲んでみたわけだが、これが**クソまずい**。（個人の感想です）  
 化学的でひどく不自然な甘ったるい味がする。  
