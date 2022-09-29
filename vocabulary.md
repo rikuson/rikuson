@@ -67,6 +67,10 @@ permalink: /vocabulary/
 
 {% linkpreview "https://ja.wikipedia.org/wiki/統一モデリング言語" %}
 
+## AWS
+
+- リージョン &ni; アベイラビリティゾーン &ni; データセンター
+
 ## テスト
 
 - テスト = 評価
@@ -121,7 +125,7 @@ permalink: /vocabulary/
   - ORM
   - 排他制御
     - 楽観ロック &hArr; 悲観ロック
-  - トランザクション制御  
+  - トランザクション制御
 
 {% linkpreview "https://qiita.com/kimizuy/items/d33420330479f8c85449" %}
 
@@ -211,6 +215,7 @@ permalink: /vocabulary/
 - シンタックス
 - プログラミング・パラダイム
 - ビジュアルプログラミング
+- REPL = 対話実行モード = インタラクティブモード
 - imutable
 - invoke &efDot; execute &efDot; run &efDot; call
 - expectable
