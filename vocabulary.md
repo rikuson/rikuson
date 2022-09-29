@@ -217,7 +217,7 @@ permalink: /vocabulary/
 - ビジュアルプログラミング
 - REPL = 対話実行モード = インタラクティブモード
 - imutable
-- invoke &efDot; execute &efDot; run &efDot; call
+- invoke &asymp; execute &asymp; run &asymp; call
 - expectable
 
 ## UI
