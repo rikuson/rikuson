@@ -25,8 +25,9 @@ echo "Your age $age"
 
 ```bash
 ls | while read file; do
+  [[ -d $file ]] && continue
   read -r -p "Spread $file? [y/n]" input
-  [[ input === "y" ]] && cat $file
+  [[ $input == "y" ]] && cat $file
 done
 ```
 
@@ -35,8 +36,9 @@ done
 
 ```bash
 ls | while read file; do
-  read -r -p "Spread $file? [y/n]" input << /dev/tty
-  [[ input === "y" ]] && cat $file
+  [[ -d $file ]] && continue
+  read -p "Spread $file? [y/n] " input < /dev/tty
+  [[ $input == "y" ]] && cat $file
 done
 ```
 
@@ -45,9 +47,10 @@ done
 次のようにすることでパイプからの入力も可能になる。（理屈はよく分からん。）
 
 ```bash
-while read line <&3; do
-  read -r -p "Spread $file? [y/n]" input << /dev/tty
-  [[ input === "y" ]] && cat $file
+while read file <&3; do
+  [[ -d $file ]] && continue
+  read -p "Spread $file? [y/n] " input
+  [[ $input == "y" ]] && cat $file
 done 3<<< "$(ls)"
 ```
 
