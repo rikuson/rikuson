@@ -41,6 +41,7 @@
 
 ## Recent Posts
 
+- [RxJSでFRP入門](https://qiita.com/riku_takeuchi/items/35bf2f95542a3511a518)
 - [ボリュームメーターの作り方](https://qiita.com/rikson/items/57f2e8551d1edecbc07d)
 - [JavaScriptモジュールシステムのこれまでとこれから](https://qiita.com/rikson/items/4fd0bca8a99ac14aed45)
 - [原因結果グラフで全称命題と存在命題を扱う](https://qiita.com/rikson/items/e0b9c7bfaebd9499c27a)
