@@ -2,7 +2,7 @@ version: "3"
 
 services:
   jekyll:
-    image: jekyll/jekyll:4.2.0
+    image: jekyll/jekyll:4.2.2
     volumes:
       - ./:/usr/src/app
       - ./:/srv/jekyll
