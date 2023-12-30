@@ -27,7 +27,7 @@
     "bootstrap": "^4.3.1",
     "css-loader": "^0.28.11",
     "imagesloaded": "^5.0.0",
-    "jquery-bridget": "^2.0.1",
+    "jquery-bridget": "^3.0.0",
     "karma": "^2.0.4",
     "karma-chrome-launcher": "^2.2.0",
     "karma-qunit": "^2.1.0",
