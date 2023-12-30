@@ -28,7 +28,7 @@
     "css-loader": "^0.28.11",
     "imagesloaded": "^5.0.0",
     "jquery-bridget": "^3.0.0",
-    "karma": "^2.0.4",
+    "karma": "^6.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-qunit": "^2.1.0",
     "karma-sinon": "^1.0.5",
