@@ -80,7 +80,7 @@ tags:
 
 > 食用のニリンソウ、モミジガサ、ゲンノショウコなどの若芽や若葉がトリカブト類と似ているため、間違うことがあります。
 
-{% linkepreview "https://www.hokeniryo.metro.tokyo.lg.jp/shokuhin/dokusou/03.html" %}
+{% linkpreview "https://www.hokeniryo.metro.tokyo.lg.jp/shokuhin/dokusou/03.html" %}
 
 ### スイセン
 
