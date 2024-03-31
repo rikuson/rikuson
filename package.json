@@ -33,7 +33,7 @@
     "karma-qunit": "^4.0.0",
     "karma-sinon": "^1.0.5",
     "karma-sourcemap-loader": "^0.4.0",
-    "karma-webpack": "^5.0.0",
+    "karma-webpack": "^4.0.2",
     "lunr": "^2.2.1",
     "lunr-languages": "^1.0.0",
     "masonry-layout": "^4.2.2",
@@ -54,6 +54,6 @@
     "uuid": "^3.3.2"
   },
   "engines": {
-    "node": "14.x"
+    "node": "20.x"
   }
 }
