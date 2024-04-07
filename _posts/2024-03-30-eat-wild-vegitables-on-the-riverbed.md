@@ -26,8 +26,8 @@ tags:
 
 > 低温の冬場が根っこの旬で、12月から2月頃が収穫時期です。葉っぱや種は3月から5月の春先が旬の時期になります。
 
-![ハマダイコン](https://rikson.imgix.net/hamadaikon.png)
-![ハマダイコン](https://rikson.imgix.net/hamadaikon2.png)
+![ハマダイコン](https://rikson.imgix.net/hamadaikon.png?max-w=1110)
+![ハマダイコン](https://rikson.imgix.net/hamadaikon2.png?max-w=1110)
 出典「[山菜図鑑](https://sansaibook.com/raphanus-sativus/)」
 
 根っこはおろして、葉はシンプルに塩胡椒で炒めて食べたい。
@@ -40,14 +40,14 @@ tags:
 
 ### アブラナ
 
-![アブラナ](https://rikson.imgix.net/Brassica_rapa_ja02.jpg)
+![アブラナ](https://rikson.imgix.net/Brassica_rapa_ja02.jpg?max-w=1110)
 出典「[Wikipedia](https://ja.wikipedia.org/wiki/アブラナ)」
 
 浅漬けが良さそうかな。
 
 ### セリ
 
-![セリ](https://rikson.imgix.net/29179202_s.jpg)
+![セリ](https://rikson.imgix.net/29179202_s.jpg?max-w=1110)
 出典「[PhotoAC](https://www.photo-ac.com)」
 
 {% linkpreview "https://cookpad.com/recipe/7056979" %}
@@ -56,7 +56,7 @@ tags:
 
 ### クレソン
 
-![クレソン](https://rikson.imgix.net/28416572_s.jpg)
+![クレソン](https://rikson.imgix.net/28416572_s.jpg?max-w=1110)
 出典「[PhotoAC](https://www.photo-ac.com)」
 
 {% linkpreview "https://mi-journey.jp/foodie/21805/" %}
@@ -65,7 +65,7 @@ tags:
 
 ### アシタバ
 
-![アシタバ](https://rikson.imgix.net/2568451_s.jpg)
+![アシタバ](https://rikson.imgix.net/2568451_s.jpg?max-w=1110)
 出典「[PhotoAC](https://www.photo-ac.com)」
 
 {% linkpreview "https://delishkitchen.tv/articles/1166#contents19" %}
