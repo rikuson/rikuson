@@ -13,7 +13,7 @@ tags:
 
 ### ヨモギ
 
-![ヨモギ](https://rikson.imgix.net/yomogi.jpg?max-w=1110)
+![ヨモギ](https://rikson.imgix.net/yomogi.jpg?w=600)
 
 トリカブトと間違えたらシャレにならないので、香りは入念にチェックした。  
 「犬のシッコかかってるかもよ」と冷やかされながら、色合いの良いものを袋に入れた。
@@ -23,15 +23,15 @@ tags:
 枝が折れてて分かりづらいけど菜の花。菜の花はアブラナ科の花のことを言うんだけど、色々な種類があってどれか分からない。  
 この豆っぽいのが付いているのはなんなんだろう。
 
-![nanohana](https://rikson.imgix.net/aburana.jpg?max-w=1110)
+![nanohana](https://rikson.imgix.net/aburana.jpg?w=600)
 
 ### ナゾノクサ1
 
 「これは一番狙っていたハマダイコンなのでは？」と意気揚々と帰ってきたが、よく見りゃ葉っぱの形がなんか違う・・・。何コレ？
 
-![ナゾノクサ1](https://rikson.imgix.net/like-hamadaikon-1.jpg?max-w=1110)
+![ナゾノクサ1](https://rikson.imgix.net/like-hamadaikon-1.jpg?w=600)
 
-![ナゾノクサ1](https://rikson.imgix.net/like-hamadaikon-2.jpg?max-w=1110)
+![ナゾノクサ1](https://rikson.imgix.net/like-hamadaikon-2.jpg?w=600)
 
 ### ナゾノクサ2
 
@@ -39,7 +39,7 @@ tags:
 クレソンっぽいなぁと思い、躊躇いはしたが、採ってきた。  
 でも、帰ってから見ると、微妙に違うような気もしてきた。分からん。
 
-![ナゾノクサ2](https://rikson.imgix.net/like-kureson.jpg?max-w=1110)
+![ナゾノクサ2](https://rikson.imgix.net/like-kureson.jpg?w=600)
 
 ## 選定結果
 
@@ -47,7 +47,7 @@ tags:
 結局、ヨモギ以外捨てることになり、「オレは清掃のボランティアにでも行ったんやろか」というレベルの徒労感。  
 わざわざ川に行かんでも、ヨモギとかどこでも生えとるやんけ。
 
-![選定結果](https://rikson.imgix.net/IMG_3559.jpg?max-w=1110)
+![選定結果](https://rikson.imgix.net/IMG_3559.jpg?w=600)
 
 どうやら野食ハンターに転職するのは厳しそうだ。
 
@@ -55,6 +55,6 @@ tags:
 
 調理といっても、ヨモギだけ冷蔵庫に入れて放置してたら、いつの間にか蒸しパンになっていた。材料はオートミール、アーモンドミルク、卵、ベーキングパウダーとヨモギだそうだ。
 
-![ヨモギ蒸しパン](https://rikson.imgix.net/mushipan.jpg?max-w=1110)
+![ヨモギ蒸しパン](https://rikson.imgix.net/mushipan.jpg?w=600)
 
 採ってきた量が少なくて、ヨモギテイストは薄かったが、とりあえず美味かった。
