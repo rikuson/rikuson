@@ -4,6 +4,19 @@ on:
     branches: [main]
     types: [opened, synchronize]
 jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cache Modules
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: node-deps-${{ hashFiles('**/package-lock.json') }}
+      - name: Install npm packages
+        run: npm ci
+      - name: Run Tests
+        run: npm run test
   e2e:
     timeout-minutes: 60
     runs-on: ubuntu-latest
