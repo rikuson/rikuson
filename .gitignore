@@ -5,7 +5,7 @@ _site/
 /node_modules
 _data
 assets/
-
+/vendor/bundle/
 category
 /test-results/
 /playwright-report/
