@@ -19,14 +19,14 @@ jobs:
         run: npm run test
   e2e:
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
       - name: Run server
-        run: bundle exec jekyll serve -s /usr/src/app --watch --verbose --trace &
+        run: bundle exec jekyll build
       - uses: actions/setup-node@v3
         with:
           node-version: 20
