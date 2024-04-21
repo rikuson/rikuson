@@ -19,6 +19,8 @@
   },
   "homepage": "https://rikson.net",
   "devDependencies": {
+    "@playwright/test": "^1.43.1",
+    "@types/node": "^20.12.7",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-minify-webpack-plugin": "^0.3.1",

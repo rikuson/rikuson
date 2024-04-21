@@ -7,4 +7,7 @@ _data
 assets/
 
 category
-
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
