@@ -1,36 +1,36 @@
 name: Tests
 on:
- pull_request:
-   branches: [main]
-   types: [opened, synchronize]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
 jobs:
- e2e:
-   timeout-minutes: 60
-   runs-on: ubuntu-latest
-   steps:
-     - uses: actions/checkout@v4
-     - uses: ruby/setup-ruby@v1
-       with:
-         bundler-cache: true
-     - name: Run server
-       run: bundle exec jekyll serve -s /usr/src/app --watch --verbose --trace &
-     - uses: actions/setup-node@v3
-       with:
-         node-version: 20
-     - name: Cache Modules
-       uses: actions/cache@v3
-       with:
-         path: "**/node_modules"
-         key: node-deps-${{ hashFiles('**/package-lock.json') }}
-     - name: Install npm packages
-       run: npm ci
-     - name: Install Playwright Browsers
-       run: npx playwright install --with-deps
-     - name: Run Playwright tests
-       run: npx playwright test
-     - uses: actions/upload-artifact@v3
-       if: always()
-       with:
-         name: playwright-report
-         path: playwright-report/
-         retention-days: 30
+  e2e:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Run server
+        run: bundle exec jekyll serve -s /usr/src/app --watch --verbose --trace &
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: Cache Modules
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: node-deps-${{ hashFiles('**/package-lock.json') }}
+      - name: Install npm packages
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: npx playwright test
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
