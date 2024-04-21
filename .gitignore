@@ -6,6 +6,7 @@ _site/
 _data
 assets/
 /vendor/bundle/
+_cache/
 category
 /test-results/
 /playwright-report/
