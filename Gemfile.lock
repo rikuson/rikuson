@@ -118,6 +118,7 @@ GEM
       unf_ext
     unf_ext (0.0.9)
     unicode-display_width (1.8.0)
+    webrick (1.8.1)
 
 PLATFORMS
   x86_64-linux
@@ -129,6 +130,7 @@ DEPENDENCIES
   jekyll-linkpreview (~> 0.4)
   redcarpet (~> 3.4.0)
   tzinfo-data
+  webrick
 
 BUNDLED WITH
-   2.2.24
+   2.3.25
