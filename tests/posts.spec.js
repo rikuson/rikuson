@@ -8,10 +8,7 @@ let paths = [];
 
 test.beforeAll(async () => {
   const { sites } = await sitemap.fetch('http://localhost:8080/sitemap.xml');
-  paths = sites.map(site => {
-    const url = new URL(site);
-    return url.pathname;
-  });
+  paths = sites;
 });
 
 test('Posts', async ({ page }) => {
