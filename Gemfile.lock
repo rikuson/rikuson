@@ -96,6 +96,10 @@ GEM
       nokogiri (~> 1.11)
     multipart-post (2.3.0)
     nesty (1.0.2)
+    nokogiri (1.15.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.4-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     pathutil (0.16.2)
@@ -118,8 +122,11 @@ GEM
       unf_ext
     unf_ext (0.0.9)
     unicode-display_width (1.8.0)
+    webrick (1.8.1)
 
 PLATFORMS
+  arm64-darwin-21
+  x86_64-darwin-19
   x86_64-linux
   x86_64-linux-musl
 
@@ -129,6 +136,7 @@ DEPENDENCIES
   jekyll-linkpreview (~> 0.4)
   redcarpet (~> 3.4.0)
   tzinfo-data
+  webrick (~> 1.8)
 
 BUNDLED WITH
-   2.2.24
+   2.3.25

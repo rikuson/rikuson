@@ -5,6 +5,11 @@ _site/
 /node_modules
 _data
 assets/
-
+/vendor/bundle/
+_cache/*
+!_cache/.gitkeep
 category
-
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

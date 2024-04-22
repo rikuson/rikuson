@@ -7,7 +7,6 @@
   "timezone": "Asia/Tokyo",
   "packageRules": [
     {
-      "matchDepTypes": ["devDependencies"],
       "automerge": true
     }
   ]
