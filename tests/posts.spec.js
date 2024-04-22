@@ -14,7 +14,7 @@ test.beforeAll(async () => {
 test('Posts', async ({ page }) => {
   for (const path of paths) {
     await page.goto(path);
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(5000);
     await expect(page).toHaveScreenshot({ fullPage: true, mask: await page.locator('img[src$=".gif"]').all() });
   }
 });
