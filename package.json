@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "jquery": "^3.4.1",
-    "tough-cookie": "^2.4.3",
+    "tough-cookie": "^4.0.0",
     "uuid": "^3.3.2"
   },
   "engines": {
