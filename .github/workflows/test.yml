@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize]
 jobs:
   unit:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - name: Cache Modules
