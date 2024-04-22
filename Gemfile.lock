@@ -98,6 +98,8 @@ GEM
     nesty (1.0.2)
     nokogiri (1.15.4-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.15.4-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     pathutil (0.16.2)
@@ -124,6 +126,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-darwin-19
   x86_64-linux
   x86_64-linux-musl
 
