@@ -6,7 +6,8 @@ _site/
 _data
 assets/
 /vendor/bundle/
-_cache/
+_cache/*
+!_cache/.gitkeep
 category
 /test-results/
 /playwright-report/
