@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Cache Modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: "**/node_modules"
           key: node-deps-${{ hashFiles('**/package-lock.json') }}
@@ -26,7 +26,7 @@ jobs:
         with:
           bundler-cache: true
       - name: Cache jekyll
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: _cache
           key: jekyll-${{ hashFiles('**/*.md') }}
@@ -37,7 +37,7 @@ jobs:
         with:
           node-version: 20
       - name: Cache Modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: "**/node_modules"
           key: node-deps-${{ hashFiles('**/package-lock.json') }}
