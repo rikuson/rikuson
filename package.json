@@ -22,7 +22,7 @@
     "@playwright/test": "^1.43.1",
     "@types/node": "^20.12.7",
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^9.0.0",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
