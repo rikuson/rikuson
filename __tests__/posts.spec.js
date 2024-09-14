@@ -1,6 +1,5 @@
-const fs = require('fs');
-const { test, expect } = require('@playwright/test');
-const Sitemapper = require('sitemapper');
+import { test, expect } from "@playwright/test";
+import Sitemapper from "sitemapper";
 
 const sitemap = new Sitemapper();
 
