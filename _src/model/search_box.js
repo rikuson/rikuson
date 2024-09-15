@@ -8,7 +8,7 @@ import $ from 'jquery';
  *   $contents_box.setPostData(posts);
  * });
  */
-const SearchBox = SearchBox || function(selector) {
+const SearchBox = function(selector) {
   const DELAY_TIME = 500;
   const STANDBY_CLASS_NAME = 'fa-search';
   const READY_CLASS_NAME = 'fa-times';

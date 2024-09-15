@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-const AutoComplete = AutoComplete || function(feed, selector) {
+const AutoComplete = function(feed, selector) {
   let _feed;
 
   let _$this;

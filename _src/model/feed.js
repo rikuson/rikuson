@@ -14,7 +14,7 @@ require('lunr-languages/lunr.multi')(lunr);
  *   $post_list.setData(data).render();
  * })
  */
-const Feed = Feed || function(xml, lang) {
+const Feed = function(xml, lang) {
   let _data;
   let _index;
   let _lang;

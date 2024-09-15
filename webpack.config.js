@@ -48,9 +48,9 @@ const config = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: "esbuild-loader",
           options: {
-            presets: ["env"],
+            target: "es2015",
           },
         },
       },
