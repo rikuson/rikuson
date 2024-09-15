@@ -9,7 +9,7 @@ const AutoComplete = function(feed, selector) {
   function __construct(feed, selector) {
     _feed = feed;
     _$this = $(selector);
-    _$links = _$this.find('[data-id]');
+    _$links = _$this.find('a');
   }
 
   function suggest(keyword) {
@@ -18,8 +18,8 @@ const AutoComplete = function(feed, selector) {
     if (data.length === 0) {
       _$this.hide();
     } else {
-      _$this.find('[data-id]').hide();
-      data.forEach(id => _$this.find(`[data-id="${id}"]`).show());
+      _$this.find('a').hide();
+      data.forEach(([_, url]) => _$this.find(`[href^="${url}"]`).show());
       _$this.show();
     }
   }
