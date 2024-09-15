@@ -25,12 +25,7 @@ const config = {
         use: [
           "style-loader",
           "css-loader",
-          {
-            loader: "sass-loader",
-            options: {
-              implementation: (await import("sass")).default,
-            },
-          },
+          "sass-loader",
         ],
       },
       {
