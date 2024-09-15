@@ -1,0 +1,4 @@
+[submodule "tinysearch"]
+	path = tinysearch
+	url = git@github.com:rikuson/tinysearch.git
+	branch = japanese
