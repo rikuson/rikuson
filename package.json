@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Blog",
   "main": "default.js",
+  "type": "module",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server",
+    "start": "NODE_ENV=development webpack server",
     "build": "NODE_OPTIONS='--openssl-legacy-provider' NODE_ENV=production webpack",
-    "test": "NODE_ENV=development karma start"
+    "test": "NODE_ENV=development jest"
   },
   "repository": {
     "type": "git",
@@ -21,21 +22,16 @@
   "devDependencies": {
     "@playwright/test": "^1.43.1",
     "@types/node": "^20.12.7",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-minify-webpack-plugin": "^0.3.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
     "bootstrap": "^4.3.1",
     "css-loader": "^0.28.11",
+    "esbuild": "^0.23.1",
+    "esbuild-jest": "^0.5.0",
+    "esbuild-loader": "^4.2.2",
     "imagesloaded": "^5.0.0",
+    "jest": "^29.7.0",
+    "jest-css-modules": "^2.1.0",
+    "jest-environment-jsdom": "^29.7.0",
     "jquery-bridget": "^3.0.0",
-    "karma": "^6.0.0",
-    "karma-chrome-launcher": "^3.0.0",
-    "karma-qunit": "^4.0.0",
-    "karma-sinon": "^1.0.5",
-    "karma-sourcemap-loader": "^0.4.0",
-    "karma-webpack": "^4.0.2",
     "lunr": "^2.2.1",
     "lunr-languages": "^1.0.0",
     "masonry-layout": "^4.2.2",
@@ -48,7 +44,7 @@
     "sitemapper": "^3.2.8",
     "style-loader": "^0.23.0",
     "webpack": "^4.12.0",
-    "webpack-cli": "^3.0.8",
+    "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^3.1.11"
   },
   "dependencies": {

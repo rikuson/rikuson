@@ -1,18 +1,21 @@
-const path = require('path');
-const webpack = require('webpack');
-const MinifyPlugin = require('babel-minify-webpack-plugin');
+import path from "path";
+import webpack from "webpack";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const config = {
-  entry: './_src/app.js',
+  entry: "./_src/app.js",
   output: {
-    filename: './assets/bundle.js',
+    filename: "./assets/bundle.js",
     path: __dirname,
   },
   resolve: {
-    extensions: ['*', '.js'],
+    extensions: ["*", ".js"],
     alias: {
-      '~': path.join(__dirname, '_src'),
-    }
+      "~": path.join(__dirname, "_src"),
+    },
   },
   module: {
     rules: [
@@ -22,21 +25,17 @@ const config = {
         use: [
           "style-loader",
           "css-loader",
-          {
-            loader: "sass-loader",
-            options: {
-              implementation: require('sass'),
-            }
-          },
-        ]
+          "sass-loader",
+        ],
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          'style-loader',
+          "style-loader",
           {
-            loader: 'css-loader', options: { minimize: true },
+            loader: "css-loader",
+            options: { minimize: true },
           },
         ],
       },
@@ -44,9 +43,9 @@ const config = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "esbuild-loader",
           options: {
-            presets: ['env'],
+            target: "es2015",
           },
         },
       },
@@ -54,28 +53,23 @@ const config = {
         test: /\.html$/,
         exclude: /node_modules/,
         use: {
-          loader: 'raw-loader',
+          loader: "raw-loader",
         },
       },
     ],
   },
   devServer: {
     port: 8080,
-    contentBase: path.join(__dirname, '_site'),
+    contentBase: path.join(__dirname, "_site"),
     disableHostCheck: true,
   },
   plugins: [
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
+      $: "jquery",
+      jQuery: "jquery",
     }),
   ],
   mode: process.env.NODE_ENV,
 };
 
-if(process.env.NODE_ENV === 'production'){
-  config.plugins.push(new MinifyPlugin({}, {}));
-}
-
-module.exports = config;
-
+export default config;
