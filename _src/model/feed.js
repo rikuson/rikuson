@@ -1,6 +1,5 @@
 import $ from "jquery";
 import { search, default as init } from 'tinysearch';
-import wasm from 'tinysearch/tinysearch_engine_bg.wasm';
 
 /**
  * @example
@@ -11,7 +10,7 @@ import wasm from 'tinysearch/tinysearch_engine_bg.wasm';
  * })
  */
 class Feed {
-  static init() {
+  static async init(wasm) {
     return init(wasm).then(() => new Feed());
   }
 
