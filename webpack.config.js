@@ -1,6 +1,7 @@
 import path from "path";
 import webpack from "webpack";
 import { fileURLToPath } from "url";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -8,11 +9,11 @@ const __dirname = path.dirname(__filename);
 const config = {
   entry: "./_src/app.js",
   output: {
-    filename: "./assets/bundle.js",
-    path: __dirname,
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "assets"),
   },
   resolve: {
-    extensions: ["*", ".js"],
+    extensions: [".js"],
     alias: {
       "~": path.join(__dirname, "_src"),
     },
@@ -33,10 +34,7 @@ const config = {
         exclude: /node_modules/,
         use: [
           "style-loader",
-          {
-            loader: "css-loader",
-            options: { minimize: true },
-          },
+          "css-loader",
         ],
       },
       {
@@ -60,8 +58,15 @@ const config = {
   },
   devServer: {
     port: 8080,
-    contentBase: path.join(__dirname, "_site"),
-    disableHostCheck: true,
+    static: {
+      directory: path.join(__dirname, "_site"),
+    },
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new CssMinimizerPlugin(),
+    ],
   },
   plugins: [
     new webpack.ProvidePlugin({

@@ -1,10 +1,15 @@
 import $ from 'jquery';
 import lunr from 'lunr';
 // patch of lunr for Japanese
-require('lunr-languages/lunr.stemmer.support')(lunr);
-require('lunr-languages/tinyseg')(lunr);
-require('lunr-languages/lunr.jp')(lunr);
-require('lunr-languages/lunr.multi')(lunr);
+import stemmer from 'lunr-languages/lunr.stemmer.support.js'
+import tinyseg from 'lunr-languages/tinyseg.js';
+import jp from 'lunr-languages/lunr.jp.js';
+import multi from 'lunr-languages/lunr.multi.js';
+
+stemmer(lunr);
+tinyseg(lunr);
+jp(lunr);
+multi(lunr);
 
 /**
  * @example
