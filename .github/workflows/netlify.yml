@@ -7,6 +7,42 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Cache jekyll
+        uses: actions/cache@v4
+        with:
+          path: _cache
+          key: jekyll-${{ hashFiles('**/*.md') }}
+          restore-keys: jekyll-
+      - name: Build jekyll
+        run: bundle exec jekyll build
+
+      - name: Install utilities
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y snapd
+          sudo snap install jq yq
+      - name: Install dependencies
+        run: |
+          curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+          npm install terser -g
+          curl -LO https://github.com/WebAssembly/binaryen/releases/download/version_119/binaryen-version_119-x86_64-linux.tar.gz
+          tar -xzf binaryen-version_119-x86_64-linux.tar.gz
+          sudo cp binaryen-version_119/bin/* /usr/local/bin/
+      - name: Build wasm
+        run: |
+          yq -oj ../_site/feed.xml \
+            | jq '.feed.entry | map({title: .title."+content", url: .link."+@href", body: .content."+content"})' \
+            | sed -e 's/<[^>]*>//g' \
+            | sed -e 's/\\n//g' \
+            | cargo run --features=bin /dev/stdin
+        working-directory: tinysearch
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -19,17 +55,7 @@ jobs:
         run: npm ci
       - name: Build js
         run: npm run build
-
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - name: Cache jekyll
-        uses: actions/cache@v4
-        with:
-          path: _cache
-          key: jekyll-${{ hashFiles('**/*.md') }}
-          restore-keys: jekyll-
-      - name: Build jekyll
+      - name: Rebuild jekyll
         run: bundle exec jekyll build
 
       - name: Deploy to Netlify
