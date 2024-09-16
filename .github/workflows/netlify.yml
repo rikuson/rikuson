@@ -22,6 +22,14 @@ jobs:
       - name: Build jekyll
         run: bundle exec jekyll build
 
+      - name: Cache cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: cargo-
       - name: Install utilities
         run: |
           sudo apt-get update
