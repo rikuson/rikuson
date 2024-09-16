@@ -13,9 +13,9 @@ class SearchController extends BaseController {
 
   async init() {
     await super.init();
-    const res_ids = this.feed.search(this.query.keyword);
-    res_ids.map(id => this.show(this.$posts.find(`[data-id="${id}"]`)));
-    if (res_ids.length === 0) this.show(this.$message);
+    const results = this.feed.search(this.query.keyword);
+    results.map(([_, url]) => this.show(this.$posts.find(`[href^="${url}"]`).parents('.card')));
+    if (results.length === 0) this.show(this.$message);
   }
 }
 

@@ -28,6 +28,7 @@
     "esbuild": "^0.23.1",
     "esbuild-jest": "^0.5.0",
     "esbuild-loader": "^4.2.2",
+    "file-loader": "^6.2.0",
     "imagesloaded": "^5.0.0",
     "jest": "^29.7.0",
     "jest-css-modules": "^2.1.0",
@@ -48,6 +49,7 @@
   },
   "dependencies": {
     "jquery": "^3.4.1",
+    "tinysearch": "./tinysearch/wasm_output",
     "tough-cookie": "^4.0.0",
     "uuid": "^9.0.0"
   },

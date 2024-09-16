@@ -13,7 +13,7 @@ const config = {
     path: path.resolve(__dirname, "assets"),
   },
   resolve: {
-    extensions: [".js"],
+    extensions: [".js", ".wasm"],
     alias: {
       "~": path.join(__dirname, "_src"),
     },
@@ -35,6 +35,12 @@ const config = {
         use: [
           "style-loader",
           "css-loader",
+        ],
+      },
+      {
+        test: /\.wasm$/,
+        use: [
+          'file-loader',
         ],
       },
       {

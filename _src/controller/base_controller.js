@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import 'bootstrap';
+import wasm from 'tinysearch/tinysearch_engine_bg.wasm';
 import '~/stylesheet/common.css';
 import '~/stylesheet/jekyll-monokai-syntax.scss';
 import '~/stylesheet/jekyll-linkpreview.css';
@@ -20,10 +21,7 @@ class BaseController {
   async init() {
     // open external link as new tab
     $('a[href^="http"]').attr('target', '_blank');
-    const feed_url = $('[type="application/rss+xml"]').attr('href');
-    const xml = await $.ajax({ url: feed_url, dataType: 'xml' });
-    const lang = $('meta[http-equiv="content-language"]').attr('content');
-    this.feed = new Feed(xml, lang);
+    this.feed = await Feed.init(wasm);
     this.$search_box.val(this.query.keyword);
 
     const $auto_complete = new AutoComplete(this.feed, '#auto_complete');
