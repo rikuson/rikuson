@@ -3,10 +3,10 @@ layout: base
 ---
 
 {{ content }}
-<div id="posts">
+<div id="posts" class="container-fluid pt-4 pb-2">
   <article class="row">
     {% for post in site.posts %}
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 col-xl-3">
       {% include card.html %}
     </div>
     {% endfor %}
