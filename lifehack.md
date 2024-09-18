@@ -1,3 +1,4 @@
 ---
 layout: category
+category: lifehack
 ---
