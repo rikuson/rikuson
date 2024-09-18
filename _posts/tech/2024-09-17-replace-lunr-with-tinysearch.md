@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Replace Lunr with tinysearch
-categories: [category]
+category: tech
 tags:
 ---
 

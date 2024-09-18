@@ -2,7 +2,7 @@
 layout: post
 title: MAMPを使わずにMacのローカル環境にWordPressをインストール
 date: 2016-12-29 16:28:59 +0800
-categories: [category, bloghack]
+category: tech
 tags: [wordpress]
 image: https://rikson.imgix.net/wp-mac.jpg
 ---

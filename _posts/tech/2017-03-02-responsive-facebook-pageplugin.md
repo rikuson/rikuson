@@ -2,7 +2,7 @@
 layout: post
 title: WordPressの記事の下にレスポンシブなFacebookパーツを作成
 date: 2017-03-02 16:36:18 +0800
-categories: [category, bloghack]
+category: tech
 tags: 
 image: https://rikson.imgix.net/a7b268519a9eb372bf73737e13f48051-1-e1488472535296.png
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: qTranslate Xを使ったWordPressの多言語化設定
 date: 2017-01-01 00:29:21 +0800
-categories: [category, bloghack]
+category: tech
 tags: [wordpress]
 image: https://rikson.imgix.net/qt.jpg
 ---
