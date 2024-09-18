@@ -5,9 +5,8 @@
     {% include header.html %}
     {% include loader.html %}
     <div id="contents" class="bg-light" role="main">
-      {% include breadcrumb.html %}
       {% if page.title %}
-      <div class="container border-bottom mb-3 pb-1">
+      <div class="container border-bottom mt-5 mb-3 pb-1">
         <h1>{{ page.title }}</h1>
         {% if page.date %}
         {% assign date_format = "%Y/%b/%-d" %}
