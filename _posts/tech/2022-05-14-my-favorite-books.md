@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 愛読本
-categories: [category, programming]
+category: tech
 tags:
 ---
 

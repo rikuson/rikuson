@@ -2,7 +2,7 @@
 layout: post
 title: 「Twitter Feed」を使ってWordPressの記事の下にTwitterタイムラインを表示
 date: 2017-03-07 04:34:40 +0800
-categories: [category, bloghack]
+category: tech
 tags: 
 image: https://rikson.imgix.net/2fad0e89e9e6ae74975fe5dc098a9f6d.png
 ---

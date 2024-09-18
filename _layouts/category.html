@@ -1,26 +1,21 @@
 ---
 layout: base
 ---
-<ul class="nav">
-  {% for entry in site.pages %}
-  {% assign category = page.url | split: '/' | last %}
-  {% if entry.categories contains category %}
-  <li class="nav-item mb-3"><a class="btn btn-outline-primary" href="{{ entry.url | relative_url }}"><i class="fa fa-level-down"></i> {{ entry.title }}</a></li>
-  {% endif %}
-  {% endfor %}
-</ul>
+
 {{ content }}
 <div id="posts" class="container-fluid pt-4 pb-2">
-  <div class="row">
+  <article class="row">
     {% assign category = page.path | split: '/' | last | remove: '.md' %}
-    {% if category == 'index' %}
-    {% assign category = 'category' %}
-    {% endif %}
     {% for post in site.categories[category] %}
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 col-xl-3">
       {% include card.html %}
     </div>
     {% endfor %}
+  </article>
+</div>
+<div class="row">
+  <div id="search_message" class="alert alert-dismissible alert-warning d-none">
+    <h4 class="alert-heading">No Result</h4>
+    <p class="mb-0">Please try changing the search keyword.</p>
   </div>
 </div>
-

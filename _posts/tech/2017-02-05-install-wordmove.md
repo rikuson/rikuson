@@ -2,7 +2,7 @@
 layout: post
 title: WordMoveを使ってFTP経由でWordPressのローカル環境と本番環境を同期させる
 date: 2017-02-05 09:56:03 +0800
-categories: [category, bloghack]
+category: tech
 tags: [wordpress]
 image: https://rikson.imgix.net/wordmove.jpg
 ---

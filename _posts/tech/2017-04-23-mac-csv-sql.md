@@ -2,7 +2,7 @@
 layout: post
 title: MacでCSVファイルをコマンドラインからSQLで編集
 date: 2017-04-23 03:10:33 +0800
-categories: [category, programming]
+category: tech
 tags: 
 image: https://rikson.imgix.net/alexandru-tugui-185047.jpg
 ---

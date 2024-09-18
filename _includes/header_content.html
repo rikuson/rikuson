@@ -1,4 +1,6 @@
 <ul class="navbar-nav mr-auto">
-  <li class="nav-item"><a class="nav-link" href="{{ '/about/' | relative_url }}">About Me</a></li>
+  {% for category in site.categories %}
+    <li class="nav-item"><a class="nav-link" href="/{{ category | first | slugify }}">{{ category | first }}</a></li>
+  {% endfor %}
 </ul>
 {% include search_box.html %}
