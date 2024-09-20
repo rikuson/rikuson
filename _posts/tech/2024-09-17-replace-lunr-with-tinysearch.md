@@ -11,7 +11,7 @@ One day, while riding my bike to the convenience store, I had an idea: why not u
 
 My blog is built as a JAMstack site, hosted for free on Netlify. Since I don't want to pay for server instances, I needed a search engine that works entirely on the frontend.
 
-Previously, I was using Lunr.js for this purpose. However, Lunr.js has known issues with Japanese, as mentioned in the following link: https://github.com/MihaiValentin/lunr-languages/issues/45
+Previously, I was using Lunr.js for this purpose. However, Lunr.js has known issues with Japanese, as mentioned in the following link: <https://github.com/MihaiValentin/lunr-languages/issues/45>
 
 (Note: [^1]There appears to be a workaround now.)
 
@@ -24,7 +24,7 @@ So, I decided to replace Lunr with a WASM-based search engine. [^2]That’s when
 
 Unfortunately, Tinysearch has the same issue as Lunr. It tokenizes words based on spaces, which works for languages like English, but Japanese sentences aren’t separated by spaces.
 
-I found a solution here: https://qiita.com/tamurahey/items/8db20ae0b1931c96d54a
+I found a solution here: <https://qiita.com/tamurahey/items/8db20ae0b1931c96d54a>
 
 Since the patch I found was based on an older version of tinysearch, I forked the project and created a ["japanese" branch](https://github.com/rikuson/tinysearch/tree/japanese) with [^4]the modifications.
 
@@ -80,4 +80,4 @@ This workflow generates the index file in the `wasm_output` directory. The `pack
 
 You can check out the full implementation in my pull request on GitHub. Since my blog is open-source:
 
-https://github.com/rikuson/rikuson/pull/119
+<https://github.com/rikuson/rikuson/pull/119>
