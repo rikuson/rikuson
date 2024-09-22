@@ -10,10 +10,10 @@ jQueryBridget('imagesLoaded', imagesLoaded, $);
 class IndexController extends BaseController {
   constructor() {
     super();
-    const $container = this.$posts.find('.row');
-    $container.imagesLoaded(() => {
-      this.show(this.$posts.find('[data-id]'));
-      $container.masonry();
+    const $row = this.$posts.find('.row');
+    $row.imagesLoaded(() => {
+      this.show($row.children());
+      $row.masonry();
     });
   }
 }
