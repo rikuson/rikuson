@@ -14,7 +14,7 @@ class BaseController {
     this.$posts = $('#posts');
     this.$message = $('#search_message');
     this.$search_box = new SearchBox('#search_box');
-    this.query = this.getQuery();
+    this.query = new URL(document.location).searchParams;
     this.$contents = $('#contents');
   }
 
@@ -22,7 +22,7 @@ class BaseController {
     // open external link as new tab
     $('a[href^="http"]').attr('target', '_blank');
     this.feed = await Feed.init(wasm);
-    this.$search_box.val(this.query.keyword);
+    this.$search_box.val(this.query.get('keyword'));
 
     const $auto_complete = new AutoComplete(this.feed, '#auto_complete');
     // search event
@@ -34,16 +34,6 @@ class BaseController {
       }
     });
     this.$search_box.on('blur', () => $auto_complete.stop().hide());
-  }
-
-  getQuery() {
-    const query = { keyword: '' };
-    const param_str = location.search.slice(1);
-    param_str.split('&').map(str => {
-      const tmp = str.split('=');
-      query[tmp[0]] = decodeURI(tmp[1]);
-    });
-    return query;
   }
 
   show($elm, duration = 500) {

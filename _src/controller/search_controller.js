@@ -1,7 +1,3 @@
-import $ from 'jquery';
-import Masonry from 'masonry-layout';
-import jQueryBridget from 'jquery-bridget';
-import imagesLoaded from 'imagesloaded';
 import BaseController from './base_controller.js';
 
 class SearchController extends BaseController {
@@ -13,7 +9,7 @@ class SearchController extends BaseController {
 
   async init() {
     await super.init();
-    const results = this.feed.search(this.query.keyword);
+    const results = this.feed.search(this.query.get('keyword'));
     results.map(([_, url]) => this.show(this.$posts.find(`[href^="${url}"]`).parents('.card')));
     if (results.length === 0) this.show(this.$message);
   }
