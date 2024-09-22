@@ -38,7 +38,6 @@
     "lunr": "^2.2.1",
     "lunr-languages": "^1.0.0",
     "masonry-layout": "^4.2.2",
-    "popper.js": "^1.16.1",
     "raw-loader": "^4.0.0",
     "sass": "^1.52.1",
     "sass-loader": "^16.0.1",
