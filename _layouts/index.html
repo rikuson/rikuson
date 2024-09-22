@@ -4,16 +4,16 @@ layout: base
 
 {{ content }}
 <div id="posts" class="container-fluid pt-4 pb-2">
-  <div id="loader" class="row">
+  <div id="loader" class="row-masonry">
     {% for i in (1..12) %}
-    <div class="col-md-6 col-lg-4 col-xl-3" style="display: none;">
+    <div class="col-masonry">
       {% include loader.html %}
     </div>
     {% endfor %}
   </div>
-  <article class="row">
+  <article class="row-masonry">
     {% for post in site.posts %}
-    <div class="col-md-6 col-lg-4 col-xl-3" style="display: none;">
+    <div class="col-masonry">
       {% include card.html %}
     </div>
     {% endfor %}

@@ -10,9 +10,10 @@ jQueryBridget('imagesLoaded', imagesLoaded, $);
 class IndexController extends BaseController {
   constructor() {
     super();
-    const $row = this.$posts.find('.row');
+    const $row = this.$posts.find('.row-masonry');
     $row.imagesLoaded(() => {
       this.show($row.children());
+      // $row.masonry({ fitWidth: true }); // FIXME: fitWidth breaks layout for iPad Pro
       $row.masonry();
     });
   }

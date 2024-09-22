@@ -2,6 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import wasm from 'tinysearch/tinysearch_engine_bg.wasm';
 import '~/stylesheet/common.scss';
+import '~/stylesheet/masonry.scss';
 import '~/stylesheet/jekyll-monokai-syntax.scss';
 import '~/stylesheet/jekyll-linkpreview.css';
 import SearchBox from '~/model/search_box.js';

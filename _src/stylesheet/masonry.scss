@@ -1,0 +1,29 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+.row-masonry {
+  @include make-row();
+  overflow: hidden;
+  @include media-breakpoint-down(lg) {
+    width: auto !important;
+  }
+  @include media-breakpoint-up(xl) {
+    margin: 0 auto;
+  }
+}
+
+.col-masonry {
+  @include make-col-ready();
+
+  @include media-breakpoint-up(md) {
+    @include make-col(6);
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(4);
+  }
+  @include media-breakpoint-up(xl) {
+    width: 25%;
+    max-width: 350px;
+  }
+}
