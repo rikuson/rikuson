@@ -7,7 +7,7 @@ layout: base
   <article class="row">
     {% assign category = page.path | split: '/' | last | remove: '.md' %}
     {% for post in site.categories[category] %}
-    <div class="col-md-6 col-lg-4 col-xl-3">
+    <div class="col-md-6 col-lg-4 col-xl-3" style="display: none;">
       {% include card.html %}
     </div>
     {% endfor %}

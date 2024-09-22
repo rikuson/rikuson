@@ -6,14 +6,14 @@ class SearchController extends BaseController {
 
     const results = this.feed.search(this.query.get('keyword'));
 
-    const $container = this.$posts.find('.row');
-    $container.imagesLoaded(() => {
-      this.$posts.find('[data-id]').filter(function () {
+    const $row = this.$posts.find('.row');
+    $row.imagesLoaded(() => {
+      $row.children().filter(function () {
         return results.every(([_, url]) => $(this).find('a').attr('href') !== url)
       }).remove();
-      this.show(this.$posts.find('[data-id]'));
+      this.show($row.children());
       if (results.length === 0) this.show(this.$message);
-      $container.masonry();
+      $row.masonry();
     });
   }
 }
