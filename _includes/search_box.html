@@ -1,15 +1,15 @@
 <form id="search_box" action="{{ site.baseurl }}/search/">
   <div class="input-group">
-    <div id="auto_complete" class="dropdown-menu dropdown-menu-right">
-      {% for post in site.posts %}
-      <a class="dropdown-item" href="{{ post.url | relative_url }}" data-id="{{ forloop.index }}"><i class="fa fa-arrow-right"></i> {{ post.title | escape }}</a>
-      {% endfor %}
-      <div role="separator" class="dropdown-divider"></div>
-      <button class="dropdown-item" type="submit"><i class="fa fa-search"></i> {{ site.data.dict.see-more }}</button>
-    </div>
-    <input name="keyword" type="text" class="form-control" placeholder="Search">
+    <input name="keyword" type="text" class="form-control" placeholder="Search" autocomplete="off">
     <button class="search-box-btn" type="button">
       <i class="fa fa-search"></i>
     </button>
+  </div>
+  <div id="auto_complete" class="dropdown-menu dropdown-menu-right end-0">
+    {% for post in site.posts %}
+    <a class="dropdown-item" href="{{ post.url | relative_url }}" data-id="{{ forloop.index }}"><i class="fa fa-arrow-right"></i> {{ post.title | escape }}</a>
+    {% endfor %}
+    <div role="separator" class="dropdown-divider"></div>
+    <button class="dropdown-item" type="submit"><i class="fa fa-search"></i> {{ site.data.dict.see-more }}</button>
   </div>
 </form>
