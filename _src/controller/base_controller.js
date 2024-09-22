@@ -38,14 +38,14 @@ class BaseController {
 
   show($elm, duration = 500) {
     $('#loader').fadeOut(duration);
-    $elm
+    this.$posts
       .css('top', 20)
-      .fadeIn(duration).animate(
+      .animate(
         { top: 0 },
-        { queue: false, duration: duration }
+        { queue: false, duration }
       );
+    $elm.fadeIn(duration);
   }
 }
 
 export default BaseController;
-
