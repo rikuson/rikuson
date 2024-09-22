@@ -4,6 +4,13 @@ layout: base
 
 {{ content }}
 <div id="posts" class="container-fluid pt-4 pb-2">
+  <div id="loader" class="row">
+    {% for i in (1..12) %}
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      {% include loader.html %}
+    </div>
+    {% endfor %}
+  </div>
   <article class="row">
     {% assign category = page.path | split: '/' | last | remove: '.md' %}
     {% for post in site.categories[category] %}
