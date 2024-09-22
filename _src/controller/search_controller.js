@@ -12,7 +12,7 @@ class SearchController extends BaseController {
         return results.every(([_, url]) => $(this).find('a').attr('href') !== url)
       }).remove();
       this.show($row.children());
-      if (results.length === 0) this.show(this.$message);
+      if (results.length === 0) this.$message.show();
       $row.masonry();
     });
   }
