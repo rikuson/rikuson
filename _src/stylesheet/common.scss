@@ -1,3 +1,7 @@
+@import "bootswatch/dist/lux/variables";
+@import "bootstrap/scss/bootstrap";
+@import "bootswatch/dist/lux/bootswatch";
+
 #contents {
   /* header: 95px */
   min-height: calc(100vh - 95px);

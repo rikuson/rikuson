@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import 'bootstrap';
 import wasm from 'tinysearch/tinysearch_engine_bg.wasm';
-import '~/stylesheet/common.css';
+import '~/stylesheet/common.scss';
 import '~/stylesheet/jekyll-monokai-syntax.scss';
 import '~/stylesheet/jekyll-linkpreview.css';
 import '~/stylesheet/loader.scss';

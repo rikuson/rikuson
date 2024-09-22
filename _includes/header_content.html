@@ -1,7 +1,7 @@
-<ul class="navbar-nav mr-auto">
+<ul class="navbar-nav me-auto">
   {% for category in site.categories %}
     {% assign c = category | first %}
-    <li class="nav-item {% if c == page.category %}active{% endif %}"><a class="nav-link" href="/{{ c | slugify }}">{{ c }}</a></li>
+    <li class="nav-item"><a class="nav-link {% if c == page.category %}active{% endif %}" href="/{{ c | slugify }}">{{ c }}</a></li>
   {% endfor %}
 </ul>
 {% include search_box.html %}
