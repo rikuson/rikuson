@@ -21,10 +21,10 @@ layout: base
 
       <div class="clearfix mt-5">
         {% if page.previous.url %}
-        <a class="float-left" href="{{ page.previous.url | relative_url }}"><i class="fa fa-arrow-left"></i> {{ page.previous.title }}</a>
+        <a class="float-start" href="{{ page.previous.url | relative_url }}"><i class="fa fa-arrow-left"></i> {{ page.previous.title }}</a>
         {% endif %}
         {% if page.next.url %}
-        <a class="float-right" href="{{ page.next.url | relative_url }}">{{ page.next.title }} <i class="fa fa-arrow-right"></i></a>
+        <a class="float-end" href="{{ page.next.url | relative_url }}">{{ page.next.title }} <i class="fa fa-arrow-right"></i></a>
         {% endif %}
       </div>
     </div>
