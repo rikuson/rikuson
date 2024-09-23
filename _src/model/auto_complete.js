@@ -5,11 +5,13 @@ const AutoComplete = function(feed, selector) {
 
   let _$this;
   let _$links;
+  let _$submit;
 
   function __construct(feed, selector) {
     _feed = feed;
     _$this = $(selector);
     _$links = _$this.find('a');
+    _$submit = $('#auto_complete_submit');
   }
 
   function suggest(keyword) {
@@ -17,35 +19,21 @@ const AutoComplete = function(feed, selector) {
     const data = _feed.search(keyword);
     if (data.length === 0) {
       _$this.hide();
+      _$submit.hide();
     } else {
       _$this.find('a').hide();
-      data.forEach(([_, url]) => _$this.find(`[href^="${url}"]`).show());
+      data.forEach(([_, url]) => _$this.find(`[href^="${location.origin}${url}"]`).show());
       _$this.show();
+      _$submit.show();
     }
   }
 
   function updateLinkQueries(keyword) {
     _$links.each(function() {
-      const tmp = $(this).attr('href').split('?');
-      let query = tmp[1] ? queryStrToObj(tmp[1]) : {};
-      query.keyword = keyword;
-      $(this).attr('href', `${tmp[0]}?${objToQueryStr(query)}`);
+      const url = new URL($(this).attr('href'), location.origin);
+      url.searchParams.set('keyword', keyword);
+      $(this).attr('href', url.toString());
     });
-  }
-
-  function objToQueryStr(obj) {
-    let params = [];
-    for (let key in obj) params.push(`${key}=${obj[key]}`);
-    return params.join('&');
-  }
-
-  function queryStrToObj(str) {
-    let obj = {};
-    str.split('&').map(s => {
-      const tmp = s.split('=');
-      obj[tmp[0]] = tmp[1];
-    });
-    return obj;
   }
 
   __construct(feed, selector);
