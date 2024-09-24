@@ -6,9 +6,9 @@ class SearchController extends BaseController {
 
     const results = this.feed.search(this.query.get('keyword'));
 
-    const $row = this.$posts.find('.row:not(#loader)');
+    const $row = this.$posts.find('.row');
     $row.imagesLoaded(() => {
-      $row.children().filter(function () {
+      $row.filter(':not(#loader)').children().filter(function () {
         return results.every(([_, url]) => $(this).find('a').attr('href') !== url)
       }).remove();
       this.show($row.children());

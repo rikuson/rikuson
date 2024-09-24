@@ -15,6 +15,7 @@ class BaseController {
     this.$search_box = new SearchBox('#search_box');
     this.query = new URL(document.location).searchParams;
     this.$contents = $('#contents');
+    this.$loader = $('#loader').fadeIn();
   }
 
   async init() {
@@ -36,8 +37,19 @@ class BaseController {
   }
 
   show($elm, duration = 500) {
-    $('#loader').fadeOut(duration);
-    $elm.fadeIn(duration);
+    $('#loader')
+      .animate(
+        { top: 0 },
+        { queue: false, duration, complete: () => $('#loader').hide() }
+      )
+    $elm
+      .fadeIn(duration)
+      .parent()
+      .css('top', 20)
+      .animate(
+        { top: 0 },
+        { queue: false, duration }
+      );
   }
 }
 
