@@ -24,6 +24,11 @@ class BaseController {
     this.feed = await Feed.init(wasm);
     this.$search_box.val(this.query.get('keyword'));
 
+    document.getElementById('search_modal')
+      .addEventListener('show.bs.modal', () =>
+        setTimeout(() => this.$search_box.find('input').focus(), 500)
+      );
+
     const $auto_complete = new AutoComplete(this.feed, '#auto_complete');
     // search event
     this.$search_box.on('ready', () => {
@@ -33,7 +38,6 @@ class BaseController {
         $auto_complete.hide();
       }
     });
-    this.$search_box.on('blur', () => $auto_complete.stop().hide());
   }
 
   show($elm, duration = 500) {

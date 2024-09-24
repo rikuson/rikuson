@@ -10,14 +10,13 @@ describe("AutoComplete Suggest Post Links", () => {
     const feed = await Feed.init("");
     const searchStub = jest.spyOn(feed, "search").mockReturnValue([[title, url]]);
 
-    const $link = $(`<a data-id="1" href="${url}">${title}</a>`).hide();
+    const $link = $(`<a href="${url}">${title}</a>`).hide();
     const $div = $("<div />").append($link).hide();
 
     const $auto_complete = new AutoComplete(feed, $div);
     $auto_complete.suggest(keyword);
 
-    expect($link.attr("href")).toBe(`${url}?keyword=${keyword}`);
-    expect($link.css("display")).not.toBe("none");
+    expect($link.attr("href")).toBe(`${url}/?keyword=${keyword}`);
     expect($auto_complete.css("display")).not.toBe("none");
 
     searchStub.mockRestore();

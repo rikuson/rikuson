@@ -18,8 +18,6 @@ const SearchBox = function(selector) {
   let _$btn;
   let _$icon;
   let _$input;
-  let _busy;
-  let _val;
   let _inputAt;
   let _ready;
 

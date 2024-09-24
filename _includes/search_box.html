@@ -1,15 +1,29 @@
-<form id="search_box" action="{{ site.baseurl }}/search/">
-  <div class="input-group">
-    <input name="keyword" type="text" class="form-control" placeholder="Search" autocomplete="off">
-    <button class="search-box-btn" type="button">
-      <i class="fa fa-search"></i>
-    </button>
+<div class="d-grid">
+  <button id="search_btn" class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#search_modal">
+    Search...
+  </button>
+</div>
+
+<div id="search_modal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <form class="modal-content" action="{{ site.baseurl }}/search/" role="search">
+      <div id="search_box" class="modal-header p-1">
+        <div class="input-group">
+          <input name="keyword" type="text" class="form-control" placeholder="Search" autocomplete="off" autofocus>
+          <button class="search-box-btn" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+      <ul id="auto_complete" class="list-group list-group-flush" style="display: none;">
+        {% for post in site.posts %}
+        <a class="list-group-item" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        {% endfor %}
+      </ul>
+      <div id="auto_complete_submit" class="modal-footer" style="display: none;">
+        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-sm btn-primary">See more</button>
+      </div>
+    </div>
   </div>
-  <div id="auto_complete" class="dropdown-menu dropdown-menu-right end-0">
-    {% for post in site.posts %}
-    <a class="dropdown-item" href="{{ post.url | relative_url }}" data-id="{{ forloop.index }}"><i class="fa fa-arrow-right"></i> {{ post.title | escape }}</a>
-    {% endfor %}
-    <div role="separator" class="dropdown-divider"></div>
-    <button class="dropdown-item" type="submit"><i class="fa fa-search"></i> {{ site.data.dict.see-more }}</button>
-  </div>
-</form>
+</div>
