@@ -21,6 +21,9 @@ class BaseController {
   async init() {
     // open external link as new tab
     $('a[href^="http"]').attr('target', '_blank');
+
+    $('#contents table').addClass('table').wrap('<div class="table-responsive">');
+
     this.feed = await Feed.init(wasm);
     this.$search_box.val(this.query.get('keyword'));
 
