@@ -28,8 +28,8 @@ class BaseController {
     this.$search_box.val(this.query.get('keyword'));
 
     document.getElementById('search_modal')
-      .addEventListener('show.bs.modal', () =>
-        setTimeout(() => this.$search_box.find('input').focus(), 500)
+      .addEventListener('shown.bs.modal', () =>
+        this.$search_box.find('input').focus()
       );
 
     const $auto_complete = new AutoComplete(this.feed, '#auto_complete');
