@@ -2,6 +2,7 @@ import path from "path";
 import webpack from "webpack";
 import { fileURLToPath } from "url";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -72,6 +73,7 @@ const config = {
     minimize: true,
     minimizer: [
       new CssMinimizerPlugin(),
+      new TerserPlugin(),
     ],
   },
   plugins: [
