@@ -1,5 +1,8 @@
 import $ from 'jquery';
 import 'bootstrap';
+import '@fortawesome/fontawesome-free/js/fontawesome.js';
+import '@fortawesome/fontawesome-free/js/solid.js';
+import '@fortawesome/fontawesome-free/js/regular.js';
 import wasm from 'tinysearch/tinysearch_engine_bg.wasm';
 import '~/stylesheet/common.scss';
 import '~/stylesheet/jekyll-monokai-syntax.scss';
