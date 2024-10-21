@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Tagging and Managing Video Scenes with wd14-tagger and PySceneDetect
+image: https://rikson.imgix.net/2024-10-20-tag-and-manage-video-scenes.jpg
 ---
 
 This guide demonstrates how to combine two powerful tools—`wd14-tagger` and `PySceneDetect`—to automatically tag and manage video scenes. While `wd14-tagger` is an effective tool for tagging images, when paired with `PySceneDetect`, you can break down a video into scenes and assign relevant tags to each scene, making it easier to organize and search through large video files.

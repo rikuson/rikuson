@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Currying Validation Functions
+image: https://rikson.imgix.net/2024-10-12-curring-validation-function.jpg
 ---
 
 Currying is a fundamental technique in functional programming, but knowing when and where to apply it can be tricky. In this post, I'll demonstrate how currying can be useful in validation.
