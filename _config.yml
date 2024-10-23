@@ -27,6 +27,7 @@ lang: enc
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-auto-image
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

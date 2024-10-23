@@ -1,7 +1,7 @@
 <div class="card shadow mb-3">
-  <a href="{{ post.url | relative_url }}">
+  <a href="{{ post.url | relative_url }}" class="d-block w-100 position-relative overflow-hidden" style="aspect-ratio: 7 / 4;">
     <img
-      class="card-img-top"
+      class="card-img-top position-absolute top-50 start-50 translate-middle"
       {% if post.image %}
       src="{{ post.image | relative_url }}"
       {% else %}

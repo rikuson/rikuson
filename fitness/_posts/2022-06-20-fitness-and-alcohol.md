@@ -62,7 +62,7 @@ tags:
     <div class="jekyll-linkpreview-content">
       <div class="jekyll-linkpreview-image">
         <a href="https://amzn.to/3nlMh81" target="_blank">
-          <img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B09GB15DVS&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=rikson-22&language=ja_JP" >
+          <img border="0" src="https://m.media-amazon.com/images/I/81D5WEwss8L._SL1500_.jpg" >
         </a>
     	</div>
       <div class="jekyll-linkpreview-body">
