@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 川辺の草刈って食べる計画
-category: lifehack
 tags:
 ---
 

@@ -2,7 +2,6 @@
 layout: post
 title: プログラマブルミュージック MacでOvertoneのインストールと曲の再生
 date: 2017-06-04 02:35:12 +0800
-category: tech
 tags: [clojure, overtone]
 image: https://rikson.imgix.net/overtone.jpg
 ---

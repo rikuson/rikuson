@@ -2,7 +2,6 @@
 layout: post
 title: IFTTTを使って新着記事をSNSに自動告知
 date: 2017-03-09 12:53:40 +0800
-category: tech
 tags: 
 image: https://rikson.imgix.net/N811_chirabattakokkicard_TP_V.jpg
 ---

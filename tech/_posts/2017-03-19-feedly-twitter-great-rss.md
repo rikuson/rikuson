@@ -2,7 +2,6 @@
 layout: post
 title: TwitterのタイムラインをRSS化してFeedlyで読む Twitter Great RSS
 date: 2017-03-19 13:22:06 +0800
-category: tech
 tags: 
 image: https://rikson.imgix.net/www.pakutaso.com_shared_img_thumb_NARISIGE0I9A6342.jpg
 ---

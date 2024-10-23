@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Use FG-X on M1 Mac
-category: music
 tags:
 ---
 

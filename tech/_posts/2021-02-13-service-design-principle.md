@@ -1,7 +1,6 @@
 ---
 layout: post
 title: カスタマイズ性とサービスデザインのバランス
-category: tech
 tags:
 ---
 

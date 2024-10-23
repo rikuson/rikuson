@@ -2,7 +2,6 @@
 layout: post
 title: Expressをインストールしてプロジェクト作成
 date: 2017-06-11 04:05:21 +0800
-category: tech
 tags: [javascript, node-js]
 image: https://rikson.imgix.net/express.jpg
 ---

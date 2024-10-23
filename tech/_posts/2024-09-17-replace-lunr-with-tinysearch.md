@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Replace Lunr with tinysearch
-category: tech
 image: https://rikson.imgix.net/2024-09-17-replace-lunr-with-tinysearch.jpg
 tags:
 ---

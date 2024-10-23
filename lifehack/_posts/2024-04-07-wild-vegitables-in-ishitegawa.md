@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 石手川で野草取ってきた
-category: lifehack
 tags:
 ---
 
