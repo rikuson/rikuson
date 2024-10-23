@@ -45,12 +45,7 @@ jobs:
           tar -xzf binaryen-version_119-x86_64-linux.tar.gz
           sudo cp binaryen-version_119/bin/* /usr/local/bin/
       - name: Build wasm
-        run: |
-          yq -oj ../_site/feed.xml \
-            | jq '.feed.entry | map({title: .title."+content", url: .link."+@href", body: .content."+content"})' \
-            | sed -e 's/<[^>]*>//g' \
-            | sed -e 's/\\n//g' \
-            | cargo run --features=bin /dev/stdin
+        run: cargo run --features=bin ../_site/index.json
         working-directory: tinysearch
 
       - uses: actions/setup-node@v4
