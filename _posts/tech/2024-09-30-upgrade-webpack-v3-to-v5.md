@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Upgrade webpack v3 to v5
+image: https://rikson.imgix.net/2024-09-30-upgrade-webpack-v3-to-v5.jpg
 ---
 
 I use Webpack to bundle JavaScript and Babel to transpile it for my blog.  
