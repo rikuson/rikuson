@@ -2,7 +2,6 @@
 layout: post
 title: ムームードメインから独自ドメインを取得してロリポップを契約する
 date: 2017-01-31 04:53:43 +0800
-category: tech
 tags: 
 image: https://rikson.imgix.net/domain.jpg
 ---

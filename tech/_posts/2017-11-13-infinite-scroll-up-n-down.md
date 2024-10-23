@@ -2,7 +2,6 @@
 layout: post
 title: jQueryプラグイン「Infinite Scroll Up ‘N Down」を公開した
 date: 2017-11-13 06:01:28 +0800
-category: tech
 tags: 
 image: https://rikson.imgix.net/Screenshot-2017-11-13-Infinite-Scroll-Up-N-Down1.png
 ---

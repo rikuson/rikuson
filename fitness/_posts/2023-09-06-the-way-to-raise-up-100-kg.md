@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 40日後にベンチ100kg挙げるエンジニア
-category: fitness
 tags:
 ---
 

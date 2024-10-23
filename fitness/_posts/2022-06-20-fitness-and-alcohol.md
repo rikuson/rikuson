@@ -1,7 +1,6 @@
 ---
 layout: post
 title: フィットネスとお酒
-category: fitness
 tags:
 ---
 

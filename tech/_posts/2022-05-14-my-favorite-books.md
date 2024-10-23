@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 愛読本
-category: tech
 tags:
 ---
 

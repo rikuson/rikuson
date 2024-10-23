@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 【ShellScript】ループの中でユーザーのキー入力を受け付ける
-category: tech
 tags:
 ---
 

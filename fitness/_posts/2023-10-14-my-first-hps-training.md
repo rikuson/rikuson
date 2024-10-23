@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 6週間のHPSトレーニングの結果
-category: fitness
 tags:
 ---
 
