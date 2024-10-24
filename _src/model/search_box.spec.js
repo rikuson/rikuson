@@ -9,7 +9,9 @@ describe("SearchBox", () => {
     html += "<div>";
     html += '<input name="keyword" type="text">';
     html += '<button class="search-box-btn" type="button">';
-    html += '<i class="fa fa-search"></i>';
+    html += '<i class="fa-solid fa-magnifying-glass"></i>';
+    html += '<i class="fa-solid fa-circle-notch" style="display: none;"></i>';
+    html += '<i class="fa-solid fa-xmark" style="display: none;"></i>';
     html += "</button>";
     html += "</div>";
     $search_box = new SearchBox(html);
