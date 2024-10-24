@@ -5,7 +5,7 @@
       {% if post.image %}
       src="{{ post.image | relative_url }}"
       {% else %}
-      src="https://rikson.imgix.net{{ post.url | relative_url }}?txt={{ post.title }}&txt-size=48&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&w=600&txt-color=fff"
+      src="https://rikson.imgix.net{{ post.url | relative_url }}?txt={{ post.title }}&txt-size=48&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&w=360&txt-color=fff"
       {% endif %}
       alt="thumbnail"
     />

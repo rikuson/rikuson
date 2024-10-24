@@ -2,8 +2,7 @@
 layout: post
 title: 「Twitter Feed」を使ってWordPressの記事の下にTwitterタイムラインを表示
 date: 2017-03-07 04:34:40 +0800
-tags: 
-image: https://rikson.imgix.net/2fad0e89e9e6ae74975fe5dc098a9f6d.png
+image: https://rikson.imgix.net/2fad0e89e9e6ae74975fe5dc098a9f6d.png?w=856
 ---
 今回はTwitterパーツを記事の下に表示する。  
 使うプラグインは「Twitter Feed」。

@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Replace Lunr with tinysearch
-image: https://rikson.imgix.net/2024-09-17-replace-lunr-with-tinysearch.jpg
-tags:
+image: https://rikson.imgix.net/2024-09-17-replace-lunr-with-tinysearch.jpg?w=856
 ---
 
 Recently, I’ve been exploring WebAssembly (WASM) and Rust. However, as a web engineer, I often wonder how to utilize WASM effectively.

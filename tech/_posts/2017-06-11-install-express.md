@@ -3,7 +3,7 @@ layout: post
 title: Expressをインストールしてプロジェクト作成
 date: 2017-06-11 04:05:21 +0800
 tags: [javascript, node-js]
-image: https://rikson.imgix.net/express.jpg
+image: https://rikson.imgix.net/express.jpg?w=856
 ---
 ExpressとはNode.js向けに作られたシンプルなフレームワークである。  
 今回はExpressでプロジェクトを作成してみる。

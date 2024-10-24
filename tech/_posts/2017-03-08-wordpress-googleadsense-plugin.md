@@ -2,8 +2,7 @@
 layout: post
 title: 「Google AdSense by BestWebSoft」を使ってWordPressに広告を表示する
 date: 2017-03-08 05:44:06 +0800
-tags: 
-image: https://rikson.imgix.net/07fa6837dd8657db75ac3a9bce68cf5d.png
+image: https://rikson.imgix.net/07fa6837dd8657db75ac3a9bce68cf5d.png?w=856
 ---
 今回は「Google AdSense by BestWebSoft」を使ってGoogleAdsenseの広告を表示する。
 

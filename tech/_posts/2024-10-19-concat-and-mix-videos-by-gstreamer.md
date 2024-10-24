@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Concatenating and Mixing Video Files with GStreamer
-image: https://rikson.imgix.net/2024-10-19-concat-and-mix-videos-by-gstreamer.jpg
+image: https://rikson.imgix.net/2024-10-19-concat-and-mix-videos-by-gstreamer.jpg?w=856
 ---
 
 In this guide, I'll show you how to dynamically concatenate and mix video files using GStreamer, including a shell script that make it more flexible. For this demonstration, we'll use the popular open-source video *Big Buck Bunny* (1080p), which can be downloaded from the official Blender project page:

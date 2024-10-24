@@ -3,7 +3,7 @@ layout: post
 title: WordPressの記事の下にレスポンシブなFacebookパーツを作成
 date: 2017-03-02 16:36:18 +0800
 tags: 
-image: https://rikson.imgix.net/a7b268519a9eb372bf73737e13f48051-1-e1488472535296.png
+image: https://rikson.imgix.net/a7b268519a9eb372bf73737e13f48051-1-e1488472535296.png?w=856
 ---
 今回はFacebookパーツを記事の下に表示する。
 
