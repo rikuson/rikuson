@@ -20,6 +20,7 @@
   },
   "homepage": "https://rikson.net",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.6.0",
     "@playwright/test": "^1.43.1",
     "@types/node": "^20.12.7",
     "bootstrap": "^5.3.3",
@@ -43,6 +44,7 @@
     "sass-loader": "^16.0.1",
     "sitemapper": "^3.2.8",
     "style-loader": "^0.23.0",
+    "terser-webpack-plugin": "^5.3.10",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"

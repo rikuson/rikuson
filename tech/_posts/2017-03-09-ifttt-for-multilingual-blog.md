@@ -3,7 +3,7 @@ layout: post
 title: IFTTTを使って新着記事をSNSに自動告知
 date: 2017-03-09 12:53:40 +0800
 tags: 
-image: https://rikson.imgix.net/N811_chirabattakokkicard_TP_V.jpg
+image: https://rikson.imgix.net/N811_chirabattakokkicard_TP_V.jpg?w=856
 ---
 今回はIFTTTを利用して新着記事をSNSに自動告知する設定を行う。
 

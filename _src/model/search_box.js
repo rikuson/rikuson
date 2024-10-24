@@ -10,9 +10,9 @@ import $ from 'jquery';
  */
 const SearchBox = function(selector) {
   const DELAY_TIME = 500;
-  const STANDBY_CLASS_NAME = 'fa-search';
-  const READY_CLASS_NAME = 'fa-times';
-  const BUSY_CLASS_NAME = 'fa-circle-o-notch';
+  const STANDBY_CLASS_NAME = 'fa-magnifying-glass';
+  const READY_CLASS_NAME = 'fa-xmark';
+  const BUSY_CLASS_NAME = 'fa-circle-notch';
 
   let _$this;
   let _$btn;
@@ -24,7 +24,7 @@ const SearchBox = function(selector) {
   function __construct(selector) {
     _$this = $(selector);
     _$btn = _$this.find('.search-box-btn');
-    _$icon = _$btn.find('.fa');
+    _$icon = _$btn.find(`.${STANDBY_CLASS_NAME}, .${READY_CLASS_NAME}, .${BUSY_CLASS_NAME}`);
     _$input = _$this.find('input');
     _ready = true;
 
@@ -83,8 +83,8 @@ const SearchBox = function(selector) {
   }
 
   function changeIconClassName(class_name) {
-    const all_class_names = [STANDBY_CLASS_NAME, READY_CLASS_NAME, BUSY_CLASS_NAME].join(' ');
-    _$icon.removeClass(all_class_names).addClass(class_name);
+    _$icon.hide();
+    _$btn.find(`.${class_name}`).show();
   }
 
   __construct(selector);

@@ -3,7 +3,7 @@ layout: post
 title: MacでCSVファイルをコマンドラインからSQLで編集
 date: 2017-04-23 03:10:33 +0800
 tags: 
-image: https://rikson.imgix.net/alexandru-tugui-185047.jpg
+image: https://rikson.imgix.net/alexandru-tugui-185047.jpg?w=856
 ---
 CSVの編集にはOfficeのAccessが便利だけど、MacにはAccessがない。  
 そこで、ターミナルからサクッとCSV編集する方法を2通り考えた。
