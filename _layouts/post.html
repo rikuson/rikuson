@@ -5,16 +5,16 @@ layout: base
 <div class="container pt-4 pb-2">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
-      <div class="text-center mb-3">
+      <div class="d-block w-100 position-relative overflow-hidden mb-3" style="aspect-ratio: 7 / 4;">
         <img
-        class="img-fluid"
-        {% if page.image %}
-        src="{{ page.image | relative_url }}"
-        {% else %}
-        src="https://rikson.imgix.net{{ page.url | relative_url }}?txt={{ page.title }}&txt-size=80&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&txt-color=fff"
-        {% endif %}
-        alt="thumbnail"
-      />
+          class="img-fluid card-img-top position-absolute top-50 start-50 translate-middle"
+          {% if page.image %}
+          src="{{ page.image | relative_url }}"
+          {% else %}
+          src="https://rikson.imgix.net{{ page.url | relative_url }}?txt={{ page.title }}&txt-size=80&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&txt-color=fff"
+          {% endif %}
+          alt="thumbnail"
+        />
       </div>
 
       {{ content }}

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: フィットネスとお酒
-tags:
+image: https://rikson.imgix.net/use-fg-x-on-m1-mac/?txt=フィットネスとお酒&txt-size=48&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&w=600&txt-color=fff
 ---
 
 フィットネスとお酒の関係について筋トレ系YouTuberの意見をまとめてみる。  
