@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Managing Promises in JavaScript Class Initializers
+title: Handling Promises in JavaScript Class Initializers
 image: https://rikson.imgix.net/2024-10-27-promise-in-initializer.jpg?w=856
 ---
 
