@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Managing Promises in JavaScript Class Initializers
-image: https://rikson.imgix.net/2024-10-27-promise-in-initializer?w=856
+image: https://rikson.imgix.net/2024-10-27-promise-in-initializer.jpg?w=856
 ---
 
 When working with JavaScript, you typically need to pass resolved values to a class instance when you initialize it, ensuring that any required data is available right from the start. For example:
