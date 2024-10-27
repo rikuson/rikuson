@@ -139,15 +139,19 @@ Alternatively, you can work with the Observable directly by subscribing to it. T
 ```javascript
 import { from, shareReplay } from 'rxjs';
 
-class Foo {
+class Foo extends Observable {
   constructor(url) {
-    this.fetchSomething$ = from(this.fetchSomething(url)).pipe(shareReplay(1));
+    super((subscriber) =>
+      from(this.fetchSomething(url))
+        .pipe(shareReplay(1))
+        .subscribe(subscriber)
+    )
   }
   // ...
 }
 
 const instance = new Foo(url);
-instance.fetchSomething$.subscribe((something) => {
+instance.subscribe((something) => {
   // Handle the fetched data
 });
 ```
