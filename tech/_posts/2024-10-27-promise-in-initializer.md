@@ -18,7 +18,7 @@ Sometimes, you might find yourself needing to handle an asynchronous operation, 
 ```javascript
 class Foo {
   constructor(url) {
-    this.fetchSomething(url).then((result) => this.something = result);
+    this.fetchSomething(url).then((result) => (this.something = result));
   }
   // ...
 }
@@ -30,7 +30,7 @@ In this setup, we initialize `Foo` with a URL and assign `this.something` asynch
 ```javascript
 class Foo {
   constructor(url) {
-    this.fetchSomething(url).then((result) => this.something = result);
+    this.fetchSomething(url).then((result) => (this.something = result));
   }
   getSomething() {
     return this.something;
@@ -57,19 +57,22 @@ class Foo {
 }
 ```
 
-In JavaScript, constructors can’t be `async` because they are expected to return the instance itself, not a `Promise`. If you try to return a `Promise` from a constructor, it will still return the object instance directly, ignoring the asynchronous value:
+In JavaScript, constructors can’t be `async` because they are expected to return the instance itself, not a `Promise`. If you try to return a `Promise` from a constructor, it is possible but too tricky.
 
 ```javascript
 class Foo {
   constructor(url) {
-    return this.fetchSomething(url).then((result) => this.something = result);
+    return this.fetchSomething(url).then((result) => {
+      this.something = result;
+      return this;
+    });
   }
   getSomething() {
     return this.something;
   }
   // ...
 }
-const instance = await new Foo(url); // Using `await` here has no effect
+const instance = await new Foo(url);
 const something = instance.getSomething();
 ```
 
@@ -86,12 +89,12 @@ class Foo {
   constructor(something) {
     this.something = something;
   }
-  
+
   static async init(url) {
     const something = await this.fetchSomething(url);
     return new Foo(something);
   }
-  
+
   getSomething() {
     return this.something;
   }
@@ -113,7 +116,7 @@ Another approach is to use the Observer pattern to manage asynchronous data. By 
 In this version, we wrap `fetchSomething` as an observable so it can be subscribed to or resolved when needed. This is especially useful if you want to share the resolved value with multiple consumers without making redundant network calls.
 
 ```javascript
-import { firstValueFrom, from, shareReplay } from 'rxjs';
+import { firstValueFrom, from, shareReplay } from "rxjs";
 
 class Foo {
   constructor(url) {
@@ -137,15 +140,13 @@ In this example, we create `fetchSomething$` as an observable stream, allowing o
 Alternatively, you can work with the Observable directly by subscribing to it. This can be helpful if you need to perform multiple actions once the data arrives or if you want to listen to the data continuously.
 
 ```javascript
-import { from, shareReplay, Observable } from 'rxjs';
+import { from, shareReplay, Observable } from "rxjs";
 
 class Foo extends Observable {
   constructor(url) {
     super((subscriber) =>
-      from(this.fetchSomething(url))
-        .pipe(shareReplay(1))
-        .subscribe(subscriber)
-    )
+      from(this.fetchSomething(url)).pipe(shareReplay(1)).subscribe(subscriber),
+    );
   }
   // ...
 }
