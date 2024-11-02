@@ -57,6 +57,9 @@ https://example.atlassian.net/projects/MYTEAM/versions/{{.}}/tab/release-report-
 
 ![Message Template](https://rikson.imgix.net/Screen Shot 2024-11-02 at 21.58.41.png)
 
+The `distinct` filter returns a list like `[["1.0"], ["1.1"], ["1.2"]]`. To flatten the list, use the `flatten` filter, which returns `["1.0", "1.1", "1.2"]`.
+`flatten` is not even documented.
+
 **Note:** This workflow only works if there is an issue linked to the release. If no issues are associated with the version, no Slack message will be sent.
 
 ## Post-Release Notification Setup
