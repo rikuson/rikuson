@@ -35,7 +35,7 @@ fixVersion in unreleasedVersions("My Team")
 To ensure that a notification only goes out if there is a release planned, we add a condition to verify that tickets linked to a release version were found. This uses the following template variable:
 
 ```
-{{lookupIssues.fixVersions.size}}
+{% raw %}{{lookupIssues.fixVersions.size}}{% endraw %}
 ```
 
 If the value is non-zero, it means there are unreleased versions scheduled for release.
@@ -47,13 +47,12 @@ If the value is non-zero, it means there are unreleased versions scheduled for r
 Finally, a message template is created to list any versions scheduled for release that day. Here’s the template used for the Slack notification:
 
 ```
-@channel
+{% raw %}@channel
 There's a release scheduled for today!
-
-Versions: {{lookupIssues.fixVersions.name.distinct.flatten().join(" ")}}
+version: {{lookupIssues.fixVersions.name.distinct.flatten().join(" ")}}
 {{#lookupIssues.fixVersions.distinct.flatten()}}
 https://example.atlassian.net/projects/MYTEAM/versions/{{.}}/tab/release-report-all-issues
-{{/}}
+{{/}}{% endraw %}
 ```
 
 ![Message Template](https://rikson.imgix.net/Screen Shot 2024-11-02 at 21.58.41.png)
@@ -73,11 +72,11 @@ Once the release status is changed to "Released," the automation sends a Slack m
 ![Message Template](https://rikson.imgix.net/Screen Shot 2024-11-02 at 22.11.10.png)
 
 ```
-@channel
+{% raw %}@channel
 The release has gone live!
 
-Version: {{version.name}}
-https://example.atlassian.net/project/MYTEAM/versions/{{issue.fixVersions}}/tab/release-report-all-issues
+version: {{version.name}}
+https://example.atlassian.net/project/MYTEAM/versions/{{issue.fixVersions}}/tab/release-report-all-issues{% endraw %}
 ```
 
 Each release is announced individually, ensuring that every completed release gets its own notification.
