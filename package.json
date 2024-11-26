@@ -53,7 +53,7 @@
     "jquery": "^3.4.1",
     "tinysearch": "./tinysearch/wasm_output",
     "tough-cookie": "^4.0.0",
-    "uuid": "^9.0.0"
+    "uuid": "^11.0.0"
   },
   "engines": {
     "node": "20.x"
