@@ -31,15 +31,32 @@ const sortedPosts = allPosts.sort((a, b) => {
 const recentPosts = sortedPosts.slice(0, 12);
 
 // Convert to format expected by PostList component
-const posts = recentPosts.map(post => ({
-	id: `${post.category}-${post.id}`,
-	url: `/${post.category}/${post.id}/`,
-	title: post.data.title,
-	date: (post.data.date || post.data.pubDate || new Date()).toISOString(),
-	category: post.category,
-	excerpt: post.data.description || '',
-	image: post.data.image || `https://picsum.photos/seed/${post.id}/700/400`
-}));
+const posts = recentPosts.map(post => {
+	// Extract excerpt from body if no description
+	let excerpt = post.data.description || '';
+	if (!excerpt && post.body) {
+		// Remove markdown formatting and get first 150 characters
+		const plainText = post.body
+			.replace(/^---[\s\S]*?---/, '') // Remove frontmatter
+			.replace(/#{1,6}\s/g, '') // Remove headers
+			.replace(/[*_~`]/g, '') // Remove formatting
+			.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links
+			.replace(/```[\s\S]*?```/g, '') // Remove code blocks
+			.replace(/\n+/g, ' ') // Replace newlines with spaces
+			.trim();
+		excerpt = plainText.substring(0, 150) + (plainText.length > 150 ? '...' : '');
+	}
+	
+	return {
+		id: `${post.category}-${post.id}`,
+		url: `/${post.category}/${post.id}/`,
+		title: post.data.title,
+		date: (post.data.date || post.data.pubDate || new Date()).toISOString(),
+		category: post.category,
+		excerpt: excerpt,
+		image: post.data.image || `https://picsum.photos/seed/${post.id}/700/400`
+	};
+});
 ---
 
 <!doctype html>
