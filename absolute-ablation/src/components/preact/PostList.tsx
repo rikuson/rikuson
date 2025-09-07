@@ -1,6 +1,8 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import Masonry from 'react-masonry-css';
 import Post from './Post';
+import './PostList.css';
 
 interface PostData {
   id: string;
@@ -15,25 +17,26 @@ interface PostData {
 
 interface PostListProps {
   posts: PostData[];
-  columns?: {
-    xs?: number;
-    sm?: number;
-    md?: number;
-    lg?: number;
-    xl?: number;
-    xxl?: number;
-  };
 }
 
-export const PostList: React.FC<PostListProps> = ({ 
-  posts, 
-  columns = { md: 6, lg: 4, xl: 3 } 
-}) => {
+export const PostList: React.FC<PostListProps> = ({ posts }) => {
+  const breakpointColumns = {
+    default: 4,
+    1200: 4,
+    992: 3,
+    768: 2,
+    576: 1
+  };
+
   return (
     <Container fluid className="py-4">
-      <Row>
+      <Masonry
+        breakpointCols={breakpointColumns}
+        className="masonry-grid"
+        columnClassName="masonry-grid-column"
+      >
         {posts.map((post) => (
-          <Col key={post.id} {...columns} className="mb-4">
+          <div key={post.id}>
             <Post
               title={post.title}
               url={post.url}
@@ -43,9 +46,9 @@ export const PostList: React.FC<PostListProps> = ({
               excerpt={post.excerpt}
               tags={post.tags}
             />
-          </Col>
+          </div>
         ))}
-      </Row>
+      </Masonry>
     </Container>
   );
 };

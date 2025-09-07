@@ -27,8 +27,8 @@ const sortedPosts = allPosts.sort((a, b) => {
 	return dateB.valueOf() - dateA.valueOf();
 });
 
-// Take first 12 posts for homepage
-const recentPosts = sortedPosts.slice(0, 12);
+// Use all posts
+const recentPosts = sortedPosts;
 
 // Convert to format expected by PostList component
 const posts = recentPosts.map(post => {
