@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import PostList from '../components/react/PostList';
+import PostList from '../components/preact/PostList';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 // Get all posts from all categories
@@ -68,7 +68,7 @@ const posts = recentPosts.map(post => {
 		<Header />
 		<main>
 			<div class="container py-4">
-				<PostList posts={posts} client:only="react" />
+				<PostList posts={posts} client:only="preact" />
 			</div>
 		</main>
 		<Footer />

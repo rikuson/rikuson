@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Post } from '../components/react/Post';
+import { Post } from '../components/preact/Post';
 
 const meta = {
   title: 'Components/Post',

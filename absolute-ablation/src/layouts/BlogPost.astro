@@ -2,9 +2,9 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/react/Footer';
+import Footer from '../components/preact/Footer';
 import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/react/Header';
+import Header from '../components/preact/Header';
 
 type Props = CollectionEntry<'blog'>['data'] | CollectionEntry<'tech'>['data'] | CollectionEntry<'fitness'>['data'] | CollectionEntry<'lifehack'>['data'] | CollectionEntry<'music'>['data'] & { category?: string };
 
@@ -57,7 +57,7 @@ const postDate = date || pubDate;
 	</head>
 
 	<body>
-		<Header client:only="react" currentPath={Astro.url.pathname} />
+		<Header client:only="preact" currentPath={Astro.url.pathname} />
 		<main class="bg-light">
 			<article>
 				<div class="hero-image">
@@ -95,6 +95,6 @@ const postDate = date || pubDate;
 				</div>
 			</article>
 		</main>
-		<Footer client:only="react" />
+		<Footer client:only="preact" />
 	</body>
 </html>

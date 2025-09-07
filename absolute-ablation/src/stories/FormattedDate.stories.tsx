@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { FormattedDate } from '../components/react/FormattedDate';
+import { FormattedDate } from '../components/preact/FormattedDate';
 
 const meta = {
   title: 'Components/FormattedDate',
