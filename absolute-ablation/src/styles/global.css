@@ -42,12 +42,17 @@ body {
 	color: rgb(var(--gray-dark));
 	font-size: 20px;
 	line-height: 1.7;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 main {
 	width: 720px;
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
+	flex: 1;
+	min-height: calc(100vh - 200px);
 }
 h1,
 h2,
@@ -152,4 +157,9 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+/* Sticky footer styles */
+footer {
+	margin-top: auto;
 }

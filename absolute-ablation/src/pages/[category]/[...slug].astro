@@ -1,0 +1,39 @@
+---
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+	const categories = ['tech', 'fitness', 'lifehack', 'music'] as const;
+	const paths = [];
+	
+	for (const category of categories) {
+		const posts = await getCollection(category as any);
+		for (const post of posts) {
+			paths.push({
+				params: { category, slug: post.id },
+				props: { 
+					postId: post.id,
+					postData: post.data, 
+					category,
+					body: post.body
+				},
+			});
+		}
+	}
+	
+	return paths;
+}
+
+type Props = {
+	postId: string;
+	postData: any;
+	category: string;
+	body: string;
+};
+
+const { postId, postData, category, body } = Astro.props;
+---
+
+<BlogPost {...postData} category={category}>
+	<Fragment set:html={body} />
+</BlogPost>
