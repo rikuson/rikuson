@@ -39,6 +39,7 @@
       "**/*.jsx",
       "**/*.ts",
       "**/*.tsx",
+      "**/*.astro",
       "**/*.json",
       "!**/node_modules",
       "!**/dist",

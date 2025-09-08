@@ -13,50 +13,50 @@ const categories = await getCategories();
 const allPosts = [];
 
 for (const category of categories) {
-	const posts = await getCollection(category);
-	allPosts.push(...posts.map(post => ({ ...post, category })));
+  const posts = await getCollection(category);
+  allPosts.push(...posts.map((post) => ({ ...post, category })));
 }
 
 // Sort posts by date (newest first)
 const sortedPosts = allPosts.sort((a, b) => {
-	const dateA = a.data.date || a.data.pubDate || new Date(0);
-	const dateB = b.data.date || b.data.pubDate || new Date(0);
-	return dateB.valueOf() - dateA.valueOf();
+  const dateA = a.data.date || a.data.pubDate || new Date(0);
+  const dateB = b.data.date || b.data.pubDate || new Date(0);
+  return dateB.valueOf() - dateA.valueOf();
 });
 
 // Use all posts
 const recentPosts = sortedPosts;
 
 // Convert to format expected by PostList component
-const posts = recentPosts.map(post => {
-	// Extract excerpt from body if no description
-	let excerpt = post.data.description || '';
-	if (!excerpt && post.body) {
-		// Remove markdown formatting and get first 150 characters
-		const plainText = post.body
-			.replace(/^---[\s\S]*?---/, '') // Remove frontmatter
-			.replace(/^import\s+.*?;?\s*$/gm, '') // Remove import statements
-			.replace(/<[^>]*>/g, '') // Remove HTML/JSX tags
-			.replace(/#{1,6}\s/g, '') // Remove headers
-			.replace(/[*_~`]/g, '') // Remove formatting
-			.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links
-			.replace(/```[\s\S]*?```/g, '') // Remove code blocks
-			.replace(/\n+/g, ' ') // Replace newlines with spaces
-			.trim();
-		excerpt = plainText.substring(0, 150) + (plainText.length > 150 ? '...' : '');
-	}
-	
-	const autoImage = !post.data.image ? extractFirstImage(post.body) : undefined;
-	
-	return {
-		id: `${post.category}-${post.id}`,
-		url: `/${post.category}/${post.id}/`,
-		title: post.data.title,
-		date: (post.data.date || post.data.pubDate || new Date()).toISOString(),
-		category: post.category,
-		excerpt: excerpt,
-		image: post.data.image || autoImage
-	};
+const posts = recentPosts.map((post) => {
+  // Extract excerpt from body if no description
+  let excerpt = post.data.description || '';
+  if (!excerpt && post.body) {
+    // Remove markdown formatting and get first 150 characters
+    const plainText = post.body
+      .replace(/^---[\s\S]*?---/, '') // Remove frontmatter
+      .replace(/^import\s+.*?;?\s*$/gm, '') // Remove import statements
+      .replace(/<[^>]*>/g, '') // Remove HTML/JSX tags
+      .replace(/#{1,6}\s/g, '') // Remove headers
+      .replace(/[*_~`]/g, '') // Remove formatting
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links
+      .replace(/```[\s\S]*?```/g, '') // Remove code blocks
+      .replace(/\n+/g, ' ') // Replace newlines with spaces
+      .trim();
+    excerpt = plainText.substring(0, 150) + (plainText.length > 150 ? '...' : '');
+  }
+
+  const autoImage = !post.data.image ? extractFirstImage(post.body) : undefined;
+
+  return {
+    id: `${post.category}-${post.id}`,
+    url: `/${post.category}/${post.id}/`,
+    title: post.data.title,
+    date: (post.data.date || post.data.pubDate || new Date()).toISOString(),
+    category: post.category,
+    excerpt: excerpt,
+    image: post.data.image || autoImage,
+  };
 });
 ---
 
