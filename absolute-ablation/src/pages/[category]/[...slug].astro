@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import { extractFirstImage } from '../../utils/extract-first-image';
 
 export async function getStaticPaths() {
 	const categories = ['tech', 'fitness', 'lifehack', 'music'] as const;
@@ -38,8 +39,11 @@ if (!post) {
 
 // Render the post content using the render function
 const { Content } = await render(post);
+
+// Extract first image if no explicit image is provided
+const autoImage = !post.data.image ? extractFirstImage(post.body) : undefined;
 ---
 
-<BlogPost {...post.data} category={category}>
+<BlogPost {...post.data} category={category} autoImage={autoImage}>
 	<Content />
 </BlogPost>

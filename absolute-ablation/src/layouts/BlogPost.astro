@@ -7,11 +7,11 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/preact/Header';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-type Props = CollectionEntry<'blog'>['data'] | CollectionEntry<'tech'>['data'] | CollectionEntry<'fitness'>['data'] | CollectionEntry<'lifehack'>['data'] | CollectionEntry<'music'>['data'] & { category?: string };
+type Props = CollectionEntry<'blog'>['data'] | CollectionEntry<'tech'>['data'] | CollectionEntry<'fitness'>['data'] | CollectionEntry<'lifehack'>['data'] | CollectionEntry<'music'>['data'] & { category?: string; autoImage?: string };
 
-const { title, description, pubDate, date, updatedDate, heroImage, image, tags, category } = Astro.props;
+const { title, description, pubDate, date, updatedDate, heroImage, image, tags, category, autoImage } = Astro.props;
 const postDate = date || pubDate;
-const displayImage = image || heroImage;
+const displayImage = image || heroImage || autoImage;
 ---
 
 <html lang="en">
