@@ -1,5 +1,4 @@
-import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Badge, Stack } from 'react-bootstrap';
 import { FaCalendarAlt, FaFolderOpen, FaArrowRight } from 'react-icons/fa';
 
 interface PostProps {
@@ -12,84 +11,43 @@ interface PostProps {
   tags?: string[];
 }
 
-export const Post: React.FC<PostProps> = ({ 
-  title, 
-  url, 
-  date, 
-  category, 
-  image, 
-  excerpt,
-  tags 
-}) => {
-  const formatDate = (dateInput: Date | string) => {
-    const dateObj = typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
-    return dateObj.toLocaleDateString('en-US', { 
-      month: 'short', 
-      day: 'numeric', 
-      year: 'numeric' 
-    });
-  };
+export const Post: React.FC<PostProps> = ({ title, url, date, category, image, excerpt, tags }) => {
+  const formatDate = (d: Date | string) => 
+    new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
-  // Generate placeholder image if no image provided
   const imageUrl = image || `https://rikson.imgix.net/placeholder.png?txt=${encodeURIComponent(title)}&txt-size=48&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&w=600&txt-color=fff`;
-
-  const categoryTitle = category ? category.charAt(0).toUpperCase() + category.slice(1) : '';
 
   return (
     <Card className="shadow h-100">
-      <a 
-        href={url} 
-        className="d-block w-100 position-relative overflow-hidden" 
-        style={{ aspectRatio: '7 / 4' }}
-      >
-        <Card.Img 
-          variant="top"
-          src={imageUrl}
-          alt="thumbnail"
-          className="position-absolute top-50 start-50 translate-middle"
-          style={{ minWidth: '100%', minHeight: '100%', objectFit: 'cover' }}
-        />
-      </a>
+      <Card.Link href={url} className="ratio ratio-16x9">
+        <Card.Img src={imageUrl} alt={title} className="object-fit-cover" />
+      </Card.Link>
       <Card.Body className="d-flex flex-column">
         <Card.Title as="h3" className="h4">
-          <a href={url} className="text-decoration-none text-dark">
-            {title}
-          </a>
+          <Card.Link href={url} className="text-decoration-none text-dark">{title}</Card.Link>
         </Card.Title>
         
-        <div className="mb-2">
-          <Card.Text as="div" className="small text-muted mb-1">
-            <FaCalendarAlt className="me-1" />
-            <time>{formatDate(date)}</time>
-          </Card.Text>
-          
+        <Stack direction="horizontal" gap={2} className="small text-muted mb-2 flex-wrap">
+          <div><FaCalendarAlt size={14} className="me-1" />{formatDate(date)}</div>
           {category && (
-            <Card.Text as="div" className="small mb-1">
-              <FaFolderOpen className="me-1 text-muted" />
-              <a href={`/category/${category}`} className="text-decoration-none">
-                {categoryTitle}
-              </a>
-            </Card.Text>
+            <div>
+              <FaFolderOpen size={14} className="me-1" />
+              <Card.Link href={`/category/${category}`}>{category.charAt(0).toUpperCase() + category.slice(1)}</Card.Link>
+            </div>
           )}
-          
-          {tags && tags.length > 0 && (
-            <Card.Text as="div" className="small text-muted mb-1">
-              Tags: {tags.join(', ')}
-            </Card.Text>
-          )}
-        </div>
+        </Stack>
         
-        {excerpt && (
-          <Card.Text className="flex-grow-1">
-            {excerpt}
-          </Card.Text>
+        {tags?.length > 0 && (
+          <Stack direction="horizontal" gap={1} className="mb-2">
+            {tags.map(tag => <Badge bg="secondary" key={tag}>{tag}</Badge>)}
+          </Stack>
         )}
         
-        <div className="text-end mt-auto">
-          <a href={url} className="card-link text-decoration-none">
-            Read more <FaArrowRight className="ms-1" />
-          </a>
-        </div>
+        {excerpt && <Card.Text className="flex-grow-1">{excerpt}</Card.Text>}
+        
+        <Card.Link href={url} className="ms-auto">
+          Read more <FaArrowRight size={12} />
+        </Card.Link>
       </Card.Body>
     </Card>
   );

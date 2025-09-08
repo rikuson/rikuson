@@ -19,24 +19,22 @@ interface PostListProps {
   posts: PostData[];
 }
 
-const PostPlaceholder: React.FC = () => {
-  return (
-    <Card className="shadow h-100">
-      <div style={{ aspectRatio: '7 / 4', background: '#e9ecef' }} />
-      <Card.Body>
-        <Placeholder as={Card.Title} animation="glow">
-          <Placeholder xs={9} />
-        </Placeholder>
-        <Placeholder as={Card.Text} animation="glow">
-          <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />
-        </Placeholder>
-        <Placeholder as={Card.Text} animation="glow">
-          <Placeholder xs={6} /> <Placeholder xs={8} />
-        </Placeholder>
-      </Card.Body>
-    </Card>
-  );
-};
+const PostPlaceholder: React.FC = () => (
+  <Card className="shadow h-100">
+    <div style={{ aspectRatio: '7 / 4', background: '#e9ecef' }} />
+    <Card.Body>
+      <Placeholder as={Card.Title} animation="glow">
+        <Placeholder xs={9} />
+      </Placeholder>
+      <Placeholder as={Card.Text} animation="glow">
+        <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />
+      </Placeholder>
+      <Placeholder as={Card.Text} animation="glow">
+        <Placeholder xs={6} /> <Placeholder xs={8} />
+      </Placeholder>
+    </Card.Body>
+  </Card>
+);
 
 export const PostList: React.FC<PostListProps> = ({ posts }) => {
   const [isLoading, setIsLoading] = useState(true);

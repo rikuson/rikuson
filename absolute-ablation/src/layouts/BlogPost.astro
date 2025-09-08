@@ -18,22 +18,7 @@ const displayImage = image || heroImage;
 	<head>
 		<BaseHead title={title} description={description || ''} />
 		<style>
-			.post-header {
-				background: #fff;
-				padding: 2rem 0;
-				margin-bottom: 2rem;
-			}
-			.post-meta {
-				color: #6c757d;
-				font-size: 0.9rem;
-			}
-			.post-meta a {
-				color: #007bff;
-				text-decoration: none;
-			}
-			.post-meta a:hover {
-				text-decoration: underline;
-			}
+			.post-header { background: #fff; margin-bottom: 2rem; }
 			.post-content {
 				font-size: 1.1rem;
 				line-height: 1.7;
@@ -103,74 +88,39 @@ const displayImage = image || heroImage;
 		<Header client:only="preact" currentPath={Astro.url.pathname} />
 		<main>
 			<article>
-				<!-- Post Header -->
-				<div class="post-header">
+				<header class="post-header py-4">
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-8 mx-auto">
 								<h1 class="display-4 mb-3">{title}</h1>
-								<div class="post-meta d-flex flex-wrap gap-3">
-									{postDate && (
-										<div>
-											<i class="bi bi-calendar me-1"></i>
-											<FormattedDate date={postDate} />
-										</div>
-									)}
-									{category && (
-										<div>
-											<i class="bi bi-folder me-1"></i>
-											<a href={`/category/${category}`}>{category.charAt(0).toUpperCase() + category.slice(1)}</a>
-										</div>
-									)}
-									{tags && tags.length > 0 && (
-										<div>
-											<i class="bi bi-tags me-1"></i>
-											{tags.join(', ')}
-										</div>
-									)}
-									{updatedDate && (
-										<div class="text-muted fst-italic">
-											Last updated on <FormattedDate date={updatedDate} />
-										</div>
-									)}
+								<div class="d-flex flex-wrap gap-3 text-muted small">
+									{postDate && <div><i class="bi bi-calendar me-1"></i><FormattedDate date={postDate} /></div>}
+									{category && <div><i class="bi bi-folder me-1"></i><a href={`/category/${category}`} class="text-decoration-none">{category.charAt(0).toUpperCase() + category.slice(1)}</a></div>}
+									{tags?.length > 0 && <div><i class="bi bi-tags me-1"></i>{tags.join(', ')}</div>}
+									{updatedDate && <div class="fst-italic">Last updated on <FormattedDate date={updatedDate} /></div>}
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</header>
 
-				<!-- Featured Image -->
 				{displayImage && (
 					<div class="container mb-4">
 						<div class="row">
 							<div class="col-lg-10 mx-auto">
-								{heroImage ? (
-									<Image 
-										width={1020} 
-										height={510} 
-										src={heroImage} 
-										alt={title}
-										class="img-fluid rounded shadow" 
-									/>
-								) : (
-									<img 
-										src={image} 
-										alt={title}
-										class="img-fluid rounded shadow" 
-									/>
-								)}
+								{heroImage ? 
+									<Image width={1020} height={510} src={heroImage} alt={title} class="img-fluid rounded shadow" /> :
+									<img src={image} alt={title} class="img-fluid rounded shadow" />
+								}
 							</div>
 						</div>
 					</div>
 				)}
 
-				<!-- Post Content -->
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-8 mx-auto">
-							<div class="post-content">
-								<slot />
-							</div>
+						<div class="col-lg-8 mx-auto post-content">
+							<slot />
 						</div>
 					</div>
 				</div>
