@@ -54,7 +54,7 @@ const posts = recentPosts.map(post => {
 		date: (post.data.date || post.data.pubDate || new Date()).toISOString(),
 		category: post.category,
 		excerpt: excerpt,
-		image: post.data.image || `https://picsum.photos/seed/${post.id}/700/400`
+		image: post.data.image
 	};
 });
 ---

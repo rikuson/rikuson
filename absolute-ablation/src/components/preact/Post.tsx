@@ -31,7 +31,7 @@ export const Post: React.FC<PostProps> = ({
   };
 
   // Generate placeholder image if no image provided
-  const imageUrl = image || `https://rikson.imgix.net${url}?txt=${encodeURIComponent(title)}&txt-size=48&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&w=360&txt-color=fff`;
+  const imageUrl = image || `https://rikson.imgix.net/placeholder.png?txt=${encodeURIComponent(title)}&txt-size=48&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&w=600&txt-color=fff`;
 
   const categoryTitle = category ? category.charAt(0).toUpperCase() + category.slice(1) : '';
 
