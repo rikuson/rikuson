@@ -1,61 +1,54 @@
 {
   "name": "rikuson",
+  "type": "module",
   "version": "1.0.0",
   "description": "Blog",
-  "main": "default.js",
-  "type": "module",
   "scripts": {
-    "start": "NODE_ENV=development webpack server",
-    "build": "NODE_OPTIONS='--openssl-legacy-provider' NODE_ENV=production webpack",
-    "test": "NODE_ENV=development jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rikuson/rikuson.git"
-  },
-  "author": "Rikson",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rikuson/rikuson/issues"
-  },
-  "homepage": "https://rikson.net",
-  "devDependencies": {
-    "@fortawesome/fontawesome-free": "^6.6.0",
-    "@playwright/test": "^1.43.1",
-    "@types/node": "^20.12.7",
-    "bootstrap": "^5.3.3",
-    "bootswatch": "^5.3.3",
-    "css-loader": "^0.28.11",
-    "css-minimizer-webpack-plugin": "^7.0.0",
-    "esbuild": "^0.23.1",
-    "esbuild-jest": "^0.5.0",
-    "esbuild-loader": "^4.2.2",
-    "file-loader": "^6.2.0",
-    "imagesloaded": "^5.0.0",
-    "jest": "^29.7.0",
-    "jest-css-modules": "^2.1.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "jquery-bridget": "^3.0.0",
-    "lunr": "^2.2.1",
-    "lunr-languages": "^1.0.0",
-    "masonry-layout": "^4.2.2",
-    "raw-loader": "^4.0.0",
-    "sass": "^1.52.1",
-    "sass-loader": "^16.0.1",
-    "sitemapper": "^3.2.8",
-    "style-loader": "^0.23.0",
-    "terser-webpack-plugin": "^5.3.10",
-    "webpack": "^5.94.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "prepare": "husky"
   },
   "dependencies": {
-    "jquery": "^3.4.1",
-    "tinysearch": "./tinysearch/wasm_output",
-    "tough-cookie": "^4.0.0",
-    "uuid": "^9.0.0"
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.3.4",
+    "@astrojs/preact": "^4.1.0",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.5.1",
+    "astro": "^5.13.5",
+    "astro-embed": "^0.9.0",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "bootswatch": "^5.3.7",
+    "preact": "^10.27.1",
+    "preact-render-to-string": "^6.6.1",
+    "react-bootstrap": "^2.10.10",
+    "react-icons": "^5.5.0",
+    "react-masonry-css": "^1.0.16",
+    "sharp": "^0.34.2"
   },
-  "engines": {
-    "node": "20.x"
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.3",
+    "@storybook/addon-docs": "^9.1.5",
+    "@storybook/addon-onboarding": "^9.1.5",
+    "@storybook/addon-webpack5-compiler-swc": "^4.0.1",
+    "@storybook/react-webpack5": "^9.1.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.6",
+    "storybook": "^9.1.5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json}": [
+      "biome check --write"
+    ]
   }
 }

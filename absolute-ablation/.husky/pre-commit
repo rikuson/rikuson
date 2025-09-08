@@ -1,1 +1,0 @@
-cd absolute-ablation && npx lint-staged
