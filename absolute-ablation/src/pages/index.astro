@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import Footer from '../components/preact/Footer';
+import Header from '../components/preact/Header';
 import PostList from '../components/preact/PostList';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { extractFirstImage } from '../utils/extract-first-image';
@@ -66,12 +66,12 @@ const posts = recentPosts.map(post => {
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header />
+		<Header client:only="preact" currentPath={Astro.url.pathname} />
 		<main>
 			<div class="container-fluid pt-4 pb-2">
 				<PostList posts={posts} client:only="preact" />
 			</div>
 		</main>
-		<Footer />
+		<Footer client:only="preact" />
 	</body>
 </html>
