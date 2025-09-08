@@ -48,7 +48,7 @@ export const SearchBox: React.FC<SearchBoxProps> = ({ posts = [] }) => {
         </Button>
       </div>
 
-      <Modal show={show} onHide={handleClose} size="xl">
+      <Modal show={show} onHide={handleClose} size="xl" backdropClassName="search-modal-backdrop">
         <Form onSubmit={handleSearch}>
           <Modal.Header className="p-1">
             <InputGroup className="w-100">
