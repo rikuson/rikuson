@@ -71,11 +71,9 @@ const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
 	</head>
 	<body>
 		<Header client:only="preact" currentPath={Astro.url.pathname} />
-		<main class="bg-light">
-			<section class="container-fluid pt-4 pb-2">
-				<PostList posts={posts} client:only="preact" />
-			</section>
-		</main>
-		<Footer client:only="preact" />
-	</body>
+    <main class="container-fluid pt-4 pb-2" style={{ minHeight: "calc(100vh - 95px)" }}>
+      <PostList posts={posts} client:only="preact" />
+    </main>
+    <Footer client:only="preact" />
+  </body>
 </html>

@@ -67,10 +67,8 @@ const posts = recentPosts.map((post) => {
 	</head>
 	<body>
 		<Header client:only="preact" currentPath={Astro.url.pathname} />
-		<main>
-			<div class="container-fluid pt-4 pb-2">
-				<PostList posts={posts} client:only="preact" />
-			</div>
+    <main class="container-fluid pt-4 pb-2" style={{ minHeight: "calc(100vh - 95px)" }}>
+      <PostList posts={posts} client:only="preact" />
 		</main>
 		<Footer client:only="preact" />
 	</body>
