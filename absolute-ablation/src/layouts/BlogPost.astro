@@ -5,93 +5,174 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/preact/Footer';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/preact/Header';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 type Props = CollectionEntry<'blog'>['data'] | CollectionEntry<'tech'>['data'] | CollectionEntry<'fitness'>['data'] | CollectionEntry<'lifehack'>['data'] | CollectionEntry<'music'>['data'] & { category?: string };
 
 const { title, description, pubDate, date, updatedDate, heroImage, image, tags, category } = Astro.props;
 const postDate = date || pubDate;
+const displayImage = image || heroImage;
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description || ''} />
 		<style>
-			main {
-				width: calc(100% - 2em);
+			.post-header {
+				background: #fff;
+				padding: 2rem 0;
+				margin-bottom: 2rem;
+			}
+			.post-meta {
+				color: #6c757d;
+				font-size: 0.9rem;
+			}
+			.post-meta a {
+				color: #007bff;
+				text-decoration: none;
+			}
+			.post-meta a:hover {
+				text-decoration: underline;
+			}
+			.post-content {
+				font-size: 1.1rem;
+				line-height: 1.7;
+			}
+			.post-content h2 {
+				margin-top: 2rem;
+				margin-bottom: 1rem;
+				font-size: 1.8rem;
+			}
+			.post-content h3 {
+				margin-top: 1.5rem;
+				margin-bottom: 0.8rem;
+				font-size: 1.4rem;
+			}
+			.post-content p {
+				margin-bottom: 1.2rem;
+			}
+			.post-content ul, .post-content ol {
+				margin-bottom: 1.2rem;
+			}
+			.post-content blockquote {
+				padding-left: 1rem;
+				border-left: 4px solid #dee2e6;
+				color: #6c757d;
+				margin: 1.5rem 0;
+			}
+			.post-content img {
 				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
+				height: auto;
+				margin: 1.5rem auto;
 				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
 			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
+			.post-content pre {
+				background: #f4f4f4;
+				padding: 1rem;
+				border-radius: 4px;
+				overflow-x: auto;
+				margin: 1.5rem 0;
 			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
+			.post-content code {
+				background: #f4f4f4;
+				padding: 0.2rem 0.4rem;
+				border-radius: 3px;
+				font-size: 0.9em;
 			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
+			.post-content pre code {
+				background: none;
+				padding: 0;
 			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
+			.post-content table {
+				width: 100%;
+				margin: 1.5rem 0;
+				border-collapse: collapse;
 			}
-			.last-updated-on {
-				font-style: italic;
+			.post-content th, .post-content td {
+				padding: 0.5rem;
+				border: 1px solid #dee2e6;
+			}
+			.post-content th {
+				background: #f8f9fa;
+				font-weight: 600;
 			}
 		</style>
 	</head>
 
 	<body>
 		<Header client:only="preact" currentPath={Astro.url.pathname} />
-		<main class="bg-light">
+		<main>
 			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-					{!heroImage && image && (
-						<img src={image} alt="" style="width: 100%; max-width: 1020px; margin: 0 auto; display: block;" />
-					)}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							{postDate && <FormattedDate date={postDate} />}
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
+				<!-- Post Header -->
+				<div class="post-header">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-8 mx-auto">
+								<h1 class="display-4 mb-3">{title}</h1>
+								<div class="post-meta d-flex flex-wrap gap-3">
+									{postDate && (
+										<div>
+											<i class="bi bi-calendar me-1"></i>
+											<FormattedDate date={postDate} />
+										</div>
+									)}
+									{category && (
+										<div>
+											<i class="bi bi-folder me-1"></i>
+											<a href={`/category/${category}`}>{category.charAt(0).toUpperCase() + category.slice(1)}</a>
+										</div>
+									)}
+									{tags && tags.length > 0 && (
+										<div>
+											<i class="bi bi-tags me-1"></i>
+											{tags.join(', ')}
+										</div>
+									)}
+									{updatedDate && (
+										<div class="text-muted fst-italic">
+											Last updated on <FormattedDate date={updatedDate} />
+										</div>
+									)}
+								</div>
+							</div>
 						</div>
-						<h1>{title}</h1>
-						{tags && tags.length > 0 && (
-							<div class="tags">
-								Tags: {tags.join(', ')}
-							</div>
-						)}
-						{category && (
-							<div class="category">
-								Category: <a href={`/category/${category}`}>{category.charAt(0).toUpperCase() + category.slice(1)}</a>
-							</div>
-						)}
-						<hr />
 					</div>
-					<slot />
+				</div>
+
+				<!-- Featured Image -->
+				{displayImage && (
+					<div class="container mb-4">
+						<div class="row">
+							<div class="col-lg-10 mx-auto">
+								{heroImage ? (
+									<Image 
+										width={1020} 
+										height={510} 
+										src={heroImage} 
+										alt={title}
+										class="img-fluid rounded shadow" 
+									/>
+								) : (
+									<img 
+										src={image} 
+										alt={title}
+										class="img-fluid rounded shadow" 
+									/>
+								)}
+							</div>
+						</div>
+					</div>
+				)}
+
+				<!-- Post Content -->
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 mx-auto">
+							<div class="post-content">
+								<slot />
+							</div>
+						</div>
+					</div>
 				</div>
 			</article>
 		</main>
