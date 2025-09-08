@@ -3,9 +3,9 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   resolve: {
     alias: {
-      'react': 'preact/compat',
+      react: 'preact/compat',
       'react-dom': 'preact/compat',
-      'react/jsx-runtime': 'preact/jsx-runtime'
-    }
-  }
+      'react/jsx-runtime': 'preact/jsx-runtime',
+    },
+  },
 });

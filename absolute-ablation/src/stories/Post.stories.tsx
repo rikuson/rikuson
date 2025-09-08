@@ -26,7 +26,8 @@ export const Default: Story = {
     url: '/tech/introduction-to-react-hooks',
     date: new Date('2024-01-15'),
     category: 'tech',
-    excerpt: 'Learn the fundamentals of React Hooks and how they can simplify your component logic and state management.',
+    excerpt:
+      'Learn the fundamentals of React Hooks and how they can simplify your component logic and state management.',
   },
 };
 
@@ -37,7 +38,8 @@ export const WithImage: Story = {
     date: new Date('2024-02-20'),
     category: 'tech',
     image: 'https://rikson.imgix.net/wp-mac.jpg',
-    excerpt: 'A comprehensive guide to building modern web applications using the latest technologies and best practices.',
+    excerpt:
+      'A comprehensive guide to building modern web applications using the latest technologies and best practices.',
     tags: ['react', 'typescript', 'webpack'],
   },
 };
@@ -48,18 +50,21 @@ export const FitnessPost: Story = {
     url: '/fitness/morning-workout-routine',
     date: new Date('2024-03-10'),
     category: 'fitness',
-    excerpt: 'Start your day right with this simple yet effective morning workout routine designed for beginners.',
+    excerpt:
+      'Start your day right with this simple yet effective morning workout routine designed for beginners.',
     tags: ['exercise', 'health', 'morning'],
   },
 };
 
 export const LongTitle: Story = {
   args: {
-    title: 'A Comprehensive Guide to Understanding and Implementing Microservices Architecture in Modern Cloud-Native Applications',
+    title:
+      'A Comprehensive Guide to Understanding and Implementing Microservices Architecture in Modern Cloud-Native Applications',
     url: '/tech/microservices-guide',
     date: new Date('2024-01-30'),
     category: 'tech',
-    excerpt: 'Explore the world of microservices architecture and learn how to implement it effectively in your projects.',
+    excerpt:
+      'Explore the world of microservices architecture and learn how to implement it effectively in your projects.',
   },
 };
 

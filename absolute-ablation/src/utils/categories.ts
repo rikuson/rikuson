@@ -7,10 +7,10 @@ export async function getCategories(): Promise<string[]> {
     const contentDir = join(process.cwd(), 'src/content');
     const entries = await readdir(contentDir, { withFileTypes: true });
     const categories = entries
-      .filter(entry => entry.isDirectory())
-      .map(entry => entry.name)
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name)
       .sort();
-    
+
     return categories;
   } catch (error) {
     console.warn('Failed to read categories from directory, using fallback:', error);

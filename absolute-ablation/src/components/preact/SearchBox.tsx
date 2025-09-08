@@ -20,7 +20,7 @@ export const SearchBox: React.FC<SearchBoxProps> = ({ posts = [] }) => {
     setShow(false);
     setSearchTerm('');
   };
-  
+
   const handleShow = () => setShow(true);
 
   const handleSearch = (e: React.FormEvent) => {
@@ -31,19 +31,16 @@ export const SearchBox: React.FC<SearchBoxProps> = ({ posts = [] }) => {
     }
   };
 
-  const filteredPosts = searchTerm.trim() 
-    ? posts.filter(post => 
-        post.title.toLowerCase().includes(searchTerm.toLowerCase())
-      ).slice(0, 10)
+  const filteredPosts = searchTerm.trim()
+    ? posts
+        .filter((post) => post.title.toLowerCase().includes(searchTerm.toLowerCase()))
+        .slice(0, 10)
     : [];
 
   return (
     <>
       <div className="d-grid">
-        <Button 
-          variant="outline-secondary"
-          onClick={handleShow}
-        >
+        <Button variant="outline-secondary" onClick={handleShow}>
           Search...
         </Button>
       </div>
@@ -60,11 +57,11 @@ export const SearchBox: React.FC<SearchBoxProps> = ({ posts = [] }) => {
                 autoFocus
                 autoComplete="off"
               />
-              <Button 
-                variant="link" 
+              <Button
+                variant="link"
                 className="text-secondary border-0 bg-transparent position-absolute end-0 top-50 translate-middle-y me-2"
                 style={{ zIndex: 10 }}
-                onClick={() => searchTerm ? setSearchTerm('') : handleClose()}
+                onClick={() => (searchTerm ? setSearchTerm('') : handleClose())}
               >
                 {isSearching ? (
                   <FaSpinner className="fa-spin" />
@@ -81,12 +78,7 @@ export const SearchBox: React.FC<SearchBoxProps> = ({ posts = [] }) => {
             <>
               <ListGroup>
                 {filteredPosts.map((post, index) => (
-                  <ListGroup.Item 
-                    key={index} 
-                    action 
-                    href={post.url}
-                    as="a"
-                  >
+                  <ListGroup.Item key={index} action href={post.url} as="a">
                     {post.title}
                   </ListGroup.Item>
                 ))}

@@ -8,8 +8,11 @@ interface HeaderProps {
   categories?: string[];
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentPath = '/', categories = ['fitness', 'lifehack', 'music', 'tech'] }) => {
-  const baseUrl = typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL || '';
+export const Header: React.FC<HeaderProps> = ({
+  currentPath = '/',
+  categories = ['fitness', 'lifehack', 'music', 'tech'],
+}) => {
+  const baseUrl = (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '';
   const pathname = currentPath.replace(baseUrl, '');
 
   return (
@@ -21,7 +24,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/', categories = 
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               {categories.map((category) => (
-                <Nav.Link 
+                <Nav.Link
                   key={category}
                   href={`/${category}`}
                   className="px-3"

@@ -4,15 +4,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
-- **Build for production**: `npm run build` - Creates production bundle with Webpack
-- **Start development server**: `npm start` - Starts Webpack dev server on port 8080
-- **Run tests**: `npm test` - Runs Jest test suite
+- **Start development server**: `npm run dev` - Starts Astro dev server on port 4321
+- **Build for production**: `npm run build` - Creates production build with Astro
+- **Preview production build**: `npm run preview` - Preview production build
+- **Format code**: `npm run format` - Format code with Biome
+- **Check formatting**: `npm run format:check` - Check if code is formatted
+- **Lint code**: `npm run lint` - Lint code with Biome
+- **Fix linting issues**: `npm run lint:fix` - Auto-fix linting issues
+- **Full check**: `npm run check` - Format and lint in one command
+- **Full check and fix**: `npm run check:fix` - Format and fix linting issues
 
-Note: Production build requires `NODE_OPTIONS='--openssl-legacy-provider'` for compatibility.
+## Code Quality
+
+- **Biome**: Used for code formatting and linting
+- **Pre-commit hooks**: Automatically format code before commits using Husky and lint-staged
 
 ## Architecture
 
-This is a Jekyll-based blog with a JavaScript frontend using an MVC pattern:
+This is an Astro-based blog with Preact components:
 
 ### Frontend Architecture
 - **Entry point**: `_src/app.js` - Main application entry

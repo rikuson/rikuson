@@ -20,7 +20,8 @@ const samplePosts = [
     url: '/tech/getting-started-typescript',
     date: new Date('2024-03-15'),
     category: 'tech',
-    excerpt: 'Learn the basics of TypeScript and how it can improve your JavaScript development experience.',
+    excerpt:
+      'Learn the basics of TypeScript and how it can improve your JavaScript development experience.',
     tags: ['typescript', 'javascript', 'programming'],
   },
   {
@@ -29,7 +30,8 @@ const samplePosts = [
     url: '/fitness/morning-yoga',
     date: new Date('2024-03-14'),
     category: 'fitness',
-    excerpt: 'Start your day with this energizing 20-minute yoga routine that will leave you feeling refreshed.',
+    excerpt:
+      'Start your day with this energizing 20-minute yoga routine that will leave you feeling refreshed.',
     tags: ['yoga', 'morning', 'wellness'],
   },
   {

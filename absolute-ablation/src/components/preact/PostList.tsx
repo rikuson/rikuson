@@ -47,7 +47,7 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => {
       // Gradually reveal posts with animation
       posts.forEach((post, index) => {
         setTimeout(() => {
-          setVisiblePosts(prev => [...prev, post]);
+          setVisiblePosts((prev) => [...prev, post]);
         }, index * 100); // 100ms delay between each post
       });
     }, 300);
@@ -60,7 +60,7 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => {
     1200: 4,
     992: 3,
     768: 2,
-    576: 1
+    576: 1,
   };
 
   return (
@@ -69,15 +69,14 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => {
       className="masonry-grid"
       columnClassName="masonry-grid-column"
     >
-      {isLoading ? (
-        // Show placeholders while loading
-        Array.from({ length: Math.min(8, posts.length) }).map((_, index) => (
-          <div key={`placeholder-${index}`} className="mb-4">
-            <PostPlaceholder />
-          </div>
-        ))
-      ) : (
-          // Show actual posts with animation
+      {isLoading
+        ? // Show placeholders while loading
+          Array.from({ length: Math.min(8, posts.length) }).map((_, index) => (
+            <div key={`placeholder-${index}`} className="mb-4">
+              <PostPlaceholder />
+            </div>
+          ))
+        : // Show actual posts with animation
           visiblePosts.map((post) => (
             <div key={post.id} className="post-item">
               <Post
@@ -90,8 +89,7 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => {
                 tags={post.tags}
               />
             </div>
-          ))
-        )}
+          ))}
     </Masonry>
   );
 };

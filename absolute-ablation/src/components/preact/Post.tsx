@@ -12,10 +12,12 @@ interface PostProps {
 }
 
 export const Post: React.FC<PostProps> = ({ title, url, date, category, image, excerpt, tags }) => {
-  const formatDate = (d: Date | string) => 
+  const formatDate = (d: Date | string) =>
     new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
-  const imageUrl = image || `https://rikson.imgix.net/placeholder.png?txt=${encodeURIComponent(title)}&txt-size=48&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&w=600&txt-color=fff`;
+  const imageUrl =
+    image ||
+    `https://rikson.imgix.net/placeholder.png?txt=${encodeURIComponent(title)}&txt-size=48&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&w=600&txt-color=fff`;
 
   return (
     <Card className="shadow h-100">
@@ -30,7 +32,9 @@ export const Post: React.FC<PostProps> = ({ title, url, date, category, image, e
         <div className="mb-3">
           <small>
             {category && (
-              <a href={`/${category}`} className="text-decoration-none me-3"><FaFolderOpen /> {category.charAt(0).toUpperCase() + category.slice(1)}</a>
+              <a href={`/${category}`} className="text-decoration-none me-3">
+                <FaFolderOpen /> {category.charAt(0).toUpperCase() + category.slice(1)}
+              </a>
             )}
             <FaCalendarAlt /> {formatDate(date)}
           </small>
