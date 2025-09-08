@@ -1,5 +1,6 @@
 import type React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { FaSearch } from 'react-icons/fa';
 import { SITE_TITLE } from '../../consts';
 import SearchBox from './SearchBox';
 
@@ -20,7 +21,9 @@ export const Header: React.FC<HeaderProps> = ({
       <Navbar expand="lg" bg="primary" variant="dark">
         <Container fluid>
           <Navbar.Brand href="/">{SITE_TITLE}</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0">
+            <FaSearch />
+          </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               {categories.map((category) => (
