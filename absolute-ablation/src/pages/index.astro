@@ -38,6 +38,8 @@ const posts = recentPosts.map(post => {
 		// Remove markdown formatting and get first 150 characters
 		const plainText = post.body
 			.replace(/^---[\s\S]*?---/, '') // Remove frontmatter
+			.replace(/^import\s+.*?;?\s*$/gm, '') // Remove import statements
+			.replace(/<[^>]*>/g, '') // Remove HTML/JSX tags
 			.replace(/#{1,6}\s/g, '') // Remove headers
 			.replace(/[*_~`]/g, '') // Remove formatting
 			.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links
