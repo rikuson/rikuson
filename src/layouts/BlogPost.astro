@@ -1,10 +1,12 @@
 ---
 import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/preact/Footer';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/preact/Header';
+import { getCategories } from '../utils/categories';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 type Props = CollectionEntry<'blog'>['data'] | CollectionEntry<'tech'>['data'] | CollectionEntry<'fitness'>['data'] | CollectionEntry<'lifehack'>['data'] | CollectionEntry<'music'>['data'] & { category?: string; autoImage?: string };
@@ -12,6 +14,29 @@ type Props = CollectionEntry<'blog'>['data'] | CollectionEntry<'tech'>['data'] |
 const { title, description, pubDate, date, updatedDate, heroImage, image, tags, category, autoImage } = Astro.props;
 const postDate = date || pubDate;
 const displayImage = image || heroImage || autoImage;
+const categories = await getCategories();
+
+// Get current post slug from URL
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+
+// Get all posts from all categories and sort by date
+const allPosts = [];
+for (const cat of categories) {
+  const categoryPosts = await getCollection(cat);
+  allPosts.push(...categoryPosts.map((post) => ({ ...post, category: cat })));
+}
+// Sort all posts by date (newest first)
+allPosts.sort((a, b) => {
+  const dateA = a.data.date || a.data.pubDate || new Date(0);
+  const dateB = b.data.date || b.data.pubDate || new Date(0);
+  return dateB.valueOf() - dateA.valueOf();
+});
+
+// Find current post index and get prev/next
+const currentIndex = allPosts.findIndex(post => post.id === currentSlug);
+// Since posts are sorted newest first: newer = index-1, older = index+1
+const newerPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+const olderPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 ---
 
 <html lang="en">
@@ -85,7 +110,7 @@ const displayImage = image || heroImage || autoImage;
 	</head>
 
 	<body>
-		<Header client:only="preact" currentPath={Astro.url.pathname} />
+		<Header client:only="preact" currentPath={Astro.url.pathname} categories={categories} />
 		<main>
 			<article>
         <header class="container border-bottom mt-5 mb-3 pb-1">
@@ -110,6 +135,21 @@ const displayImage = image || heroImage || autoImage;
 						<div class="post-content">
 							<slot />
 						</div>
+
+						{(newerPost || olderPost) && (
+							<div class="clearfix mt-5">
+								{newerPost && (
+									<a class="float-start" href={`/${newerPost.category}/${newerPost.id}/`}>
+										<i class="bi bi-arrow-left"></i> {newerPost.data.title}
+									</a>
+								)}
+								{olderPost && (
+									<a class="float-end" href={`/${olderPost.category}/${olderPost.id}/`}>
+										{olderPost.data.title} <i class="bi bi-arrow-right"></i>
+									</a>
+								)}
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
