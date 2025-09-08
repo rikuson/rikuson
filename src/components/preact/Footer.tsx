@@ -20,34 +20,16 @@ export const Footer: React.FC = () => {
               <dd>Software Engineer</dd>
             </dl>
             <div>
-              <a
-                className="text-white me-2"
-                style={{ fontSize: '1rem' }}
-                href="https://github.com/rikuson"
-              >
-                <FaGithub />
-              </a>
-              <a
-                className="text-white me-2"
-                style={{ fontSize: '1rem' }}
-                href="https://x.com/rikson_en"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                className="text-white me-2"
-                style={{ fontSize: '1rem' }}
-                href="https://www.youtube.com/@rikson_en"
-              >
-                <FaYoutube />
-              </a>
-              <a
-                className="text-white me-2"
-                style={{ fontSize: '1rem' }}
-                href="https://podcasters.spotify.com/pod/show/waotw"
-              >
-                <FaPodcast />
-              </a>
+              {[
+                { href: 'https://github.com/rikuson', icon: FaGithub },
+                { href: 'https://x.com/rikson_en', icon: FaTwitter },
+                { href: 'https://www.youtube.com/@rikson_en', icon: FaYoutube },
+                { href: 'https://podcasters.spotify.com/pod/show/waotw', icon: FaPodcast },
+              ].map(({ href, icon: Icon }) => (
+                <a key={href} className="text-white me-2" style={{ fontSize: '1rem' }} href={href}>
+                  <Icon />
+                </a>
+              ))}
             </div>
           </Col>
         </Row>

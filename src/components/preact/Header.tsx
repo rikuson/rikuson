@@ -12,12 +12,12 @@ export const Header: React.FC<HeaderProps> = ({
   currentPath = '/',
   categories = ['fitness', 'lifehack', 'music', 'tech'],
 }) => {
-  const baseUrl = (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '';
+  const baseUrl = import.meta?.env?.BASE_URL || '';
   const pathname = currentPath.replace(baseUrl, '');
 
   return (
     <header>
-      <Navbar expand="lg" bg="primary" className="navbar-dark">
+      <Navbar expand="lg" bg="primary" variant="dark">
         <Container fluid>
           <Navbar.Brand href="/">{SITE_TITLE}</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({
                   key={category}
                   href={`/${category}`}
                   className="px-3"
-                  active={pathname === category}
+                  active={pathname === `/${category}` || pathname.startsWith(`/${category}/`)}
                 >
                   {category}
                 </Nav.Link>
