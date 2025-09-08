@@ -23,9 +23,9 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/', categories = 
               {categories.map((category) => (
                 <Nav.Link 
                   key={category}
-                  href={`/category/${category}`} 
+                  href={`/${category}`}
                   className="px-3" 
-                  active={pathname === `/category/${category}` || pathname.startsWith(`/${category}/`)}
+                  active={pathname === `/${category}` || pathname.startsWith(`/${category}/`)}
                 >
                   {category}
                 </Nav.Link>

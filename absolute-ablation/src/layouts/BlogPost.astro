@@ -95,7 +95,7 @@ const displayImage = image || heroImage || autoImage;
 								<h1 class="display-4 mb-3">{title}</h1>
 								<div class="d-flex flex-wrap gap-3 text-muted small">
 									{postDate && <div><i class="bi bi-calendar me-1"></i><FormattedDate date={postDate} /></div>}
-									{category && <div><i class="bi bi-folder me-1"></i><a href={`/category/${category}`} class="text-decoration-none">{category.charAt(0).toUpperCase() + category.slice(1)}</a></div>}
+									{category && <div><i class="bi bi-folder me-1"></i><a href={`/${category}`} class="text-decoration-none">{category.charAt(0).toUpperCase() + category.slice(1)}</a></div>}
 									{tags?.length > 0 && <div><i class="bi bi-tags me-1"></i>{tags.join(', ')}</div>}
 									{updatedDate && <div class="fst-italic">Last updated on <FormattedDate date={updatedDate} /></div>}
 								</div>
