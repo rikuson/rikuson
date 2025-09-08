@@ -40,13 +40,20 @@ export const Post: React.FC<PostProps> = ({ title, url, date, category, image, e
           </small>
         </div>
 
-        {excerpt && <Card.Text>{excerpt}</Card.Text>}
-
-        <div className="text-end">
-          <Card.Link href={url}>
-            <FaArrowRight size={12} />
-          </Card.Link>
-        </div>
+        {excerpt && (
+          <Card.Text>
+            {excerpt.endsWith('...') ? (
+              <>
+                {excerpt.slice(0, -3)}
+                <Card.Link href={url} className="text-decoration-none">
+                  {' '}[...]
+                </Card.Link>
+              </>
+            ) : (
+              excerpt
+            )}
+          </Card.Text>
+        )}
       </Card.Body>
     </Card>
   );
