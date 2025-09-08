@@ -1,0 +1,60 @@
+---
+import { SITE_TITLE } from '../consts';
+import SearchBox from './preact/SearchBox';
+
+interface Props {
+  currentPath?: string;
+  categories?: string[];
+}
+
+const { 
+  currentPath = '/', 
+  categories = ['fitness', 'lifehack', 'music', 'tech'] 
+} = Astro.props;
+
+const pathname = currentPath;
+---
+
+<header>
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">{SITE_TITLE}</a>
+      
+      <button 
+        class="navbar-toggler border-0" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+        style="border: none !important; outline: none;"
+      >
+        <i class="bi bi-search"></i>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          {categories.map((category) => (
+            <li class="nav-item">
+              <a 
+                class={`nav-link px-3 ${pathname === `/${category}` || pathname.startsWith(`/${category}/`) ? 'active' : ''}`}
+                href={`/${category}`}
+              >
+                {category}
+              </a>
+            </li>
+          ))}
+        </ul>
+        
+        <SearchBox client:only="preact" />
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Add Bootstrap JavaScript for navbar collapse functionality -->
+<script>
+  // Import Bootstrap JS for navbar functionality
+  import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+</script>

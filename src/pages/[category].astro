@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/preact/Header';
+import Header from '../components/Header.astro';
 import Footer from '../components/preact/Footer';
 import PostList from '../components/preact/PostList';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
@@ -18,6 +18,9 @@ export async function getStaticPaths() {
 }
 
 const { category } = Astro.props;
+
+// Get all categories for header navigation
+const categories = await getCategories();
 
 // Get posts from the specific category collection
 const categoryPosts = (await getCollection(category)).sort(
@@ -70,7 +73,7 @@ const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
 		<BaseHead title={`${categoryTitle} - ${SITE_TITLE}`} description={`${categoryTitle} posts on ${SITE_TITLE}`} />
 	</head>
 	<body>
-		<Header client:only="preact" currentPath={Astro.url.pathname} />
+		<Header currentPath={Astro.url.pathname} categories={categories} />
     <main class="container-fluid pt-4 pb-2" style={{ minHeight: "calc(100vh - 95px)" }}>
       <PostList posts={posts} client:only="preact" />
     </main>

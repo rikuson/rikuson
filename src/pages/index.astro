@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/preact/Footer';
-import Header from '../components/preact/Header';
+import Header from '../components/Header.astro';
 import PostList from '../components/preact/PostList';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { extractFirstImage } from '../utils/extract-first-image';
@@ -66,7 +66,7 @@ const posts = recentPosts.map((post) => {
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header client:only="preact" currentPath={Astro.url.pathname} />
+		<Header currentPath={Astro.url.pathname} categories={categories} />
     <main class="container-fluid pt-4 pb-2" style={{ minHeight: "calc(100vh - 95px)" }}>
       <PostList posts={posts} client:only="preact" />
 		</main>
