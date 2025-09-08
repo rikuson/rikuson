@@ -1,5 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { readdirSync } from 'node:fs';
+import { join } from 'node:path';
 
 const postSchema = ({ image }: { image: any }) =>
 	z.object({
@@ -15,31 +17,28 @@ const postSchema = ({ image }: { image: any }) =>
 		category: z.string().optional(),
 	});
 
-const blog = defineCollection({
-	// Load Markdown and MDX files in the `src/content/blog/` directory.
-	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
-	// Type-check frontmatter using a schema
-	schema: postSchema,
-});
+// Dynamically discover content directories
+const contentDir = './src/content';
+let categoryDirs: string[] = [];
 
-const tech = defineCollection({
-	loader: glob({ base: './src/content/tech', pattern: '**/*.{md,mdx}' }),
-	schema: postSchema,
-});
+try {
+	categoryDirs = readdirSync(contentDir, { withFileTypes: true })
+		.filter(entry => entry.isDirectory())
+		.map(entry => entry.name)
+		.sort();
+} catch (error) {
+	console.warn('Failed to read content directories, using fallback:', error);
+	categoryDirs = ['tech', 'fitness', 'lifehack', 'music'];
+}
 
-const fitness = defineCollection({
-	loader: glob({ base: './src/content/fitness', pattern: '**/*.{md,mdx}' }),
-	schema: postSchema,
-});
+// Create collections dynamically
+const collections: Record<string, any> = {};
 
-const lifehack = defineCollection({
-	loader: glob({ base: './src/content/lifehack', pattern: '**/*.{md,mdx}' }),
-	schema: postSchema,
-});
+for (const category of categoryDirs) {
+	collections[category] = defineCollection({
+		loader: glob({ base: `./src/content/${category}`, pattern: '**/*.{md,mdx}' }),
+		schema: postSchema,
+	});
+}
 
-const music = defineCollection({
-	loader: glob({ base: './src/content/music', pattern: '**/*.{md,mdx}' }),
-	schema: postSchema,
-});
-
-export const collections = { blog, tech, fitness, lifehack, music };
+export { collections };

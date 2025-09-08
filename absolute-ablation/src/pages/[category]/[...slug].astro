@@ -2,9 +2,10 @@
 import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import { extractFirstImage } from '../../utils/extract-first-image';
+import { getCategories } from '../../utils/categories';
 
 export async function getStaticPaths() {
-	const categories = ['tech', 'fitness', 'lifehack', 'music'] as const;
+	const categories = await getCategories();
 	const paths = [];
 	
 	for (const category of categories) {

@@ -6,20 +6,16 @@ import Header from '../components/Header.astro';
 import PostList from '../components/preact/PostList';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { extractFirstImage } from '../utils/extract-first-image';
+import { getCategories } from '../utils/categories';
 
-// Get all posts from all categories
-const techPosts = await getCollection('tech');
-const fitnessPosts = await getCollection('fitness');
-const lifehackPosts = await getCollection('lifehack');
-const musicPosts = await getCollection('music');
+// Get all posts from all categories dynamically
+const categories = await getCategories();
+const allPosts = [];
 
-// Combine all posts
-const allPosts = [
-	...techPosts.map(post => ({ ...post, category: 'tech' })),
-	...fitnessPosts.map(post => ({ ...post, category: 'fitness' })),
-	...lifehackPosts.map(post => ({ ...post, category: 'lifehack' })),
-	...musicPosts.map(post => ({ ...post, category: 'music' }))
-];
+for (const category of categories) {
+	const posts = await getCollection(category);
+	allPosts.push(...posts.map(post => ({ ...post, category })));
+}
 
 // Sort posts by date (newest first)
 const sortedPosts = allPosts.sort((a, b) => {
