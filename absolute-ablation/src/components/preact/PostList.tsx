@@ -64,20 +64,19 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => {
   };
 
   return (
-    <Container fluid className="py-4">
-      <Masonry
-        breakpointCols={breakpointColumns}
-        className="masonry-grid"
-        columnClassName="masonry-grid-column"
-      >
-        {isLoading ? (
-          // Show placeholders while loading
-          Array.from({ length: Math.min(8, posts.length) }).map((_, index) => (
-            <div key={`placeholder-${index}`} className="mb-4">
-              <PostPlaceholder />
-            </div>
-          ))
-        ) : (
+    <Masonry
+      breakpointCols={breakpointColumns}
+      className="masonry-grid"
+      columnClassName="masonry-grid-column"
+    >
+      {isLoading ? (
+        // Show placeholders while loading
+        Array.from({ length: Math.min(8, posts.length) }).map((_, index) => (
+          <div key={`placeholder-${index}`} className="mb-4">
+            <PostPlaceholder />
+          </div>
+        ))
+      ) : (
           // Show actual posts with animation
           visiblePosts.map((post) => (
             <div key={post.id} className="post-item">
@@ -93,8 +92,7 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => {
             </div>
           ))
         )}
-      </Masonry>
-    </Container>
+    </Masonry>
   );
 };
 

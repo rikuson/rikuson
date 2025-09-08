@@ -13,8 +13,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/' }) => {
   
   return (
     <header>
-      <Navbar expand="lg" className="navbar-dark bg-primary">
-        <Container>
+      <Navbar expand="lg" bg="primary" className="navbar-dark">
+        <Container fluid>
           <Navbar.Brand href="/">{SITE_TITLE}</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

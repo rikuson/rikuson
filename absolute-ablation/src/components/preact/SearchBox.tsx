@@ -41,22 +41,8 @@ export const SearchBox: React.FC<SearchBoxProps> = ({ posts = [] }) => {
     <>
       <div className="d-grid">
         <Button 
-          variant="outline-light" 
+          variant="outline-secondary"
           onClick={handleShow}
-          className="btn-sm"
-          style={{ 
-            borderColor: 'rgba(255, 255, 255, 0.5)',
-            color: 'rgba(255, 255, 255, 0.9)',
-            backgroundColor: 'transparent'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.7)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'transparent';
-            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-          }}
         >
           Search...
         </Button>

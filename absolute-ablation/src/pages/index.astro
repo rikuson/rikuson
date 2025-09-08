@@ -69,7 +69,7 @@ const posts = recentPosts.map(post => {
 	<body>
 		<Header />
 		<main>
-			<div class="container py-4">
+			<div class="container-fluid pt-4 pb-2">
 				<PostList posts={posts} client:only="preact" />
 			</div>
 		</main>
