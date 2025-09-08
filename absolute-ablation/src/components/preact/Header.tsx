@@ -5,9 +5,10 @@ import SearchBox from './SearchBox';
 
 interface HeaderProps {
   currentPath?: string;
+  categories?: string[];
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentPath = '/' }) => {
+export const Header: React.FC<HeaderProps> = ({ currentPath = '/', categories = ['fitness', 'lifehack', 'music', 'tech'] }) => {
   const baseUrl = typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL || '';
   const pathname = currentPath.replace(baseUrl, '');
   
@@ -19,10 +20,16 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/' }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/category/tech" className="px-3" active={pathname === '/category/tech' || pathname.startsWith('/tech/')}>tech</Nav.Link>
-              <Nav.Link href="/category/fitness" className="px-3" active={pathname === '/category/fitness' || pathname.startsWith('/fitness/')}>fitness</Nav.Link>
-              <Nav.Link href="/category/lifehack" className="px-3" active={pathname === '/category/lifehack' || pathname.startsWith('/lifehack/')}>lifehack</Nav.Link>
-              <Nav.Link href="/category/music" className="px-3" active={pathname === '/category/music' || pathname.startsWith('/music/')}>music</Nav.Link>
+              {categories.map((category) => (
+                <Nav.Link 
+                  key={category}
+                  href={`/category/${category}`} 
+                  className="px-3" 
+                  active={pathname === `/category/${category}` || pathname.startsWith(`/${category}/`)}
+                >
+                  {category}
+                </Nav.Link>
+              ))}
             </Nav>
             <SearchBox />
           </Navbar.Collapse>

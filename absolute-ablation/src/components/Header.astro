@@ -1,5 +1,8 @@
 ---
 import HeaderComponent from './preact/Header.tsx';
+import { getCategories } from '../utils/categories';
+
+const categories = await getCategories();
 ---
 
-<HeaderComponent client:only="preact" currentPath={Astro.url.pathname} />
+<HeaderComponent client:only="preact" currentPath={Astro.url.pathname} categories={categories} />
