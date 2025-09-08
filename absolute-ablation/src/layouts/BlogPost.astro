@@ -104,26 +104,23 @@ const displayImage = image || heroImage;
 					</div>
 				</header>
 
-				{displayImage && (
-					<div class="container mb-4">
-						<div class="row">
-							<div class="col-lg-10 mx-auto">
-								{heroImage ? 
-									<Image width={1020} height={510} src={heroImage} alt={title} class="img-fluid rounded shadow" /> :
-									<img src={image} alt={title} class="img-fluid rounded shadow" />
-								}
-							</div>
+			<div class="container pt-4 pb-2">
+				<div class="row">
+					<div class="col-lg-8 offset-lg-2">
+						<div class="d-block w-100 position-relative overflow-hidden mb-3" style="aspect-ratio: 7 / 4;">
+							<img
+								class="img-fluid card-img-top position-absolute top-50 start-50 translate-middle"
+								src={displayImage || `https://rikson.imgix.net${Astro.url.pathname}?txt=${encodeURIComponent(title)}&txt-size=80&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&txt-color=fff&w=856`}
+								alt="thumbnail"
+							/>
 						</div>
-					</div>
-				)}
 
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 mx-auto post-content">
+						<div class="post-content">
 							<slot />
 						</div>
 					</div>
 				</div>
+			</div>
 			</article>
 		</main>
 		<Footer client:only="preact" />
