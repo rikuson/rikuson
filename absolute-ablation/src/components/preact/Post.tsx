@@ -22,32 +22,27 @@ export const Post: React.FC<PostProps> = ({ title, url, date, category, image, e
       <Card.Link href={url} className="ratio ratio-16x9">
         <Card.Img src={imageUrl} alt={title} className="object-fit-cover" />
       </Card.Link>
-      <Card.Body className="d-flex flex-column">
-        <Card.Title as="h3" className="h4">
-          <Card.Link href={url} className="text-decoration-none text-dark">{title}</Card.Link>
+      <Card.Body>
+        <Card.Title className="h4">
+          <Card.Link href={url}>{title}</Card.Link>
         </Card.Title>
-        
-        <Stack direction="horizontal" gap={2} className="small text-muted mb-2 flex-wrap">
-          <div><FaCalendarAlt size={14} className="me-1" />{formatDate(date)}</div>
-          {category && (
-            <div>
-              <FaFolderOpen size={14} className="me-1" />
-              <Card.Link href={`/category/${category}`}>{category.charAt(0).toUpperCase() + category.slice(1)}</Card.Link>
-            </div>
-          )}
-        </Stack>
-        
-        {tags?.length > 0 && (
-          <Stack direction="horizontal" gap={1} className="mb-2">
-            {tags.map(tag => <Badge bg="secondary" key={tag}>{tag}</Badge>)}
-          </Stack>
-        )}
-        
-        {excerpt && <Card.Text className="flex-grow-1">{excerpt}</Card.Text>}
-        
-        <Card.Link href={url} className="ms-auto">
-          Read more <FaArrowRight size={12} />
-        </Card.Link>
+
+        <div className="mb-3">
+          <small>
+            {category && (
+              <a href={`/${category}`} className="text-decoration-none me-3"><FaFolderOpen /> {category.charAt(0).toUpperCase() + category.slice(1)}</a>
+            )}
+            <FaCalendarAlt /> {formatDate(date)}
+          </small>
+        </div>
+
+        {excerpt && <Card.Text>{excerpt}</Card.Text>}
+
+        <div className="text-end">
+          <Card.Link href={url}>
+            <FaArrowRight size={12} />
+          </Card.Link>
+        </div>
       </Card.Body>
     </Card>
   );
