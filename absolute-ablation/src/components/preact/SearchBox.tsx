@@ -93,7 +93,7 @@ export const SearchBox: React.FC<SearchBoxProps> = ({ posts = [] }) => {
 
           {filteredPosts.length > 0 && (
             <>
-              <ListGroup flush>
+              <ListGroup>
                 {filteredPosts.map((post, index) => (
                   <ListGroup.Item 
                     key={index} 

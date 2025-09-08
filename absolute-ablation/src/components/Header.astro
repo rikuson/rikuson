@@ -1,5 +1,5 @@
 ---
-import Header from './preact/Header.tsx';
+import HeaderComponent from './preact/Header.tsx';
 ---
 
-<Header client:only="preact" currentPath={Astro.url.pathname} />
+<HeaderComponent client:only="preact" currentPath={Astro.url.pathname} />

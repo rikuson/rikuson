@@ -80,21 +80,18 @@ export const Default: Story = {
 export const TwoColumns: Story = {
   args: {
     posts: samplePosts.slice(0, 4),
-    columns: { md: 6 },
   },
 };
 
 export const ThreeColumns: Story = {
   args: {
     posts: samplePosts.slice(0, 3),
-    columns: { md: 6, lg: 4 },
   },
 };
 
 export const SingleColumn: Story = {
   args: {
     posts: samplePosts.slice(0, 2),
-    columns: { xs: 12 },
   },
 };
 
