@@ -11,7 +11,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ currentPath = '/', categories = ['fitness', 'lifehack', 'music', 'tech'] }) => {
   const baseUrl = typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL || '';
   const pathname = currentPath.replace(baseUrl, '');
-  
+
   return (
     <header>
       <Navbar expand="lg" bg="primary" className="navbar-dark">
@@ -24,8 +24,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/', categories = 
                 <Nav.Link 
                   key={category}
                   href={`/${category}`}
-                  className="px-3" 
-                  active={pathname === `/${category}` || pathname.startsWith(`/${category}/`)}
+                  className="px-3"
+                  active={pathname === category}
                 >
                   {category}
                 </Nav.Link>
