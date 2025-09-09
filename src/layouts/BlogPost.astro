@@ -1,0 +1,176 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/preact/Footer';
+import { getCategories } from '../utils/categories';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
+type Props =
+  | CollectionEntry<'blog'>['data']
+  | CollectionEntry<'tech'>['data']
+  | CollectionEntry<'fitness'>['data']
+  | CollectionEntry<'lifehack'>['data']
+  | (CollectionEntry<'music'>['data'] & { category?: string; autoImage?: string });
+
+const {
+  title,
+  description,
+  pubDate,
+  date,
+  updatedDate,
+  heroImage,
+  image,
+  tags,
+  category,
+  autoImage,
+} = Astro.props;
+const postDate = date || pubDate;
+const displayImage = image || heroImage || autoImage;
+const categories = await getCategories();
+
+// Get current post slug from URL
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+
+// Get all posts from all categories and sort by date
+const allPosts = [];
+for (const cat of categories) {
+  const categoryPosts = await getCollection(cat);
+  allPosts.push(...categoryPosts.map((post) => ({ ...post, category: cat })));
+}
+// Sort all posts by date (newest first)
+allPosts.sort((a, b) => {
+  const dateA = a.data.date || a.data.pubDate || new Date(0);
+  const dateB = b.data.date || b.data.pubDate || new Date(0);
+  return dateB.valueOf() - dateA.valueOf();
+});
+
+// Find current post index and get prev/next
+const currentIndex = allPosts.findIndex((post) => post.id === currentSlug);
+// Since posts are sorted newest first: newer = index-1, older = index+1
+const newerPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+const olderPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description || ''} />
+		<style>
+			.post-header { background: #fff; margin-bottom: 2rem; }
+			.post-content {
+				font-size: 1.1rem;
+				line-height: 1.7;
+			}
+			.post-content h2 {
+				margin-top: 2rem;
+				margin-bottom: 1rem;
+				font-size: 1.8rem;
+			}
+			.post-content h3 {
+				margin-top: 1.5rem;
+				margin-bottom: 0.8rem;
+				font-size: 1.4rem;
+			}
+			.post-content p {
+				margin-bottom: 1.2rem;
+			}
+			.post-content ul, .post-content ol {
+				margin-bottom: 1.2rem;
+			}
+			.post-content blockquote {
+				padding-left: 1rem;
+				border-left: 4px solid #dee2e6;
+				color: #6c757d;
+				margin: 1.5rem 0;
+			}
+			.post-content img {
+				max-width: 100%;
+				height: auto;
+				margin: 1.5rem auto;
+				display: block;
+			}
+			.post-content pre {
+				background: #f4f4f4;
+				padding: 1rem;
+				border-radius: 4px;
+				overflow-x: auto;
+				margin: 1.5rem 0;
+			}
+			.post-content code {
+				background: #f4f4f4;
+				padding: 0.2rem 0.4rem;
+				border-radius: 3px;
+				font-size: 0.9em;
+			}
+			.post-content pre code {
+				background: none;
+				padding: 0;
+			}
+			.post-content table {
+				width: 100%;
+				margin: 1.5rem 0;
+				border-collapse: collapse;
+			}
+			.post-content th, .post-content td {
+				padding: 0.5rem;
+				border: 1px solid #dee2e6;
+			}
+			.post-content th {
+				background: #f8f9fa;
+				font-weight: 600;
+			}
+		</style>
+	</head>
+
+	<body>
+		<Header currentPath={Astro.url.pathname} categories={categories} />
+		<main>
+			<article>
+        <header class="container border-bottom mt-5 mb-3 pb-1">
+          <h1>{title}</h1>
+          <div class="d-flex flex-wrap gap-3 text-muted small">
+            {category && <div><i class="bi bi-folder me-1"></i><a href={`/${category}`} class="text-decoration-none">{category.charAt(0).toUpperCase() + category.slice(1)}</a></div>}
+            {postDate && <div><i class="bi bi-calendar me-1"></i><FormattedDate date={postDate} /></div>}
+          </div>
+        </header>
+
+			<div class="container pt-4 pb-2">
+				<div class="row">
+					<div class="col-lg-8 offset-lg-2">
+						<div class="d-block w-100 position-relative overflow-hidden mb-3" style="aspect-ratio: 7 / 4;">
+							<img
+								class="img-fluid card-img-top position-absolute top-50 start-50 translate-middle"
+								src={displayImage || `https://rikson.imgix.net${Astro.url.pathname}?txt=${encodeURIComponent(title)}&txt-size=80&txt-pad=36&txt-shad=5&txt-fit=max&txt-align=center,middle&blur=30&txt-color=fff&w=856`}
+								alt="thumbnail"
+							/>
+						</div>
+
+						<div class="post-content">
+							<slot />
+						</div>
+
+						{(newerPost || olderPost) && (
+							<div class="clearfix mt-5">
+								{newerPost && (
+									<a class="float-start" href={`/${newerPost.category}/${newerPost.id}/`}>
+										<i class="bi bi-arrow-left"></i> {newerPost.data.title}
+									</a>
+								)}
+								{olderPost && (
+									<a class="float-end" href={`/${olderPost.category}/${olderPost.id}/`}>
+										{olderPost.data.title} <i class="bi bi-arrow-right"></i>
+									</a>
+								)}
+							</div>
+						)}
+					</div>
+				</div>
+			</div>
+			</article>
+		</main>
+		<Footer client:only="preact" />
+	</body>
+</html>

@@ -11,19 +11,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
 
-      - uses: ruby/setup-ruby@v1
+      - uses: actions/setup-node@v4
         with:
-          bundler-cache: true
-      - name: Cache jekyll
-        uses: actions/cache@v4
-        with:
-          path: _cache
-          key: jekyll-${{ hashFiles('**/*.md', 'Gemfile.lock') }}
-          restore-keys: jekyll-
-      - name: Build jekyll
-        run: bundle exec jekyll build
+          node-version: 22
+          cache: 'npm'
+      - name: Install npm packages
+        run: npm ci
+      - name: Generate index.json
+        run: npm run generate-index
 
       - name: Cache cargo
         uses: actions/cache@v4
@@ -46,32 +43,25 @@ jobs:
           tar -xzf binaryen-version_119-x86_64-linux.tar.gz
           sudo cp binaryen-version_119/bin/* /usr/local/bin/
       - name: Build wasm
-        run: cargo run --features=bin ../_site/index.json
+        run: cargo run --features=bin index.json
         working-directory: tinysearch
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
       - name: Cache Modules
         uses: actions/cache@v4
         with:
           path: "**/node_modules"
           key: node-deps-${{ hashFiles('**/package-lock.json') }}
-      - name: Install npm packages
-        run: npm ci
-      - name: Build js
+      - name: Build Astro
         run: npm run build
-      - name: Rebuild jekyll
-        run: bundle exec jekyll build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
-          publish-dir: "./_site"
+          publish-dir: "./dist"
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        timeout-minutes: 5
+        timeout-minutes: 10

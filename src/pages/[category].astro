@@ -1,0 +1,82 @@
+---
+export const prerender = true;
+
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/preact/Footer';
+import PostList from '../components/preact/PostList';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCategories } from '../utils/categories';
+import { extractFirstImage } from '../utils/extract-first-image';
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+
+  return categories.map((category) => ({
+    params: { category },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+
+// Get all categories for header navigation
+const categories = await getCategories();
+
+// Get posts from the specific category collection
+const categoryPosts = (await getCollection(category)).sort((a, b) => {
+  const dateA = a.data.date || a.data.pubDate || new Date(0);
+  const dateB = b.data.date || b.data.pubDate || new Date(0);
+  return dateB.valueOf() - dateA.valueOf();
+});
+
+// Convert to format expected by PostList component
+const posts = categoryPosts.map((post) => {
+  // Extract excerpt from body if no description
+  let excerpt = post.data.description || '';
+  if (!excerpt && post.body) {
+    // Remove markdown formatting and get first 150 characters
+    const plainText = post.body
+      .replace(/^---[\s\S]*?---/, '') // Remove frontmatter
+      .replace(/^import\s+.*?;?\s*$/gm, '') // Remove import statements
+      .replace(/<[^>]*>/g, '') // Remove HTML/JSX tags
+      .replace(/#{1,6}\s/g, '') // Remove headers
+      .replace(/[*_~`]/g, '') // Remove formatting
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links
+      .replace(/```[\s\S]*?```/g, '') // Remove code blocks
+      .replace(/\n+/g, ' ') // Replace newlines with spaces
+      .trim();
+    excerpt = plainText.substring(0, 150) + (plainText.length > 150 ? '...' : '');
+  }
+
+  const autoImage = !post.data.image ? extractFirstImage(post.body) : undefined;
+
+  return {
+    id: `${category}-${post.id}`,
+    url: `/${category}/${post.id}/`,
+    title: post.data.title,
+    date: (post.data.date || post.data.pubDate || new Date()).toISOString(),
+    category: category,
+    excerpt: excerpt,
+    image: post.data.image || autoImage,
+  };
+});
+
+// Capitalize category name for display
+const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${categoryTitle} - ${SITE_TITLE}`} description={`${categoryTitle} posts on ${SITE_TITLE}`} />
+	</head>
+	<body>
+		<Header currentPath={Astro.url.pathname} categories={categories} />
+    <main class="container-fluid pt-4 pb-2" style={{ minHeight: "calc(100vh - 95px)" }}>
+      <PostList posts={posts} client:only="preact" />
+    </main>
+    <Footer client:only="preact" />
+  </body>
+</html>

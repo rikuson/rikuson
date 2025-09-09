@@ -1,0 +1,45 @@
+---
+export const prerender = true;
+
+import { getCollection, render } from 'astro:content';
+import BlogPost from '../layouts/BlogPost.astro';
+import { getCategories } from '../utils/categories';
+import { extractFirstImage } from '../utils/extract-first-image';
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+  const paths = [];
+
+  for (const category of categories) {
+    const posts = await getCollection(category as any);
+    for (const post of posts) {
+      // Extract slug from post.id by removing date prefix (YYYY-MM-DD-)
+      const slug = post.id.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+
+      paths.push({
+        params: { slug },
+        props: { post, category },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { slug } = Astro.params;
+const { post, category } = Astro.props;
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+// Render the post content
+const { Content } = await render(post);
+
+// Extract the first image if no featured image is set
+const autoImage = !post.data.image ? extractFirstImage(post.body) : undefined;
+---
+
+<BlogPost {...post.data} image={post.data.image || autoImage} category={category}>
+  <Content />
+</BlogPost>

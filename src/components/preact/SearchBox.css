@@ -1,0 +1,34 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fa-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Custom modal backdrop with blur effect */
+.search-modal-backdrop {
+  opacity: 1 !important;
+  background-color: rgba(1, 34, 55, 0.4392156863) !important;
+  -webkit-backdrop-filter: blur(20px);
+  -moz-backdrop-filter: blur(20px);
+  -o-backdrop-filter: blur(20px);
+  -ms-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+
+/* Fallback for all modal backdrops */
+.modal-backdrop {
+  opacity: 1 !important;
+  background-color: rgba(1, 34, 55, 0.4392156863) !important;
+  -webkit-backdrop-filter: blur(20px);
+  -moz-backdrop-filter: blur(20px);
+  -o-backdrop-filter: blur(20px);
+  -ms-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}

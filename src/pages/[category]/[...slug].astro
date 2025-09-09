@@ -1,0 +1,52 @@
+---
+export const prerender = true;
+
+import { getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getCategories } from '../../utils/categories';
+import { extractFirstImage } from '../../utils/extract-first-image';
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+  const paths = [];
+
+  for (const category of categories) {
+    const posts = await getCollection(category as any);
+    for (const post of posts) {
+      paths.push({
+        params: { category, slug: post.id },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { category, slug } = Astro.params;
+
+// The slug is an array due to [...slug], so we need to join it
+const postId = Array.isArray(slug) ? slug.join('/') : slug;
+
+// Get all posts from the category
+const allPosts = await getCollection(category as any);
+
+// Find the matching post
+const post = allPosts.find((p) => {
+  // Try matching by id (filename without extension)
+  return p.id === postId || p.slug === postId || p.id.includes(postId);
+});
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+// Render the post content using the render function
+const { Content } = await render(post);
+
+// Extract first image if no explicit image is provided
+const autoImage = !post.data.image ? extractFirstImage(post.body) : undefined;
+---
+
+<BlogPost {...post.data} category={category} autoImage={autoImage}>
+	<Content />
+</BlogPost>

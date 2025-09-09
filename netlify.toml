@@ -1,2 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
 [build.environment]
-  TZ="Asia/Tokyo"
+  NODE_VERSION = "22"
+
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+[functions]
+  node_bundler = "esbuild"
