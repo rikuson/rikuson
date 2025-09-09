@@ -25,3 +25,9 @@ jobs:
       
       - name: Run Biome check
         run: npm run check
+
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true
