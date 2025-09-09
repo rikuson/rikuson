@@ -168,28 +168,23 @@ export const PostList: React.FC<PostListProps> = ({ posts, searchKeyword }) => {
   }
 
   return (
-    <>
-      <Masonry
-        breakpointCols={breakpointColumns}
-        className="masonry-grid"
-        columnClassName="masonry-grid-column"
-      >
-        {isLoading
-          ? Array.from(
-              { length: Math.min(8, filteredPosts.length || posts.length) },
-              (_, index) => (
-                <div key={`placeholder-${index}`} className="mb-4">
-                  <PostPlaceholder />
-                </div>
-              )
-            )
-          : visiblePosts.map((post) => (
-              <div key={post.id} className="post-item">
-                <Post {...post} />
-              </div>
-            ))}
-      </Masonry>
-    </>
+    <Masonry
+      breakpointCols={breakpointColumns}
+      className="masonry-grid"
+      columnClassName="masonry-grid-column"
+    >
+      {isLoading
+        ? Array.from({ length: Math.min(8, filteredPosts.length || posts.length) }, (_, index) => (
+            <div key={`placeholder-${index}`} className="mb-4">
+              <PostPlaceholder />
+            </div>
+          ))
+        : visiblePosts.map((post) => (
+            <div key={post.id} className="post-item">
+              <Post {...post} />
+            </div>
+          ))}
+    </Masonry>
   );
 };
 

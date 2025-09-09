@@ -50,7 +50,8 @@
       "!**/.astro",
       "!**/build",
       "!**/coverage",
-      "!**/*.min.js"
+      "!**/*.min.js",
+      "!**/tinysearch/wasm_output"
     ]
   }
 }
