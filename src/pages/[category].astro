@@ -6,9 +6,9 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/preact/Footer';
 import PostList from '../components/preact/PostList';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { extractFirstImage } from '../utils/extract-first-image';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { getCategories } from '../utils/categories';
+import { extractFirstImage } from '../utils/extract-first-image';
 
 export async function getStaticPaths() {
   const categories = await getCategories();

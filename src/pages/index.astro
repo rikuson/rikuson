@@ -3,12 +3,12 @@ export const prerender = true;
 
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/preact/Footer';
 import Header from '../components/Header.astro';
+import Footer from '../components/preact/Footer';
 import PostList from '../components/preact/PostList';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import { extractFirstImage } from '../utils/extract-first-image';
 import { getCategories } from '../utils/categories';
+import { extractFirstImage } from '../utils/extract-first-image';
 
 // Get all posts from all categories dynamically
 const categories = await getCategories();

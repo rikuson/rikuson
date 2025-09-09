@@ -3,8 +3,8 @@ export const prerender = true;
 
 import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
-import { extractFirstImage } from '../../utils/extract-first-image';
 import { getCategories } from '../../utils/categories';
+import { extractFirstImage } from '../../utils/extract-first-image';
 
 export async function getStaticPaths() {
   const categories = await getCategories();

@@ -8,6 +8,10 @@
       "suspicious": {
         "noExplicitAny": "off",
         "noArrayIndexKey": "off"
+      },
+      "correctness": {
+        "noUnusedVariables": "off",
+        "noUnusedImports": "off"
       }
     }
   },
