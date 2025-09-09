@@ -17,8 +17,8 @@ jobs:
           cache: 'npm'
       - name: Install npm packages
         run: npm ci
-      - name: Build Astro
-        run: npm run build
+      - name: Generate index.json
+        run: npm run generate-index
 
       - name: Cache cargo
         uses: actions/cache@v4
@@ -41,18 +41,15 @@ jobs:
           tar -xzf binaryen-version_119-x86_64-linux.tar.gz
           sudo cp binaryen-version_119/bin/* /usr/local/bin/
       - name: Build wasm
-        run: cargo run --features=bin ../dist/index.json
+        run: cargo run --features=bin index.json
         working-directory: tinysearch
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
       - name: Cache Modules
         uses: actions/cache@v4
         with:
           path: "**/node_modules"
           key: node-deps-${{ hashFiles('**/package-lock.json') }}
-      - name: Rebuild Astro
+      - name: Build Astro
         run: npm run build
 
       - name: Deploy to Netlify

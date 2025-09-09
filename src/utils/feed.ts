@@ -1,5 +1,7 @@
 import { default as initTinySearch, search } from 'tinysearch';
 
+export type SearchResult = [string, string];
+
 /**
  * @example
  * const feed = await Feed.init();
