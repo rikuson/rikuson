@@ -44,6 +44,22 @@ export const PostList: React.FC<PostListProps> = ({ posts, searchKeyword }) => {
   const [visiblePosts, setVisiblePosts] = useState<PostData[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<PostData[]>(posts);
   const [feed, setFeed] = useState<Feed | null>(null);
+  const [currentKeyword, setCurrentKeyword] = useState(searchKeyword || '');
+
+  // Check URL parameters for search keyword
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlKeyword = urlParams.get('keyword') || '';
+      setCurrentKeyword(urlKeyword);
+
+      // Update the search input field
+      const searchInput = document.querySelector<HTMLInputElement>('input[name="keyword"]');
+      if (searchInput) {
+        searchInput.value = urlKeyword;
+      }
+    }
+  }, []);
 
   // Initialize TinySearch
   useEffect(() => {
@@ -58,10 +74,10 @@ export const PostList: React.FC<PostListProps> = ({ posts, searchKeyword }) => {
     initFeed();
   }, []);
 
-  // Perform search when searchKeyword changes
+  // Perform search when currentKeyword changes
   useEffect(() => {
     const performSearch = async () => {
-      if (!searchKeyword || !searchKeyword.trim()) {
+      if (!currentKeyword || !currentKeyword.trim()) {
         setFilteredPosts(posts);
         return;
       }
@@ -69,7 +85,7 @@ export const PostList: React.FC<PostListProps> = ({ posts, searchKeyword }) => {
       if (feed) {
         try {
           // Use TinySearch for searching
-          const searchResults = feed.search(searchKeyword);
+          const searchResults = feed.search(currentKeyword);
 
           // Convert TinySearch results back to PostData format
           const searchedPosts = searchResults
@@ -94,8 +110,8 @@ export const PostList: React.FC<PostListProps> = ({ posts, searchKeyword }) => {
           // Fallback to simple text search
           const filtered = posts.filter(
             (post) =>
-              post.title.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-              post.excerpt?.toLowerCase().includes(searchKeyword.toLowerCase())
+              post.title.toLowerCase().includes(currentKeyword.toLowerCase()) ||
+              post.excerpt?.toLowerCase().includes(currentKeyword.toLowerCase())
           );
           setFilteredPosts(filtered);
         }
@@ -103,15 +119,15 @@ export const PostList: React.FC<PostListProps> = ({ posts, searchKeyword }) => {
         // Fallback to simple text search when TinySearch is not available
         const filtered = posts.filter(
           (post) =>
-            post.title.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            post.excerpt?.toLowerCase().includes(searchKeyword.toLowerCase())
+            post.title.toLowerCase().includes(currentKeyword.toLowerCase()) ||
+            post.excerpt?.toLowerCase().includes(currentKeyword.toLowerCase())
         );
         setFilteredPosts(filtered);
       }
     };
 
     performSearch();
-  }, [searchKeyword, feed, posts]);
+  }, [currentKeyword, feed, posts]);
 
   // Handle loading and animation
   useEffect(() => {

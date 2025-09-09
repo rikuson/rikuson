@@ -1,5 +1,5 @@
 ---
-export const prerender = false; // Enable server-side rendering for dynamic search
+export const prerender = true; // Static generation - search handled client-side
 
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
@@ -10,10 +10,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { getCategories } from '../utils/categories';
 import { extractFirstImage } from '../utils/extract-first-image';
 
-// Get the search query from URL parameters
-const url = Astro.url;
-const searchParams = url.searchParams;
-const keyword = searchParams.get('keyword') || '';
+// Search keyword will be handled client-side via JavaScript
+const keyword = '';
 
 // Get all posts from all categories dynamically
 const categories = await getCategories();
@@ -79,10 +77,21 @@ const pageTitle = keyword ? `Search: "${keyword}"` : 'Search';
     <main class="container-fluid pt-4 pb-2" style={{ minHeight: "calc(100vh - 95px)" }}>
       <PostList 
         posts={posts} 
-        searchKeyword={keyword} 
+        searchKeyword="" 
         client:only="preact" 
       />
 		</main>
 		<Footer client:only="preact" />
+		
+		<script>
+			// Handle search keyword from URL parameters client-side
+			const urlParams = new URLSearchParams(window.location.search);
+			const keyword = urlParams.get('keyword') || '';
+			
+			// Update page title if there's a keyword
+			if (keyword) {
+				document.title = `Search: "${keyword}" - ${document.title.split(' - ').pop()}`;
+			}
+		</script>
 	</body>
 </html>
