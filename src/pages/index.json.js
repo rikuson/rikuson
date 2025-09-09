@@ -21,11 +21,16 @@ export async function GET() {
   });
 
   // Convert to the expected JSON format
-  const posts = sortedPosts.map((post) => ({
-    title: post.data.title,
-    url: `/${post.category}/${post.id}/`,
-    body: post.body,
-  }));
+  const posts = sortedPosts.map((post) => {
+    // Extract slug from post.id by removing date prefix (YYYY-MM-DD-)
+    const slug = post.id.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+
+    return {
+      title: post.data.title,
+      url: `/${slug}/`,
+      body: post.body,
+    };
+  });
 
   return new Response(JSON.stringify(posts, null, 2), {
     status: 200,

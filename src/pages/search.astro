@@ -52,9 +52,12 @@ const posts = sortedPosts.map((post) => {
 
   const autoImage = !post.data.image ? extractFirstImage(post.body) : undefined;
 
+  // Extract slug from post.id by removing date prefix (YYYY-MM-DD-)
+  const slug = post.id.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+
   return {
     id: `${post.category}-${post.id}`,
-    url: `/${post.category}/${post.id}/`,
+    url: `/${slug}/`,
     title: post.data.title,
     date: (post.data.date || post.data.pubDate || new Date()).toISOString(),
     category: post.category,
