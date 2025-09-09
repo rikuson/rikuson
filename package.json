@@ -35,7 +35,8 @@
     "react-bootstrap": "^2.10.10",
     "react-icons": "^5.5.0",
     "react-masonry-css": "^1.0.16",
-    "sharp": "^0.34.2"
+    "sharp": "^0.34.2",
+    "tinysearch": "./tinysearch/wasm_output"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.3",
