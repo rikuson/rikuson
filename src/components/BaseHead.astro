@@ -1,5 +1,6 @@
 ---
 import 'bootswatch/dist/lux/bootstrap.min.css';
+import '../styles/global.css';
 
 export interface Props {
   title: string;
@@ -44,5 +45,3 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<!-- Global CSS -->
-<link rel="stylesheet" href="/src/styles/global.css" />
