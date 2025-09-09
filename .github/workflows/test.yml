@@ -8,23 +8,53 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
-      
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
       - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: 'npm'
-      
+
       - name: Install dependencies
         run: npm ci
-      
+
       - name: Check formatting
         run: npm run format:check
-      
+
       - name: Run linting
         run: npm run lint
-      
+
       - name: Run Biome check
         run: npm run check
+
+      - name: Generate index.json
+        run: npm run generate-index
+
+      - name: Cache cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: cargo-
+      - name: Install utilities
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y snapd
+          sudo snap install jq yq
+      - name: Install dependencies
+        run: |
+          curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+          npm install terser -g
+          curl -LO https://github.com/WebAssembly/binaryen/releases/download/version_119/binaryen-version_119-x86_64-linux.tar.gz
+          tar -xzf binaryen-version_119-x86_64-linux.tar.gz
+          sudo cp binaryen-version_119/bin/* /usr/local/bin/
+      - name: Build wasm
+        run: cargo run --features=bin index.json
+        working-directory: tinysearch
 
       - name: Run Chromatic
         uses: chromaui/action@latest
