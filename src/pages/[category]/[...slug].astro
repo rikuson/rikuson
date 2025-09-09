@@ -7,19 +7,19 @@ import { extractFirstImage } from '../../utils/extract-first-image';
 import { getCategories } from '../../utils/categories';
 
 export async function getStaticPaths() {
-	const categories = await getCategories();
-	const paths = [];
-	
-	for (const category of categories) {
-		const posts = await getCollection(category as any);
-		for (const post of posts) {
-			paths.push({
-				params: { category, slug: post.id }
-			});
-		}
-	}
-	
-	return paths;
+  const categories = await getCategories();
+  const paths = [];
+
+  for (const category of categories) {
+    const posts = await getCollection(category as any);
+    for (const post of posts) {
+      paths.push({
+        params: { category, slug: post.id },
+      });
+    }
+  }
+
+  return paths;
 }
 
 const { category, slug } = Astro.params;
@@ -31,13 +31,13 @@ const postId = Array.isArray(slug) ? slug.join('/') : slug;
 const allPosts = await getCollection(category as any);
 
 // Find the matching post
-const post = allPosts.find(p => {
-	// Try matching by id (filename without extension)
-	return p.id === postId || p.slug === postId || p.id.includes(postId);
+const post = allPosts.find((p) => {
+  // Try matching by id (filename without extension)
+  return p.id === postId || p.slug === postId || p.id.includes(postId);
 });
 
 if (!post) {
-	return Astro.redirect('/404');
+  return Astro.redirect('/404');
 }
 
 // Render the post content using the render function
