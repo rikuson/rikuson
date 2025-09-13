@@ -28,3 +28,12 @@ storybook-static
 
 # Local Netlify folder
 .netlify
+
+# Playwright test outputs
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Visual regression test outputs (commit baselines, ignore test artifacts)
+tests/**/*-actual.png
+tests/**/*-diff.png
