@@ -24,6 +24,8 @@
     "test:visual": "playwright test tests/visual.spec.js",
     "test:visual:update": "playwright test tests/visual.spec.js --update-snapshots",
     "test:functional": "playwright test tests/posts.spec.js",
+    "test:chromatic": "playwright test tests/chromatic.spec.js",
+    "chromatic:publish": "chromatic --playwright --only-changed",
     "prepare": "husky"
   },
   "dependencies": {
@@ -48,6 +50,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.3",
+    "@chromatic-com/playwright": "^0.12.7",
     "@playwright/test": "^1.55.0",
     "@storybook/addon-docs": "^9.1.5",
     "@storybook/addon-onboarding": "^9.1.5",
