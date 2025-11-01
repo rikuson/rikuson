@@ -3,7 +3,6 @@ layout: post
 title: Claude Codeレビューを自動保存する方法
 date: 2025-11-01 19:10:00 +0900
 tags: [GitHub Actions, Claude, AI, Code Review]
-image: https://rikson.imgix.net/tech/claude-code-review.jpg?w=856
 ---
 
 Claude Codeを使ったコードレビューの結果を、GitHubのPRコメントとして自動的に保存する方法を紹介します。
