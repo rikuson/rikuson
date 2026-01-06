@@ -10,6 +10,9 @@
   /** Set the maximum number of lines in the description to display. */
   --link-preview-description-lines: 3;
 }
+lite-youtube {
+  margin-bottom: 1rem;
+}
 .link-preview {
   border: 1px solid #CCC;
   margin-bottom: 1rem;
