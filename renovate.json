@@ -5,8 +5,17 @@
   "timezone": "Asia/Tokyo",
   "packageRules": [
     {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
       "automerge": true,
-      "matchUpdateTypes": ["all"]
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "groupName": "all major dependencies",
+      "groupSlug": "all-major",
+      "automerge": false
     }
   ]
 }
