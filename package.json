@@ -21,12 +21,12 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.3.4",
-    "@astrojs/netlify": "^6.5.10",
-    "@astrojs/preact": "^4.1.0",
+    "@astrojs/mdx": "^7.0.0",
+    "@astrojs/netlify": "^8.0.0",
+    "@astrojs/preact": "^6.0.0",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.5.1",
-    "astro": "^5.13.5",
+    "astro": "^7.0.0",
     "astro-embed": "^0.13.0",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
@@ -45,9 +45,9 @@
     "@storybook/addon-onboarding": "^10.0.0",
     "@storybook/addon-webpack5-compiler-swc": "^4.0.1",
     "@storybook/react-webpack5": "^10.0.0",
-    "chromatic": "^15.0.0",
+    "chromatic": "^18.0.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.6",
+    "lint-staged": "^17.0.0",
     "storybook": "^10.0.0"
   },
   "lint-staged": {
